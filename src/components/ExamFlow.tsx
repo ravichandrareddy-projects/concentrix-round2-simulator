@@ -22,8 +22,15 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
   const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, 5));
   // Session 2: 1 story (with 5 questions) drawn from 50-story bank
   const [story] = useState(() => pickRandom(STORIES, 1)[0]);
-  // Session 3: 5 Concentrix SHL visual & workplace questions drawn from 55-question bank
-  const [aptitudeQuestions] = useState(() => pickRandom(APTITUDE_QUESTIONS, 5));
+  // Session 3: 5 questions featuring the exact YouTube screenshot questions (shl1, odd1, ret1) + 2 practice questions
+  const [aptitudeQuestions] = useState(() => {
+    const q1 = APTITUDE_QUESTIONS.find(q => q.id === 'shl1');
+    const q2 = APTITUDE_QUESTIONS.find(q => q.id === 'odd1');
+    const q3 = APTITUDE_QUESTIONS.find(q => q.id === 'ret1');
+    const others = APTITUDE_QUESTIONS.filter(q => q.id !== 'shl1' && q.id !== 'odd1' && q.id !== 'ret1');
+    const additional = pickRandom(others, 2);
+    return [q1, q2, q3, ...additional].filter(Boolean) as typeof APTITUDE_QUESTIONS;
+  });
   // Session 4: 5 moderation scenarios drawn from 100-scenario bank
   const [scenarios] = useState(() => pickRandom(MODERATION_SCENARIOS, 5));
 
