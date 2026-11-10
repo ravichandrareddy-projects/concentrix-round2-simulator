@@ -10,13 +10,14 @@ import MixedAptitude from './sections/MixedAptitude';
 import ContentModeration from './sections/ContentModeration';
 
 interface Props {
+  candidateName?: string;
   mode: ExamMode;
   onComplete: (results: QuestionResult[], timeTaken: number, sectionScores: [number, number, number, number]) => void;
 }
 
 type Phase = 'section-intro' | 'question';
 
-export default function ExamFlow({ mode, onComplete }: Props) {
+export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
   // Session 1: 5 sentences drawn from 100-sentence bank
   const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, 5));
   // Session 2: 1 story (with 5 questions) drawn from 50-story bank
@@ -207,8 +208,15 @@ export default function ExamFlow({ mode, onComplete }: Props) {
           {formatTime(timeLeft)}
         </div>
 
-        <div className="text-xs sm:text-sm font-semibold text-slate-300">
-          Total: <span className="text-blue-400 font-bold">{doneQ}</span> / {totalQ} · {getSectionProgress()}
+        <div className="flex items-center gap-3">
+          {candidateName && (
+            <span className="hidden md:inline-block text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700">
+              Candidate: <strong className="text-blue-400">{candidateName}</strong>
+            </span>
+          )}
+          <div className="text-xs sm:text-sm font-semibold text-slate-300">
+            Total: <span className="text-blue-400 font-bold">{doneQ}</span> / {totalQ} · {getSectionProgress()}
+          </div>
         </div>
       </div>
 

@@ -1,14 +1,16 @@
-import { Award, BarChart2, BookOpen, Clock, Play, Zap, Shield, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Award, BarChart2, BookOpen, Clock, Play, Zap, Shield, ChevronRight, CheckCircle2, Pencil } from 'lucide-react';
 import { AttemptResult, ExamMode } from '../types';
 import { getStats, loadAttempts } from '../utils/storage';
 import { formatTime, performanceLabel } from '../utils/helpers';
 
 interface Props {
+  candidateName: string;
   onStart: (mode: ExamMode) => void;
   onHistory: () => void;
+  onChangeName: () => void;
 }
 
-export default function Dashboard({ onStart, onHistory }: Props) {
+export default function Dashboard({ candidateName, onStart, onHistory, onChangeName }: Props) {
   const attempts: AttemptResult[] = loadAttempts();
   const stats = getStats(attempts);
   const recent = [...attempts].reverse().slice(0, 5);
@@ -68,15 +70,23 @@ export default function Dashboard({ onStart, onHistory }: Props) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <button
+            onClick={onChangeName}
+            className="flex items-center gap-3 p-1.5 -mr-1.5 rounded-2xl hover:bg-slate-800/80 border border-transparent hover:border-slate-700 transition-all text-left group cursor-pointer"
+            title="Click to edit candidate name"
+          >
             <div className="text-right hidden sm:block">
-              <span className="text-[11px] text-slate-400 block">Candidate Identity</span>
-              <span className="font-bold text-blue-400 text-sm tracking-wide">VALTOOY</span>
+              <span className="text-[10px] text-slate-400 block uppercase tracking-wider flex items-center justify-end gap-1">
+                Candidate <Pencil className="w-2.5 h-2.5 text-slate-500 group-hover:text-blue-400 transition-colors" />
+              </span>
+              <span className="font-bold text-blue-400 text-sm tracking-wide group-hover:underline">
+                {candidateName || 'Set Name'}
+              </span>
             </div>
-            <div className="w-9 h-9 rounded-full bg-blue-950 border border-blue-700 flex items-center justify-center font-bold text-xs text-blue-300">
-              V
+            <div className="w-9 h-9 rounded-full bg-blue-950 border border-blue-700 flex items-center justify-center font-bold text-xs text-blue-300 group-hover:scale-105 group-hover:border-blue-400 transition-all shadow-md">
+              {candidateName ? candidateName[0].toUpperCase() : 'C'}
             </div>
-          </div>
+          </button>
         </div>
       </header>
 
@@ -87,8 +97,15 @@ export default function Dashboard({ onStart, onHistory }: Props) {
             <div className="inline-flex items-center gap-2 bg-blue-900/50 border border-blue-700/60 px-3 py-1 rounded-full text-xs font-semibold text-blue-300">
               <Shield className="w-3.5 h-3.5 text-blue-400" /> Interview Preparation Simulator · 10 Practice Target
             </div>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Welcome, <span className="text-blue-400">VALTOOY</span>.
+            <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-2 flex-wrap">
+              Welcome, <span className="text-blue-400">{candidateName || 'Candidate'}</span>.
+              <button
+                onClick={onChangeName}
+                className="text-xs bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded-lg border border-slate-700/80 flex items-center gap-1 font-normal transition-colors"
+                title="Change name"
+              >
+                <Pencil className="w-3 h-3 text-blue-400" /> Edit Name
+              </button>
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               This system replicates the exact 4-section Concentrix Round 2 evaluation. Test your voice repetition,

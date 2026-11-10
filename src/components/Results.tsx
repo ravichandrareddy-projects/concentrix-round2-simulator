@@ -5,6 +5,7 @@ import { formatTime, performanceLabel } from '../utils/helpers';
 import { loadAttempts } from '../utils/storage';
 
 interface Props {
+  candidateName: string;
   results: QuestionResult[];
   sectionScores: [number, number, number, number];
   timeTaken: number;
@@ -21,7 +22,7 @@ const SECTION_NAMES: Record<SectionId, { title: string; icon: string }> = {
   4: { title: 'Content Moderation', icon: '🛡️' },
 };
 
-export default function Results({ results, sectionScores, timeTaken, mode, attempt, onNewAttempt, onDashboard }: Props) {
+export default function Results({ candidateName, results, sectionScores, timeTaken, mode, attempt, onNewAttempt, onDashboard }: Props) {
   const [filterSection, setFilterSection] = useState<SectionId | 'all'>('all');
 
   const total = sectionScores.reduce((a, b) => a + b, 0);
@@ -59,7 +60,7 @@ export default function Results({ results, sectionScores, timeTaken, mode, attem
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full font-medium border border-slate-700">
-            Candidate: VALTOOY
+            Candidate: {candidateName || 'Candidate'}
           </span>
           <span className="text-xs bg-blue-950 text-blue-300 border border-blue-800 px-3 py-1 rounded-full font-semibold uppercase">
             {mode === 'full' ? 'Full Exam' : mode === 'rapid' ? 'Rapid Practice' : 'Learning Mode'}

@@ -3,12 +3,20 @@ import Dashboard from './components/Dashboard';
 import SystemCheck from './components/SystemCheck';
 import ExamFlow from './components/ExamFlow';
 import Results from './components/Results';
+import CandidateNameModal from './components/CandidateNameModal';
 import { AppScreen, AttemptResult, ExamMode, QuestionResult } from './types';
 import { saveAttempt, loadAttempts, clearAttempts } from './utils/storage';
 import { performanceLabel, formatTime } from './utils/helpers';
-import { Trash2, ArrowLeft } from 'lucide-react';
+import { Trash2, ArrowLeft, Pencil } from 'lucide-react';
 
 export default function App() {
+  const [candidateName, setCandidateName] = useState(() => {
+    return localStorage.getItem('concentrix_candidate_name') || '';
+  });
+  const [showNameModal, setShowNameModal] = useState(() => {
+    return !localStorage.getItem('concentrix_candidate_name');
+  });
+
   const [screen, setScreen] = useState<AppScreen>('dashboard');
   const [mode, setMode] = useState<ExamMode>('full');
   const [sessionId, setSessionId] = useState(Date.now());
@@ -17,7 +25,17 @@ export default function App() {
   const [lastTimeTaken, setLastTimeTaken] = useState(0);
   const [lastAttempt, setLastAttempt] = useState<AttemptResult | null>(null);
 
+  function handleSaveCandidateName(newName: string) {
+    setCandidateName(newName);
+    localStorage.setItem('concentrix_candidate_name', newName);
+    setShowNameModal(false);
+  }
+
   function handleStart(selectedMode: ExamMode) {
+    if (!candidateName) {
+      setShowNameModal(true);
+      return;
+    }
     setMode(selectedMode);
     setSessionId(Date.now());
     setScreen('system-check');
@@ -58,8 +76,22 @@ export default function App() {
 
   return (
     <>
+      {/* Global Candidate Name Verification Modal with Screen Blur Center Line */}
+      <CandidateNameModal
+        isOpen={showNameModal}
+        currentName={candidateName}
+        canCancel={Boolean(candidateName)}
+        onSave={handleSaveCandidateName}
+        onClose={() => setShowNameModal(false)}
+      />
+
       {screen === 'dashboard' && (
-        <Dashboard onStart={handleStart} onHistory={() => setScreen('history')} />
+        <Dashboard
+          candidateName={candidateName}
+          onStart={handleStart}
+          onHistory={() => setScreen('history')}
+          onChangeName={() => setShowNameModal(true)}
+        />
       )}
 
       {screen === 'system-check' && (
@@ -73,6 +105,7 @@ export default function App() {
       {screen === 'exam' && (
         <ExamFlow
           key={sessionId} // ensures fresh question selection on every attempt
+          candidateName={candidateName}
           mode={mode}
           onComplete={handleExamComplete}
         />
@@ -80,6 +113,7 @@ export default function App() {
 
       {screen === 'results' && lastResults && lastAttempt && (
         <Results
+          candidateName={candidateName}
           results={lastResults}
           sectionScores={lastSectionScores}
           timeTaken={lastTimeTaken}
@@ -91,14 +125,26 @@ export default function App() {
       )}
 
       {screen === 'history' && (
-        <HistoryScreen onBack={() => setScreen('dashboard')} />
+        <HistoryScreen
+          candidateName={candidateName}
+          onBack={() => setScreen('dashboard')}
+          onChangeName={() => setShowNameModal(true)}
+        />
       )}
     </>
   );
 }
 
 // Full History Screen
-function HistoryScreen({ onBack }: { onBack: () => void }) {
+function HistoryScreen({
+  candidateName,
+  onBack,
+  onChangeName,
+}: {
+  candidateName: string;
+  onBack: () => void;
+  onChangeName: () => void;
+}) {
   const [attempts, setAttempts] = useState(() => loadAttempts().reverse());
 
   function handleClear() {
@@ -118,7 +164,14 @@ function HistoryScreen({ onBack }: { onBack: () => void }) {
           <ArrowLeft className="w-4 h-4" /> Back to Dashboard
         </button>
         <div className="flex items-center gap-4">
-          <span className="text-xs text-slate-400 font-mono">Candidate: VALTOOY</span>
+          <button
+            onClick={onChangeName}
+            className="text-xs text-slate-300 font-mono flex items-center gap-1.5 hover:text-blue-400 transition-colors cursor-pointer bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700"
+            title="Click to edit candidate name"
+          >
+            Candidate: <strong className="text-blue-400">{candidateName || 'Not Set'}</strong>
+            <Pencil className="w-3 h-3 text-slate-400" />
+          </button>
           {attempts.length > 0 && (
             <button
               onClick={handleClear}
