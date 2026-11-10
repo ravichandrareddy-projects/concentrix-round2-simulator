@@ -27,18 +27,18 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
   const [playedCount, setPlayedCount] = useState(0);
   const [manualText, setManualText] = useState('');
   const [useManualInput, setUseManualInput] = useState(false);
-  const [speechRate, setSpeechRate] = useState(mode === 'learning' ? 0.9 : 1.0);
+  const [speechRate, setSpeechRate] = useState(0.85);
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<{ wer: number; score: number; diff: ReturnType<typeof wordDiff>; finalInput: string } | null>(null);
-  const [speakingTimeLeft, setSpeakingTimeLeft] = useState(12);
+  const [speakingTimeLeft, setSpeakingTimeLeft] = useState(15);
   const speakingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const autoRecordRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 12-second speaking benchmark timer
+  // 15-second speaking benchmark timer
   useEffect(() => {
     if (phase === 'recording' && !submitted) {
-      setSpeakingTimeLeft(12);
+      setSpeakingTimeLeft(15);
       speakingTimerRef.current = setInterval(() => {
         setSpeakingTimeLeft((prev) => {
           if (prev <= 1) {
@@ -71,8 +71,9 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
 
   function playSentence() {
     if (phase === 'submitted') return;
-    if (mode === 'full' && playedCount >= 1) return; // Strict: only once in Full Exam Mode
+    if (mode === 'full' && playedCount >= 2) return; // Allow 1 free replay (2 plays total)
 
+    stopListening();
     setPhase('playing');
     setPlayedCount(prev => prev + 1);
 
@@ -126,17 +127,37 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
   }
 
   const accuracy = result ? Math.round((1 - result.wer) * 100) : 0;
-  const canReplay = mode === 'learning' || (mode === 'rapid' && playedCount < 2);
+  const canReplay = mode === 'learning' || mode === 'rapid' || (mode === 'full' && playedCount < 2);
 
   return (
     <div className="space-y-6">
       {/* Question Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 1 · Listen & Repeat</span>
           <h3 className="text-lg font-bold text-white">Question {questionNumber} of 5</h3>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center flex-wrap gap-2">
+          {/* Audio Speed Controls */}
+          <div className="flex items-center gap-1 text-xs bg-slate-800/90 px-2.5 py-1 rounded-full border border-slate-700">
+            <span className="text-slate-400 font-medium">Speed:</span>
+            {[0.75, 0.85, 1.0].map((rate) => (
+              <button
+                key={rate}
+                type="button"
+                onClick={() => setSpeechRate(rate)}
+                className={`px-2 py-0.5 rounded text-xs font-semibold transition-colors ${
+                  speechRate === rate
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+                title={rate === 0.75 ? 'Slower pacing for easier listening' : rate === 0.85 ? 'Recommended clear pacing' : 'Normal speed'}
+              >
+                {rate === 0.75 ? '0.75x Slow' : rate === 0.85 ? '0.85x Clear' : '1.0x'}
+              </button>
+            ))}
+          </div>
+
           <span className={`text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider ${
             sentence.difficulty === 'easy' ? 'bg-emerald-900/60 text-emerald-300 border border-emerald-700/50' :
             sentence.difficulty === 'medium' ? 'bg-amber-900/60 text-amber-300 border border-amber-700/50' :
@@ -193,7 +214,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
             </p>
             {mode === 'full' && (
               <span className="inline-block mt-3 text-xs bg-amber-950/80 border border-amber-800 text-amber-300 px-3 py-1 rounded-full">
-                Full Exam: Plays only ONCE
+                {playedCount <= 1 ? 'Exam Mode: 1 Replay available if needed' : 'Exam Mode: Final playback'}
               </span>
             )}
           </div>
@@ -221,10 +242,10 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                   <p className="text-slate-400 text-sm mt-1">Speak clearly at a natural conversational pace.</p>
                 </div>
 
-                {/* 12-Second Speaking Practice Benchmark */}
+                {/* 15-Second Speaking Practice Benchmark */}
                 <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
                   <div className="flex items-center justify-between text-xs font-semibold">
-                    <span className="text-slate-400">Speaking Benchmark (12s limit)</span>
+                    <span className="text-slate-400">Speaking Benchmark (15s limit)</span>
                     <span className={`font-mono font-bold ${
                       speakingTimeLeft > 5 ? 'text-emerald-400' : speakingTimeLeft > 2 ? 'text-amber-400' : 'text-rose-400'
                     }`}>
@@ -236,7 +257,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                       className={`h-full transition-all duration-1000 rounded-full ${
                         speakingTimeLeft > 5 ? 'bg-emerald-500' : speakingTimeLeft > 2 ? 'bg-amber-500' : 'bg-rose-500'
                       }`}
-                      style={{ width: `${(speakingTimeLeft / 12) * 100}%` }}
+                      style={{ width: `${(speakingTimeLeft / 15) * 100}%` }}
                     />
                   </div>
                 </div>
@@ -269,6 +290,19 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
 
                 {/* Recording Control Buttons */}
                 <div className="flex flex-wrap gap-3 justify-center pt-2">
+                  {canReplay && (
+                    <button
+                      type="button"
+                      onClick={playSentence}
+                      disabled={speaking}
+                      className="bg-slate-800 hover:bg-slate-700 text-blue-300 border border-slate-700 px-5 py-2.5 rounded-xl font-semibold transition-all flex items-center gap-2 shadow-sm"
+                      title="Replay sentence audio"
+                    >
+                      <RefreshCw className={`w-4 h-4 ${speaking ? 'animate-spin' : ''}`} />
+                      Listen Again {mode === 'full' ? `(${Math.max(0, 2 - playedCount)} left)` : ''}
+                    </button>
+                  )}
+
                   {recState !== 'listening' ? (
                     <button
                       onClick={handleStartRecording}
@@ -333,7 +367,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                   disabled={speaking}
                   className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-medium"
                 >
-                  <RefreshCw className="w-3.5 h-3.5" /> Replay sentence ({mode === 'learning' ? 'Learning Mode' : 'Rapid Practice'})
+                  <RefreshCw className="w-3.5 h-3.5" /> Replay sentence ({mode === 'learning' ? 'Learning Mode' : mode === 'rapid' ? 'Rapid Practice' : 'Exam Replay'})
                 </button>
                 {!useManualInput && (
                   <button

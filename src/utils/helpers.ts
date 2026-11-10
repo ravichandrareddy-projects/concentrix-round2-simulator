@@ -44,13 +44,13 @@ export function wordErrorRate(reference: string, hypothesis: string): number {
   return Math.min(dp[ref.length][hyp.length] / ref.length, 1);
 }
 
-/** Convert WER to 0-5 score */
+/** Convert WER to 0-5 score with realistic tolerance for browser ASR */
 export function werToScore(wer: number): number {
-  if (wer <= 0.05) return 5;
-  if (wer <= 0.15) return 4;
-  if (wer <= 0.3) return 3;
-  if (wer <= 0.5) return 2;
-  if (wer <= 0.7) return 1;
+  if (wer <= 0.20) return 5;
+  if (wer <= 0.40) return 4;
+  if (wer <= 0.60) return 3;
+  if (wer <= 0.80) return 2;
+  if (wer < 1.0) return 1;
   return 0;
 }
 

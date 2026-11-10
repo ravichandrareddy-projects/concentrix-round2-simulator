@@ -71,603 +71,603 @@ export const CATEGORIES: string[] = [
 export const LISTEN_SENTENCES: SentenceItem[] = [
   {
     "id": "ls1",
-    "text": "Insert a coin and choose a beverage.",
+    "text": "Insert a coin and choose a drink.",
     "difficulty": "easy",
     "wordCount": 7
   },
   {
     "id": "ls2",
-    "text": "I'm sorry, I lost the file.",
+    "text": "Please take your seat now.",
+    "difficulty": "easy",
+    "wordCount": 5
+  },
+  {
+    "id": "ls3",
+    "text": "I am sorry for the delay.",
     "difficulty": "easy",
     "wordCount": 6
   },
   {
-    "id": "ls3",
-    "text": "Please keep the files in the red folder.",
-    "difficulty": "easy",
-    "wordCount": 8
-  },
-  {
     "id": "ls4",
-    "text": "Please keep the documents on the table.",
+    "text": "Please keep files in this folder.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls5",
-    "text": "The meeting starts at nine in the morning.",
+    "text": "The bank closes at five o clock.",
     "difficulty": "easy",
-    "wordCount": 8
+    "wordCount": 7
   },
   {
     "id": "ls6",
-    "text": "Could you send me the report today?",
+    "text": "How can I help you today?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls7",
-    "text": "The package arrived this morning without damage.",
+    "text": "Please sign your name here.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 5
   },
   {
     "id": "ls8",
-    "text": "Please fill in the registration form now.",
+    "text": "He will call you tomorrow morning.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls9",
-    "text": "Your appointment is confirmed for three o'clock.",
+    "text": "Thank you for calling our team.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls10",
-    "text": "The office will be closed this Friday.",
+    "text": "Your order is ready now.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 5
   },
   {
     "id": "ls11",
-    "text": "Please sign your name on the line.",
+    "text": "Please hold the line a moment.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls12",
-    "text": "The supervisor will call you back shortly.",
+    "text": "The shop opens at nine tomorrow.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls13",
-    "text": "Your order will be delivered this week.",
+    "text": "We sent you an email today.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls14",
-    "text": "We appreciate your patience and kind understanding.",
+    "text": "Press one to speak in English.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls15",
-    "text": "The customer service counter is now open.",
+    "text": "I will check your ticket now.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls16",
-    "text": "Please have your account number ready today.",
+    "text": "Can you hear me clearly now?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls17",
-    "text": "The technician will arrive before noon today.",
+    "text": "Have a great day ahead.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 5
   },
   {
     "id": "ls18",
-    "text": "You may track your parcel online anytime.",
+    "text": "Please leave your message after tone.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls19",
-    "text": "Thank you for contacting our support desk.",
+    "text": "Your bill is paid in full.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls20",
-    "text": "Our team is ready to assist you.",
+    "text": "The morning train leaves very soon.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls21",
-    "text": "Please confirm your current billing postal code.",
+    "text": "Where is your local office located?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls22",
-    "text": "The system will restart in five minutes.",
+    "text": "Welcome to our customer service store.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls23",
-    "text": "All visitors must wear a security badge.",
+    "text": "Please wait here for your turn.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls24",
-    "text": "She forwarded the email to her manager.",
+    "text": "I can help you with that.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls25",
-    "text": "The store offers free returns within thirty days.",
+    "text": "What is your full first name?",
     "difficulty": "easy",
-    "wordCount": 8
+    "wordCount": 6
   },
   {
     "id": "ls26",
-    "text": "Please mute your microphone during the presentation.",
+    "text": "She will send the form today.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls27",
-    "text": "A confirmation receipt was sent by email.",
+    "text": "The doctor is ready for you.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls28",
-    "text": "He answered all questions clearly and politely.",
+    "text": "Let me find your account file.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls29",
-    "text": "The training session will begin at ten.",
+    "text": "Can you speak a little louder?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls30",
-    "text": "You can download the mobile application free.",
+    "text": "Your table is ready for lunch.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls31",
-    "text": "Check your inbox for the verification link.",
+    "text": "Please write down this phone number.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls32",
-    "text": "The elevator is located near the entrance.",
+    "text": "The car is parked right outside.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls33",
-    "text": "We sent a reminder message this afternoon.",
+    "text": "We have received your payment safely.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls34",
-    "text": "Please review the attached contract before signing.",
+    "text": "Turn left at the next corner.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls35",
-    "text": "The cafeteria serves lunch until two o'clock.",
+    "text": "I will call you back shortly.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls36",
-    "text": "Keep your password confidential at all times.",
+    "text": "Please take your bag and keys.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls37",
-    "text": "The printer needs more paper to finish.",
+    "text": "Is this your current home address?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls38",
-    "text": "Our business hours are Monday through Friday.",
+    "text": "We open seven days every week.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls39",
-    "text": "Kindly update your profile with current details.",
+    "text": "Can I take your food order?",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls40",
-    "text": "Please hold the line for a moment.",
+    "text": "Your morning flight is on time.",
     "difficulty": "easy",
-    "wordCount": 7
+    "wordCount": 6
   },
   {
     "id": "ls41",
-    "text": "You can use our web check-in services three hours before the flight.",
+    "text": "You can check in three hours before flight.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls42",
-    "text": "I take full personal responsibility for every single unanswered question.",
+    "text": "I will check your account balance right now.",
     "difficulty": "medium",
-    "wordCount": 10
+    "wordCount": 8
   },
   {
     "id": "ls43",
-    "text": "The customer requested an urgent status update regarding the delayed product delivery.",
+    "text": "Please tell me your phone number once more.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls44",
-    "text": "Please ensure that all mandatory fields are completed before submitting the application.",
+    "text": "The package will arrive at your home tomorrow.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls45",
-    "text": "The regional manager reviewed the complaint and offered a full immediate refund.",
+    "text": "Please spell your last name for me slowly.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls46",
-    "text": "Our technical engineering team is investigating the server issue and will report shortly.",
+    "text": "We are happy to answer all your questions.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls47",
-    "text": "The customer service representative apologized politely and escalated the priority ticket immediately.",
+    "text": "The store will remain open until eight tonight.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls48",
-    "text": "The revised company security policy will take effect starting next Monday morning.",
+    "text": "Your new credit card will arrive next week.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls49",
-    "text": "All full-time employees are required to finish the compliance training this week.",
+    "text": "Please click the link sent to your phone.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls50",
-    "text": "The financial client confirmed that payment was initiated through direct bank transfer.",
+    "text": "Our agent will visit your home this evening.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls51",
-    "text": "Could you please verify the primary billing address currently registered on file?",
+    "text": "You will get a message with your code.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls52",
-    "text": "The network operations center successfully restored internet connectivity within ninety minutes.",
+    "text": "Please carry your identity card with you today.",
     "difficulty": "medium",
-    "wordCount": 11
+    "wordCount": 8
   },
   {
     "id": "ls53",
-    "text": "The manufacturer warranty covers internal mechanical defects but excludes intentional physical drop damage.",
+    "text": "The manager is speaking with another customer now.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls54",
-    "text": "Please allow up to five business days for the funds to reflect.",
+    "text": "Let me transfer your call to our manager.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls55",
-    "text": "The shift supervisor will examine your service request and provide written feedback.",
+    "text": "We have updated your mobile number on file.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls56",
-    "text": "Your user account was temporarily locked due to repeated incorrect password entries.",
+    "text": "Please confirm if your home address is correct.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls57",
-    "text": "All supporting legal documents must be certified before submitting for administrative processing.",
+    "text": "You can track your order on our website.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls58",
-    "text": "We recommend restarting your desktop computer after installing the mandatory system updates.",
+    "text": "The refund was sent to your bank account.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls59",
-    "text": "The automated transaction notification was dispatched directly to your mobile phone number.",
+    "text": "Please keep your payment receipt in a safe place.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 9
   },
   {
     "id": "ls60",
-    "text": "Please maintain a stable high-speed broadband connection throughout the entire evaluation period.",
+    "text": "Our customer service center is open every day.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls61",
-    "text": "The technical helpline operates twenty-four hours a day to assist global customers.",
+    "text": "I will send a quick message right away.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls62",
-    "text": "Kindly verify your identity by providing the six-digit verification code sent earlier.",
+    "text": "Could you please hold on for one minute?",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls63",
-    "text": "The quarterly financial performance metrics show steady growth across all domestic business sectors.",
+    "text": "Your flight ticket was booked for next Monday.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls64",
-    "text": "Please hold the line while I transfer your call to billing.",
+    "text": "Please bring two photos for your new card.",
     "difficulty": "medium",
-    "wordCount": 11
+    "wordCount": 8
   },
   {
     "id": "ls65",
-    "text": "The updated guidelines instruct all representatives to confirm at least two security identifiers.",
+    "text": "You can pay using cash or your card.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls66",
-    "text": "We regret to inform you that the selected model is temporarily out of stock.",
+    "text": "The delivery person will call before arriving today.",
     "difficulty": "medium",
-    "wordCount": 14
+    "wordCount": 8
   },
   {
     "id": "ls67",
-    "text": "Your honest feedback is valuable in helping us improve customer service response standards.",
+    "text": "We apologize for the delay in your order.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls68",
-    "text": "The project coordinator scheduled an emergency meeting to discuss the revised project timeline.",
+    "text": "Please let me know if you need anything.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls69",
-    "text": "Please submit all travel expense receipts to the accounting department before month-end.",
+    "text": "All our team members are ready to help.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls70",
-    "text": "Our digital banking application allows customers to freeze misplaced credit cards instantly.",
+    "text": "Your monthly bill is ready to view now.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls71",
-    "text": "You will receive an automated tracking link once the warehouse ships your package.",
+    "text": "Can you tell me your order tracking number?",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls72",
-    "text": "The conference room on the fifth floor is reserved for executive interviews today.",
+    "text": "Please verify the details on your screen now.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls73",
-    "text": "Please inform the receptionist if you require parking validation before departing the premises.",
+    "text": "We sent a new package to your address.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls74",
-    "text": "Customer service representatives must document every call summary accurately in the database system.",
+    "text": "You will receive an email within one hour.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls75",
-    "text": "The new employee orientation program will introduce company values and health benefits.",
+    "text": "Please speak clearly after the short audio tone.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls76",
-    "text": "All remote staff members must connect through the virtual private network daily.",
+    "text": "The payment was accepted by our computer system.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls77",
-    "text": "We can reschedule your technician service visit to Thursday morning if that suits you.",
+    "text": "We will resolve this issue by this evening.",
     "difficulty": "medium",
-    "wordCount": 14
+    "wordCount": 8
   },
   {
     "id": "ls78",
-    "text": "The international shipping fee depends on package weight and final destination customs regulations.",
+    "text": "Your account password was updated without any error.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls79",
-    "text": "A customer satisfaction survey will appear on your screen after this conversation ends.",
+    "text": "Please check your mailbox for our official letter.",
     "difficulty": "medium",
-    "wordCount": 13
+    "wordCount": 8
   },
   {
     "id": "ls80",
-    "text": "Please verify that your headset microphone volume is adjusted properly before speaking.",
+    "text": "Thank you for choosing our banking services today.",
     "difficulty": "medium",
-    "wordCount": 12
+    "wordCount": 8
   },
   {
     "id": "ls81",
-    "text": "May I have your name, company name, email address, and phone number for our official records?",
+    "text": "May I have your name, email address, and phone number?",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls82",
-    "text": "Although the meeting was postponed, the team completed all assigned responsibilities before the revised deadline.",
+    "text": "Although the bus was late, we arrived on time.",
     "difficulty": "hard",
-    "wordCount": 15
+    "wordCount": 9
   },
   {
     "id": "ls83",
-    "text": "The internal audit team uncovered several unexplained discrepancies in the financial spreadsheets during their review.",
+    "text": "Please keep your card ready before you start the call.",
     "difficulty": "hard",
-    "wordCount": 15
+    "wordCount": 10
   },
   {
     "id": "ls84",
-    "text": "Despite multiple remote troubleshooting attempts, the senior engineer concluded that an on-site hardware inspection was mandatory.",
+    "text": "We will send an agent to your house this afternoon.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls85",
-    "text": "The dissatisfied customer requested that their ongoing service escalation be transferred directly to an operations manager.",
+    "text": "Please make sure your phone battery is charged before testing.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls86",
-    "text": "According to our subscription records, the annual membership was renewed automatically without receiving a cancellation request.",
+    "text": "The manager will meet all new customers in the lobby.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls87",
-    "text": "The executive committee will present the proposed organizational restructuring plan during tomorrow's general employee assembly.",
+    "text": "You can change your delivery address until tomorrow morning.",
     "difficulty": "hard",
-    "wordCount": 15
+    "wordCount": 9
   },
   {
     "id": "ls88",
-    "text": "Our fraud investigation determined that the unauthorized login originated from an unrecognized browser in another territory.",
+    "text": "Please read the short note printed on the back cover.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls89",
-    "text": "The interview candidate demonstrated exceptional verbal communication skills and a deep understanding of corporate customer service.",
+    "text": "Our staff will guide you through every simple step.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 9
   },
   {
     "id": "ls90",
-    "text": "Pursuant to the signed commercial terms, early termination of the maintenance contract incurs administrative penalty fees.",
+    "text": "If you face any problem, please call us right away.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls91",
-    "text": "The engineering team implemented several redundancy safeguards to prevent any recurrence of last Thursday's network failure.",
+    "text": "The repair person will arrive between two and four.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 9
   },
   {
     "id": "ls92",
-    "text": "All official media correspondence regarding this incident must receive written approval from the legal affairs department.",
+    "text": "Please remember to sign the paper before you submit it.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls93",
-    "text": "The executive director emphasized maintaining consistent quality benchmarks across regional call centers during the quarterly review.",
+    "text": "You can download the mobile app from the app store.",
     "difficulty": "hard",
-    "wordCount": 16
+    "wordCount": 10
   },
   {
     "id": "ls94",
-    "text": "Following an exhaustive product safety evaluation, corporate leadership chose to extend customer warranty protection by six months.",
+    "text": "All visitors must register their names at the front desk.",
     "difficulty": "hard",
-    "wordCount": 17
+    "wordCount": 10
   },
   {
     "id": "ls95",
-    "text": "The deployment of automated customer ticketing software is expected to decrease customer waiting times by forty percent.",
+    "text": "I have noted your request and sent it to billing.",
     "difficulty": "hard",
-    "wordCount": 17
+    "wordCount": 10
   },
   {
     "id": "ls96",
-    "text": "Although the meeting was postponed, the team completed all assigned responsibilities before the revised deadline without any complaints from stakeholders.",
+    "text": "Thank you for waiting, and I am glad to help you today.",
     "difficulty": "challenge",
-    "wordCount": 20
+    "wordCount": 12
   },
   {
     "id": "ls97",
-    "text": "In accordance with international privacy regulations, all confidential customer records must be encrypted securely and accessed strictly by certified personnel.",
+    "text": "Please check your spam folder if you do not see our message.",
     "difficulty": "challenge",
-    "wordCount": 20
+    "wordCount": 12
   },
   {
     "id": "ls98",
-    "text": "Despite severe winter weather conditions that delayed regional transportation networks, the logistics center fulfilled every priority medical shipment on schedule.",
+    "text": "We are sending a link to reset your account password right now.",
     "difficulty": "challenge",
-    "wordCount": 20
+    "wordCount": 12
   },
   {
     "id": "ls99",
-    "text": "The comprehensive performance review revealed that introducing interactive agent coaching modules resulted in a twenty percent increase in customer satisfaction.",
+    "text": "You can collect your package from the nearest store after five o clock.",
     "difficulty": "challenge",
-    "wordCount": 20
+    "wordCount": 13
   },
   {
     "id": "ls100",
-    "text": "Before signing the final commercial purchase contract, both corporate legal counsels carefully reviewed every indemnification clause to eliminate operational risks.",
+    "text": "Please keep this reference number safe for all your future questions.",
     "difficulty": "challenge",
-    "wordCount": 20
+    "wordCount": 11
   }
 ];
 
