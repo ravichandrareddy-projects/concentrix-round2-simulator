@@ -19,6 +19,7 @@ export default function App() {
 
   const [screen, setScreen] = useState<AppScreen>('dashboard');
   const [mode, setMode] = useState<ExamMode>('full');
+  const [learningQuestionCount, setLearningQuestionCount] = useState<number>(10);
   const [sessionId, setSessionId] = useState(Date.now());
   const [lastResults, setLastResults] = useState<QuestionResult[] | null>(null);
   const [lastSectionScores, setLastSectionScores] = useState<[number, number, number, number]>([0, 0, 0, 0]);
@@ -31,12 +32,15 @@ export default function App() {
     setShowNameModal(false);
   }
 
-  function handleStart(selectedMode: ExamMode) {
+  function handleStart(selectedMode: ExamMode, count?: number) {
     if (!candidateName) {
       setShowNameModal(true);
       return;
     }
     setMode(selectedMode);
+    if (count) {
+      setLearningQuestionCount(count);
+    }
     setSessionId(Date.now());
     setScreen('system-check');
   }
@@ -107,6 +111,7 @@ export default function App() {
           key={sessionId} // ensures fresh question selection on every attempt
           candidateName={candidateName}
           mode={mode}
+          learningQuestionCount={learningQuestionCount}
           onComplete={handleExamComplete}
         />
       )}

@@ -15,11 +15,12 @@ interface Sentence {
 interface Props {
   sentence: Sentence;
   questionNumber: number;
+  totalQuestions?: number;
   mode: ExamMode;
   onAnswer: (score: number, details: { wer: number; transcript: string; diff: ReturnType<typeof wordDiff> }) => void;
 }
 
-export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer }: Props) {
+export default function ListenRepeat({ sentence, questionNumber, totalQuestions = 5, mode, onAnswer }: Props) {
   const { speak, speaking, supported: ttsSupported, voices, selectedVoice, setSelectedVoice } = useTTS();
   const { state: recState, transcript, supported: recSupported, permissionError, startListening, stopListening, reset } = useSpeechRecognition();
 
@@ -35,9 +36,9 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
 
   const autoRecordRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 15-second speaking benchmark timer
+  // 15-second speaking benchmark timer (exam & rapid mode only; untimed in learning mode)
   useEffect(() => {
-    if (phase === 'recording' && !submitted) {
+    if (phase === 'recording' && !submitted && mode !== 'learning') {
       setSpeakingTimeLeft(15);
       speakingTimerRef.current = setInterval(() => {
         setSpeakingTimeLeft((prev) => {
@@ -56,7 +57,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
     return () => {
       if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
     };
-  }, [phase, submitted]);
+  }, [phase, submitted, mode]);
 
   // Auto-play sentence on initial load
   useEffect(() => {
@@ -128,6 +129,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
 
   const accuracy = result ? Math.round((1 - result.wer) * 100) : 0;
   const canReplay = mode === 'learning' || mode === 'rapid' || (mode === 'full' && playedCount < 2);
+  const pointsPerQ = (25 / totalQuestions).toFixed(1).replace(/\.0$/, '');
 
   return (
     <div className="space-y-6">
@@ -135,7 +137,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 1 · Listen & Repeat</span>
-          <h3 className="text-lg font-bold text-white">Question {questionNumber} of 5</h3>
+          <h3 className="text-lg font-bold text-white">Question {questionNumber} of {totalQuestions}</h3>
         </div>
         <div className="flex items-center flex-wrap gap-2">
           {/* Audio Speed Controls */}
@@ -166,7 +168,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
             {sentence.difficulty}
           </span>
           <span className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium border border-slate-700">
-            5 Points
+            {pointsPerQ} Points
           </span>
         </div>
       </div>
@@ -242,25 +244,34 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                   <p className="text-slate-400 text-sm mt-1">Speak clearly at a natural conversational pace.</p>
                 </div>
 
-                {/* 15-Second Speaking Practice Benchmark */}
-                <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                  <div className="flex items-center justify-between text-xs font-semibold">
-                    <span className="text-slate-400">Speaking Benchmark (15s limit)</span>
-                    <span className={`font-mono font-bold ${
-                      speakingTimeLeft > 5 ? 'text-emerald-400' : speakingTimeLeft > 2 ? 'text-amber-400' : 'text-rose-400'
-                    }`}>
-                      {speakingTimeLeft}s remaining
+                {/* Speaking Practice Benchmark or Untimed Learning Badge */}
+                {mode === 'learning' ? (
+                  <div className="max-w-md mx-auto bg-emerald-950/40 p-3 rounded-xl border border-emerald-800/60 flex items-center justify-between text-xs font-semibold text-emerald-300">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" /> Untimed Learning Practice
                     </span>
+                    <span className="text-emerald-400/90 font-normal">Take your time · Re-listen anytime</span>
                   </div>
-                  <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                    <div
-                      className={`h-full transition-all duration-1000 rounded-full ${
-                        speakingTimeLeft > 5 ? 'bg-emerald-500' : speakingTimeLeft > 2 ? 'bg-amber-500' : 'bg-rose-500'
-                      }`}
-                      style={{ width: `${(speakingTimeLeft / 15) * 100}%` }}
-                    />
+                ) : (
+                  <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
+                    <div className="flex items-center justify-between text-xs font-semibold">
+                      <span className="text-slate-400">Speaking Benchmark (15s limit)</span>
+                      <span className={`font-mono font-bold ${
+                        speakingTimeLeft > 5 ? 'text-emerald-400' : speakingTimeLeft > 2 ? 'text-amber-400' : 'text-rose-400'
+                      }`}>
+                        {speakingTimeLeft}s remaining
+                      </span>
+                    </div>
+                    <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                      <div
+                        className={`h-full transition-all duration-1000 rounded-full ${
+                          speakingTimeLeft > 5 ? 'bg-emerald-500' : speakingTimeLeft > 2 ? 'bg-amber-500' : 'bg-rose-500'
+                        }`}
+                        style={{ width: `${(speakingTimeLeft / 15) * 100}%` }}
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Live Speech Recognition Transcript Box */}
                 <div className="min-h-[70px] bg-slate-950 rounded-xl p-4 border border-slate-800 text-left">
@@ -299,7 +310,7 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                       title="Replay sentence audio"
                     >
                       <RefreshCw className={`w-4 h-4 ${speaking ? 'animate-spin' : ''}`} />
-                      Listen Again {mode === 'full' ? `(${Math.max(0, 2 - playedCount)} left)` : ''}
+                      Listen Again {mode === 'full' ? `(${Math.max(0, 2 - playedCount)} left)` : mode === 'learning' ? '(Unlimited)' : ''}
                     </button>
                   )}
 

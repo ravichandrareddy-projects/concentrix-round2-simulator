@@ -17,10 +17,11 @@ interface Scenario {
 interface Props {
   scenario: Scenario;
   questionNumber: number;
+  totalQuestions?: number;
   onAnswer: (score: number) => void;
 }
 
-export default function ContentModeration({ scenario, questionNumber, onAnswer }: Props) {
+export default function ContentModeration({ scenario, questionNumber, totalQuestions = 5, onAnswer }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
@@ -37,12 +38,15 @@ export default function ContentModeration({ scenario, questionNumber, onAnswer }
     }
   }
 
+  const pointsVal = 25 / totalQuestions;
+
   function handleNext() {
-    const score = selected === scenario.correct ? 5 : 0;
+    const score = selected === scenario.correct ? pointsVal : 0;
     onAnswer(score);
   }
 
   const isCorrect = submitted && selected === scenario.correct;
+  const pointsLabel = pointsVal.toFixed(1).replace(/\.0$/, '');
 
   return (
     <div className="space-y-6">
@@ -53,7 +57,7 @@ export default function ContentModeration({ scenario, questionNumber, onAnswer }
             Section 4 · Trust & Safety / Content Moderation
           </span>
           <h3 className="text-lg font-bold text-white">
-            Scenario {questionNumber} of 5
+            Scenario {questionNumber} of {totalQuestions}
           </h3>
         </div>
         <div className="flex items-center gap-2">
@@ -61,7 +65,7 @@ export default function ContentModeration({ scenario, questionNumber, onAnswer }
             Policy Assessment
           </span>
           <span className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium border border-slate-700">
-            5 Points
+            {pointsLabel} Points
           </span>
         </div>
       </div>

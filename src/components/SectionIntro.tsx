@@ -3,6 +3,7 @@ import { ExamMode, SectionId } from '../types';
 interface Props {
   section: SectionId;
   mode: ExamMode;
+  questionCount?: number;
   onStart: () => void;
 }
 
@@ -65,9 +66,11 @@ const SECTION_INFO: Record<SectionId, { name: string; icon: string; desc: string
   },
 };
 
-export default function SectionIntro({ section, mode, onStart }: Props) {
+export default function SectionIntro({ section, mode, questionCount, onStart }: Props) {
   const info = SECTION_INFO[section];
-  const modeLabel = mode === 'full' ? 'Full Exam Mode' : mode === 'rapid' ? 'Rapid Practice Mode' : 'Learning Mode';
+  const modeLabel = mode === 'full' ? 'Full Exam Mode' : mode === 'rapid' ? 'Rapid Practice Mode' : 'Learning Mode (Untimed)';
+  const activeQCount = questionCount || info.questionsCount;
+  const activePointsPerQ = (25 / activeQCount).toFixed(1).replace(/\.0$/, '');
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-6">
@@ -93,12 +96,12 @@ export default function SectionIntro({ section, mode, onStart }: Props) {
         <div className="bg-slate-950 rounded-2xl p-4 mb-6 flex justify-around text-center border border-slate-800 text-sm">
           <div>
             <p className="text-slate-500 text-xs">Questions</p>
-            <p className="font-extrabold text-white text-lg">{info.questionsCount}</p>
+            <p className="font-extrabold text-white text-lg">{activeQCount}</p>
           </div>
           <div className="border-r border-slate-800" />
           <div>
             <p className="text-slate-500 text-xs">Points Each</p>
-            <p className="font-extrabold text-amber-400 text-lg">{info.pointsPerQ} mark</p>
+            <p className="font-extrabold text-amber-400 text-lg">{activePointsPerQ} pts</p>
           </div>
           <div className="border-r border-slate-800" />
           <div>

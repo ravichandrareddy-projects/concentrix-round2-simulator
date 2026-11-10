@@ -21,20 +21,32 @@ interface Story {
 
 interface Props {
   story: Story;
+  storyIndex?: number;
+  totalStories?: number;
   questionNumber: number;
+  totalQuestions?: number;
   mode: ExamMode;
-  isFirstQuestion: boolean;
+  isFirstQuestion?: boolean;
   onAnswer: (score: number) => void;
 }
 
-export default function StoryComprehension({ story, questionNumber, mode, isFirstQuestion, onAnswer }: Props) {
+export default function StoryComprehension({
+  story,
+  storyIndex = 1,
+  totalStories = 1,
+  questionNumber,
+  totalQuestions = 5,
+  mode,
+  isFirstQuestion = false,
+  onAnswer
+}: Props) {
   const { speak, speaking, stop } = useTTS();
   const [phase, setPhase] = useState<'intro' | 'playing' | 'questions'>('intro');
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [speechSpeed, setSpeechSpeed] = useState(0.88);
+  const [speechSpeed, setSpeechSpeed] = useState(0.85);
 
   // Shuffled options for the current question
   const [shuffledOptions, setShuffledOptions] = useState<{ text: string; originalIndex: number }[]>([]);
@@ -84,10 +96,13 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
     }
   }
 
+  const pointsVal = 25 / totalQuestions;
+  const pointsLabel = pointsVal.toFixed(1).replace(/\.0$/, '');
+
   function handleNextQuestion() {
     const chosenOriginalIdx = selected !== null ? shuffledOptions[selected]?.originalIndex : -1;
     const isCorrect = chosenOriginalIdx === story.questions[currentQIndex].correct;
-    const score = isCorrect ? 5 : 0;
+    const score = isCorrect ? pointsVal : 0;
 
     // Report answer
     onAnswer(score);
@@ -98,7 +113,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
     }
   }
 
-  const currentQ = story.questions[currentQIndex];
+  const currentQ = story.questions[currentQIndex] || story.questions[0];
   const chosenOriginalIdx = selected !== null ? shuffledOptions[selected]?.originalIndex : -1;
   const isCorrect = submitted && chosenOriginalIdx === currentQ.correct;
 
@@ -108,8 +123,12 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 2 · Story Listening & Comprehension</span>
-            <h3 className="text-lg font-bold text-white">Audio Story Presentation</h3>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+              Section 2 · Story Listening & Comprehension
+            </span>
+            <h3 className="text-lg font-bold text-white">
+              {totalStories > 1 ? `Story Narrative ${storyIndex} of ${totalStories}` : 'Audio Story Presentation'}
+            </h3>
           </div>
           <span className="text-xs bg-purple-900/60 text-purple-300 border border-purple-700/50 px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">
             Case: {story.title}
@@ -131,18 +150,38 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
           </div>
 
           <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 text-left max-w-md mx-auto space-y-2 text-xs text-slate-300">
-            <p className="font-semibold text-slate-200">Exam Guidelines:</p>
-            <p>• 5 comprehension questions will follow the story.</p>
-            <p>• Each question is worth 5 points (25 points total).</p>
-            <p>• {mode === 'full' ? 'In Full Exam Mode: Played strictly once.' : 'Learning Mode allows audio replay if needed.'}</p>
+            <p className="font-semibold text-slate-200">Session Guidelines:</p>
+            <p>• {story.questions.length} comprehension questions will follow this narrative.</p>
+            <p>• Section points are normalized to 25 total marks ({pointsLabel} pts per question).</p>
+            <p>• {mode === 'learning' ? 'Untimed Learning Mode: Audio replay and speed controls available anytime.' : 'Full Exam Mode: Single playback to test retention.'}</p>
           </div>
 
-          <button
-            onClick={handleStartAudio}
-            className="bg-purple-600 hover:bg-purple-500 text-white px-10 py-3.5 rounded-xl font-bold text-base transition-all shadow-lg hover:shadow-purple-500/20 inline-flex items-center gap-2"
-          >
-            <Volume2 className="w-5 h-5" /> Start Listening to Story →
-          </button>
+          <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center gap-1 text-xs bg-slate-950 px-3 py-1.5 rounded-full border border-slate-800">
+              <span className="text-slate-400 font-medium">Speed:</span>
+              {[0.75, 0.85, 1.0].map((rate) => (
+                <button
+                  key={rate}
+                  type="button"
+                  onClick={() => setSpeechSpeed(rate)}
+                  className={`px-2 py-0.5 rounded text-xs font-semibold transition-colors ${
+                    speechSpeed === rate
+                      ? 'bg-purple-600 text-white shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {rate === 0.75 ? '0.75x Slow' : rate === 0.85 ? '0.85x Clear' : '1.0x'}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={handleStartAudio}
+              className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-xl font-bold text-sm transition-all shadow-lg hover:shadow-purple-500/20 inline-flex items-center gap-2 cursor-pointer"
+            >
+              <Volume2 className="w-4 h-4" /> Start Listening to Story →
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -154,7 +193,9 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 2 · Story Listening & Comprehension</span>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+              Section 2 · Story Listening & Comprehension
+            </span>
             <h3 className="text-lg font-bold text-white">Listening in Progress</h3>
           </div>
           <span className="text-xs bg-purple-900/60 text-purple-300 border border-purple-700/50 px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">
@@ -187,7 +228,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
           </div>
 
           <div className="text-xs text-slate-500 italic">
-            Story text is hidden during exam playback to evaluate auditory comprehension.
+            Story text is hidden during playback to evaluate auditory comprehension.
           </div>
         </div>
       </div>
@@ -204,7 +245,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
             Section 2 · Story Listening & Comprehension
           </span>
           <h3 className="text-lg font-bold text-white">
-            Story Question {currentQIndex + 1} of 5
+            Story Question {questionNumber} of {totalQuestions}
           </h3>
         </div>
         <div className="flex items-center gap-2">
@@ -212,13 +253,13 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
             <button
               onClick={handleReplayStory}
               disabled={speaking}
-              className="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 border border-purple-800 px-3 py-1.5 rounded-full flex items-center gap-1.5 font-medium transition-colors"
+              className="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 border border-purple-800 px-3 py-1.5 rounded-full flex items-center gap-1.5 font-medium transition-colors cursor-pointer"
             >
-              <RefreshCw className="w-3.5 h-3.5" /> Replay Story
+              <RefreshCw className={`w-3.5 h-3.5 ${speaking ? 'animate-spin' : ''}`} /> Replay Story Audio
             </button>
           )}
           <span className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium border border-slate-700">
-            5 Points
+            {pointsLabel} Points
           </span>
         </div>
       </div>
@@ -227,7 +268,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-xl space-y-6">
         <div>
           <span className="text-xs text-purple-400 font-semibold uppercase tracking-wider">
-            Context: {story.title}
+            Context: {story.title} {totalStories > 1 ? `(Story ${storyIndex} of ${totalStories})` : ''}
           </span>
           <h4 className="text-xl font-bold text-white mt-1 leading-snug">
             {currentQ.question}

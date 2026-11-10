@@ -1,0 +1,752 @@
+[
+  {
+    "id": "ls1",
+    "text": "Please keep your reference number for tracking.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls2",
+    "text": "I am happy to assist you today.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls3",
+    "text": "Please verify the six digit security code.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls4",
+    "text": "Your refund will arrive in three days.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls5",
+    "text": "Could you please confirm your email address?",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls6",
+    "text": "Please hold while I check your account.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls7",
+    "text": "We have updated your current delivery address.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls8",
+    "text": "Thank you for choosing our customer service.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls9",
+    "text": "You can download the invoice from our app.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls10",
+    "text": "Your monthly statement is ready for review.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls11",
+    "text": "Please turn off the router for thirty seconds.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls12",
+    "text": "A confirmation text was sent to your phone.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls13",
+    "text": "Our office opens tomorrow morning at eight.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls14",
+    "text": "Please attach a photo of the damaged package.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls15",
+    "text": "I have cancelled the recurring monthly subscription.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls16",
+    "text": "Let me transfer you to our billing team.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls17",
+    "text": "Your payment has been received and verified.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls18",
+    "text": "Please speak your registered phone number clearly.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls19",
+    "text": "You will receive a tracking link via email.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls20",
+    "text": "The representative will join the call shortly.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls21",
+    "text": "We are currently experiencing high call volume.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls22",
+    "text": "Please allow forty eight hours for shipping.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls23",
+    "text": "I have sent a password reset link.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls24",
+    "text": "Your flight reservation is now fully confirmed.",
+    "difficulty": "easy",
+    "wordCount": 7
+  },
+  {
+    "id": "ls25",
+    "text": "Please provide the serial number on the box.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls26",
+    "text": "The package was delivered to your front door.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls27",
+    "text": "I have noted your request in the system.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls28",
+    "text": "You can easily track the driver on map.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls29",
+    "text": "Please check your email for the return label.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls30",
+    "text": "We have issued a credit voucher for you.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls31",
+    "text": "Please stay on the line for a survey.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls32",
+    "text": "Is there anything else I can help with?",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls33",
+    "text": "Your warranty coverage expires at the year end.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls34",
+    "text": "Please reboot your computer and try logging in.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls35",
+    "text": "I apologize for the wait time you experienced.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls36",
+    "text": "Your appointment is scheduled for next Tuesday morning.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls37",
+    "text": "Please confirm the primary name on this card.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls38",
+    "text": "The replacement part will be delivered by courier.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls39",
+    "text": "I am updating your contact details right now.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls40",
+    "text": "Thank you for your patience during this call.",
+    "difficulty": "easy",
+    "wordCount": 8
+  },
+  {
+    "id": "ls41",
+    "text": "Please ensure that your mobile phone is connected to the internet.",
+    "difficulty": "medium",
+    "wordCount": 11
+  },
+  {
+    "id": "ls42",
+    "text": "I can help you change your departure date with no penalty.",
+    "difficulty": "medium",
+    "wordCount": 11
+  },
+  {
+    "id": "ls43",
+    "text": "We have processed the full refund back to your original payment card.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls44",
+    "text": "You can reset your account password by clicking the link in email.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls45",
+    "text": "The technician is scheduled to visit your home between two and four.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls46",
+    "text": "Please provide the twelve digit tracking number found on your store receipt.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls47",
+    "text": "We sent a one time passcode to your registered mobile telephone number.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls48",
+    "text": "You can manage all your billing preferences directly from your account settings.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls49",
+    "text": "Our customer support desk is available twenty four hours every single day.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls50",
+    "text": "The courier attempted delivery today but nobody was home to sign it.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls51",
+    "text": "I have applied a ten percent discount voucher to your next purchase.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls52",
+    "text": "Please verify the last four digits of your credit card for authorization.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls53",
+    "text": "We apologize for the inconvenience caused by the temporary system maintenance outage.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls54",
+    "text": "Your return package has safely arrived at our central inspection warehouse today.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls55",
+    "text": "Please keep your confirmation code ready before speaking to our senior specialist.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls56",
+    "text": "A digital copy of your payment receipt was sent to your inbox.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls57",
+    "text": "You can choose your seat assignment through our mobile application at checkin.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls58",
+    "text": "We have extended your trial period for thirty additional days at no charge.",
+    "difficulty": "medium",
+    "wordCount": 13
+  },
+  {
+    "id": "ls59",
+    "text": "Please check that all cables are firmly plugged into your wifi router.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls60",
+    "text": "I will personally monitor your service ticket until the issue is resolved.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls61",
+    "text": "The bank requires two business days to clear the transferred balance amount.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls62",
+    "text": "Please confirm your date of birth and postal code for security reasons.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls63",
+    "text": "Your monthly data plan will automatically renew on the first of next month.",
+    "difficulty": "medium",
+    "wordCount": 13
+  },
+  {
+    "id": "ls64",
+    "text": "We can schedule a callback for you when our lines are less busy.",
+    "difficulty": "medium",
+    "wordCount": 13
+  },
+  {
+    "id": "ls65",
+    "text": "The tracking update shows that your parcel is out for delivery today.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls66",
+    "text": "Please take a screenshot of the error message displayed on your monitor.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls67",
+    "text": "I have updated your home address and your new card is dispatched.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls68",
+    "text": "You will receive an automated notification as soon as the driver arrives.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls69",
+    "text": "Our billing department has waived the late fee on your current statement.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls70",
+    "text": "Please ensure that you log out of all public computers after browsing.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls71",
+    "text": "The flight departure gate was shifted from gate twelve to gate twenty.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls72",
+    "text": "I am pleased to inform you that your claim has been approved.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls73",
+    "text": "Please read the terms and conditions before submitting your online warranty registration.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls74",
+    "text": "We have credited twenty five dollars to your account for the delay.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls75",
+    "text": "You can track the live location of your technician on our website.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls76",
+    "text": "Please keep your order confirmation number handy for future reference and assistance.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls77",
+    "text": "The customer care department will follow up with an email update tomorrow.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls78",
+    "text": "I have successfully updated your email address across our entire customer database.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls79",
+    "text": "Your subscription plan allows streaming on up to four separate personal devices.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls80",
+    "text": "Please disable your popup blocker before continuing with the online verification process.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls81",
+    "text": "We will send a replacement unit immediately without waiting for the return.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls82",
+    "text": "You can download your detailed statement in PDF format from the dashboard.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls83",
+    "text": "Please double check that the shipping address includes your apartment unit number.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls84",
+    "text": "I will stay on the phone while you restart your desktop computer.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls85",
+    "text": "Our team has escalated your complaint to the priority support team leader.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls86",
+    "text": "Although the order was delayed, our dispatch warehouse expedited priority delivery at no additional cost.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls87",
+    "text": "Please make sure you have your passport and booking reference number ready at the counter.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls88",
+    "text": "We have issued a replacement order that will arrive within two to three business days.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls89",
+    "text": "If you do not recognize this transaction, we can block your payment card right now.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls90",
+    "text": "The technical support agent will guide you step by step through the device installation procedure.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls91",
+    "text": "You can view your real time account balance and recent transactions on the mobile dashboard.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls92",
+    "text": "Please remember to keep your login credentials and temporary passwords completely confidential at all times.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls93",
+    "text": "Our company policy allows customers to return unopened items within thirty days of purchase date.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls94",
+    "text": "I have forwarded your request to the regional supervisor who will call you back today.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls95",
+    "text": "Please verify that your registered contact email address is spelled correctly in our current records.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls96",
+    "text": "We appreciate your cooperation while our technical team works to resolve this unexpected network disruption.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls97",
+    "text": "You can reschedule your technician appointment online anytime without paying any additional cancellation fees whatsoever.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls98",
+    "text": "The tracking page indicates that your package was delivered safely to your neighbor next door.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls99",
+    "text": "Please keep your service contract agreement number handy whenever you contact our technical support helpline.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls100",
+    "text": "Our billing department has refunded the duplicate payment charge directly back to your checking account.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls101",
+    "text": "You will receive an email confirmation containing your revised flight itinerary within the next hour.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls102",
+    "text": "Please ensure that your computer remains connected to power during the firmware software update process.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls103",
+    "text": "I have placed a temporary hold on your account until our security specialists complete verification.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls104",
+    "text": "The supervisor confirmed that your store warranty covers both parts and labor for three years.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls105",
+    "text": "Please take a moment to answer three brief questions about your customer support experience today.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls106",
+    "text": "We have applied a courtesy credit to compensate for the downtime you experienced this week.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls107",
+    "text": "You may upload photos of the damaged merchandise directly through our mobile customer portal anytime.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls108",
+    "text": "Our customer service department is committed to providing prompt and courteous assistance to every caller.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls109",
+    "text": "Please check your spam or junk folder if the confirmation email does not appear immediately.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls110",
+    "text": "The shipping company will attempt delivery three times before returning the parcel to our facility.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls111",
+    "text": "May I please confirm your full legal name, current residential address, and your registered account telephone number?",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls112",
+    "text": "Although the scheduled flight was canceled due to weather, all affected passengers received complimentary hotel accommodations.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls113",
+    "text": "Please ensure that your mobile device is fully charged before initiating the required system software upgrade process.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls114",
+    "text": "Our customer support manager has authorized a full refund along with a twenty dollar store gift voucher.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls115",
+    "text": "If your broadband connection does not restore after rebooting, our technician will visit your home tomorrow morning.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls116",
+    "text": "Please keep your identification card ready when our courier agent arrives to complete the mandatory physical verification.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls117",
+    "text": "We have documented your feedback regarding the delivery delay and shared it with regional logistics management.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls118",
+    "text": "You can access all previous monthly billing statements and invoices through the secure online document archive.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls119",
+    "text": "Please verify that the shipping address listed on your order confirmation matches your current residential delivery location.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls120",
+    "text": "Our customer care team is available around the clock to ensure all your service inquiries are answered.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls121",
+    "text": "The warranty coverage protects your electronic equipment against manufacturing defects and sudden hardware malfunctions for two years.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls122",
+    "text": "Please allow three to five business days for the credited refund amount to appear on bank statement.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls123",
+    "text": "Our senior technical specialist will call you back within thirty minutes to assist with broadband network troubleshooting.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls124",
+    "text": "We upgraded your shipping service to priority express delivery at no extra charge to prevent any delays.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls125",
+    "text": "Please confirm the verification code that was just sent to your secondary emergency contact mobile telephone number.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  }
+]

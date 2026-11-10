@@ -90,7 +90,7 @@ export default function MixedAptitude({ question, questionNumber, totalQuestions
           </div>
 
           <span className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium border border-slate-700">
-            5 Marks
+            {(25 / totalQuestions).toFixed(1).replace(/\.0$/, '')} Marks
           </span>
         </div>
       </div>

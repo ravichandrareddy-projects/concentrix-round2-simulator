@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Award, BarChart2, BookOpen, Clock, Play, Zap, Shield, ChevronRight, CheckCircle2, Pencil } from 'lucide-react';
 import { AttemptResult, ExamMode } from '../types';
 import { getStats, loadAttempts } from '../utils/storage';
@@ -5,15 +6,24 @@ import { formatTime, performanceLabel } from '../utils/helpers';
 
 interface Props {
   candidateName: string;
-  onStart: (mode: ExamMode) => void;
+  onStart: (mode: ExamMode, learningQuestionCount?: number) => void;
   onHistory: () => void;
   onChangeName: () => void;
 }
 
 export default function Dashboard({ candidateName, onStart, onHistory, onChangeName }: Props) {
+  const [learningQuestionCount, setLearningQuestionCount] = useState<number>(() => {
+    return Number(localStorage.getItem('concentrix_learning_qcount')) || 10;
+  });
+
   const attempts: AttemptResult[] = loadAttempts();
   const stats = getStats(attempts);
   const recent = [...attempts].reverse().slice(0, 5);
+
+  function handleSelectLearningCount(count: number) {
+    setLearningQuestionCount(count);
+    localStorage.setItem('concentrix_learning_qcount', String(count));
+  }
 
   const sections = [
     {
@@ -234,7 +244,7 @@ export default function Dashboard({ candidateName, onStart, onHistory, onChangeN
                     <BookOpen className="w-6 h-6" />
                   </span>
                   <span className="text-xs font-bold bg-emerald-950 border border-emerald-800 text-emerald-300 px-3 py-1 rounded-full uppercase">
-                    Untimed / Replay
+                    100% Untimed
                   </span>
                 </div>
                 <div>
@@ -242,16 +252,41 @@ export default function Dashboard({ candidateName, onStart, onHistory, onChangeN
                     Learning Mode
                   </h4>
                   <p className="text-slate-400 text-xs mt-1 leading-relaxed">
-                    Guided practice with adjustable audio speed, audio replay buttons, question explanations, and instant word-diff feedback.
+                    Zero time limits. Listen and re-listen as many times as you like. Choose 10, 20, or 30 questions per section with full answer explanations.
                   </p>
+                </div>
+
+                {/* Question Count Selector for Learning Mode */}
+                <div className="pt-2">
+                  <div className="flex items-center justify-between text-xs mb-1.5">
+                    <span className="text-slate-400 font-medium">Practice Length:</span>
+                    <span className="text-emerald-400 font-bold">{learningQuestionCount} Qs / session</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                    {[5, 10, 20, 30].map((count) => (
+                      <button
+                        key={count}
+                        type="button"
+                        onClick={() => handleSelectLearningCount(count)}
+                        className={`py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                          learningQuestionCount === count
+                            ? 'bg-emerald-600 text-white shadow-md shadow-emerald-900/40 ring-1 ring-emerald-400/50'
+                            : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                        }`}
+                        title={`${count} questions per section (${count * 4} questions total)`}
+                      >
+                        {count} Qs
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               <button
-                onClick={() => onStart('learning')}
+                onClick={() => onStart('learning', learningQuestionCount)}
                 className="mt-6 w-full bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl py-3.5 font-bold text-sm transition-all shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 cursor-pointer"
               >
-                Launch Learning Mode <ChevronRight className="w-4 h-4" />
+                Launch Learning Mode ({learningQuestionCount} Qs) <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>

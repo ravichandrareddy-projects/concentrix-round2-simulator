@@ -75,603 +75,753 @@ export const CATEGORIES: string[] = [
 export const LISTEN_SENTENCES: SentenceItem[] = [
   {
     "id": "ls1",
-    "text": "Insert a coin and choose a drink.",
+    "text": "Please keep your reference number for tracking.",
     "difficulty": "easy",
     "wordCount": 7
   },
   {
     "id": "ls2",
-    "text": "Please take your seat now.",
+    "text": "I am happy to assist you today.",
     "difficulty": "easy",
-    "wordCount": 5
+    "wordCount": 7
   },
   {
     "id": "ls3",
-    "text": "I am sorry for the delay.",
+    "text": "Please verify the six digit security code.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls4",
-    "text": "Please keep files in this folder.",
+    "text": "Your refund will arrive in three days.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls5",
-    "text": "The bank closes at five o clock.",
+    "text": "Could you please confirm your email address?",
     "difficulty": "easy",
     "wordCount": 7
   },
   {
     "id": "ls6",
-    "text": "How can I help you today?",
+    "text": "Please hold while I check your account.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls7",
-    "text": "Please sign your name here.",
+    "text": "We have updated your current delivery address.",
     "difficulty": "easy",
-    "wordCount": 5
+    "wordCount": 7
   },
   {
     "id": "ls8",
-    "text": "He will call you tomorrow morning.",
+    "text": "Thank you for choosing our customer service.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls9",
-    "text": "Thank you for calling our team.",
+    "text": "You can download the invoice from our app.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls10",
-    "text": "Your order is ready now.",
+    "text": "Your monthly statement is ready for review.",
     "difficulty": "easy",
-    "wordCount": 5
+    "wordCount": 7
   },
   {
     "id": "ls11",
-    "text": "Please hold the line a moment.",
+    "text": "Please turn off the router for thirty seconds.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls12",
-    "text": "The shop opens at nine tomorrow.",
+    "text": "A confirmation text was sent to your phone.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls13",
-    "text": "We sent you an email today.",
+    "text": "Our office opens tomorrow morning at eight.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls14",
-    "text": "Press one to speak in English.",
+    "text": "Please attach a photo of the damaged package.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls15",
-    "text": "I will check your ticket now.",
+    "text": "I have cancelled the recurring monthly subscription.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls16",
-    "text": "Can you hear me clearly now?",
+    "text": "Let me transfer you to our billing team.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls17",
-    "text": "Have a great day ahead.",
+    "text": "Your payment has been received and verified.",
     "difficulty": "easy",
-    "wordCount": 5
+    "wordCount": 7
   },
   {
     "id": "ls18",
-    "text": "Please leave your message after tone.",
+    "text": "Please speak your registered phone number clearly.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls19",
-    "text": "Your bill is paid in full.",
+    "text": "You will receive a tracking link via email.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls20",
-    "text": "The morning train leaves very soon.",
+    "text": "The representative will join the call shortly.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls21",
-    "text": "Where is your local office located?",
+    "text": "We are currently experiencing high call volume.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls22",
-    "text": "Welcome to our customer service store.",
+    "text": "Please allow forty eight hours for shipping.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls23",
-    "text": "Please wait here for your turn.",
+    "text": "I have sent a password reset link.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls24",
-    "text": "I can help you with that.",
+    "text": "Your flight reservation is now fully confirmed.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 7
   },
   {
     "id": "ls25",
-    "text": "What is your full first name?",
+    "text": "Please provide the serial number on the box.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls26",
-    "text": "She will send the form today.",
+    "text": "The package was delivered to your front door.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls27",
-    "text": "The doctor is ready for you.",
+    "text": "I have noted your request in the system.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls28",
-    "text": "Let me find your account file.",
+    "text": "You can easily track the driver on map.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls29",
-    "text": "Can you speak a little louder?",
+    "text": "Please check your email for the return label.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls30",
-    "text": "Your table is ready for lunch.",
+    "text": "We have issued a credit voucher for you.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls31",
-    "text": "Please write down this phone number.",
+    "text": "Please stay on the line for a survey.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls32",
-    "text": "The car is parked right outside.",
+    "text": "Is there anything else I can help with?",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls33",
-    "text": "We have received your payment safely.",
+    "text": "Your warranty coverage expires at the year end.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls34",
-    "text": "Turn left at the next corner.",
+    "text": "Please reboot your computer and try logging in.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls35",
-    "text": "I will call you back shortly.",
+    "text": "I apologize for the wait time you experienced.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls36",
-    "text": "Please take your bag and keys.",
+    "text": "Your appointment is scheduled for next Tuesday morning.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls37",
-    "text": "Is this your current home address?",
+    "text": "Please confirm the primary name on this card.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls38",
-    "text": "We open seven days every week.",
+    "text": "The replacement part will be delivered by courier.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls39",
-    "text": "Can I take your food order?",
+    "text": "I am updating your contact details right now.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls40",
-    "text": "Your morning flight is on time.",
+    "text": "Thank you for your patience during this call.",
     "difficulty": "easy",
-    "wordCount": 6
+    "wordCount": 8
   },
   {
     "id": "ls41",
-    "text": "You can check in three hours before flight.",
+    "text": "Please ensure that your mobile phone is connected to the internet.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 11
   },
   {
     "id": "ls42",
-    "text": "I will check your account balance right now.",
+    "text": "I can help you change your departure date with no penalty.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 11
   },
   {
     "id": "ls43",
-    "text": "Please tell me your phone number once more.",
+    "text": "We have processed the full refund back to your original payment card.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls44",
-    "text": "The package will arrive at your home tomorrow.",
+    "text": "You can reset your account password by clicking the link in email.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls45",
-    "text": "Please spell your last name for me slowly.",
+    "text": "The technician is scheduled to visit your home between two and four.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls46",
-    "text": "We are happy to answer all your questions.",
+    "text": "Please provide the twelve digit tracking number found on your store receipt.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls47",
-    "text": "The store will remain open until eight tonight.",
+    "text": "We sent a one time passcode to your registered mobile telephone number.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls48",
-    "text": "Your new credit card will arrive next week.",
+    "text": "You can manage all your billing preferences directly from your account settings.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls49",
-    "text": "Please click the link sent to your phone.",
+    "text": "Our customer support desk is available twenty four hours every single day.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls50",
-    "text": "Our agent will visit your home this evening.",
+    "text": "The courier attempted delivery today but nobody was home to sign it.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls51",
-    "text": "You will get a message with your code.",
+    "text": "I have applied a ten percent discount voucher to your next purchase.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls52",
-    "text": "Please carry your identity card with you today.",
+    "text": "Please verify the last four digits of your credit card for authorization.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls53",
-    "text": "The manager is speaking with another customer now.",
+    "text": "We apologize for the inconvenience caused by the temporary system maintenance outage.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls54",
-    "text": "Let me transfer your call to our manager.",
+    "text": "Your return package has safely arrived at our central inspection warehouse today.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls55",
-    "text": "We have updated your mobile number on file.",
+    "text": "Please keep your confirmation code ready before speaking to our senior specialist.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls56",
-    "text": "Please confirm if your home address is correct.",
+    "text": "A digital copy of your payment receipt was sent to your inbox.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls57",
-    "text": "You can track your order on our website.",
+    "text": "You can choose your seat assignment through our mobile application at checkin.",
     "difficulty": "medium",
-    "wordCount": 8
+    "wordCount": 12
   },
   {
     "id": "ls58",
-    "text": "The refund was sent to your bank account.",
+    "text": "We have extended your trial period for thirty additional days at no charge.",
     "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls59",
-    "text": "Please keep your payment receipt in a safe place.",
-    "difficulty": "medium",
-    "wordCount": 9
-  },
-  {
-    "id": "ls60",
-    "text": "Our customer service center is open every day.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls61",
-    "text": "I will send a quick message right away.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls62",
-    "text": "Could you please hold on for one minute?",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls63",
-    "text": "Your flight ticket was booked for next Monday.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls64",
-    "text": "Please bring two photos for your new card.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls65",
-    "text": "You can pay using cash or your card.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls66",
-    "text": "The delivery person will call before arriving today.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls67",
-    "text": "We apologize for the delay in your order.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls68",
-    "text": "Please let me know if you need anything.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls69",
-    "text": "All our team members are ready to help.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls70",
-    "text": "Your monthly bill is ready to view now.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls71",
-    "text": "Can you tell me your order tracking number?",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls72",
-    "text": "Please verify the details on your screen now.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls73",
-    "text": "We sent a new package to your address.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls74",
-    "text": "You will receive an email within one hour.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls75",
-    "text": "Please speak clearly after the short audio tone.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls76",
-    "text": "The payment was accepted by our computer system.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls77",
-    "text": "We will resolve this issue by this evening.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls78",
-    "text": "Your account password was updated without any error.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls79",
-    "text": "Please check your mailbox for our official letter.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls80",
-    "text": "Thank you for choosing our banking services today.",
-    "difficulty": "medium",
-    "wordCount": 8
-  },
-  {
-    "id": "ls81",
-    "text": "May I have your name, email address, and phone number?",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls82",
-    "text": "Although the bus was late, we arrived on time.",
-    "difficulty": "hard",
-    "wordCount": 9
-  },
-  {
-    "id": "ls83",
-    "text": "Please keep your card ready before you start the call.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls84",
-    "text": "We will send an agent to your house this afternoon.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls85",
-    "text": "Please make sure your phone battery is charged before testing.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls86",
-    "text": "The manager will meet all new customers in the lobby.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls87",
-    "text": "You can change your delivery address until tomorrow morning.",
-    "difficulty": "hard",
-    "wordCount": 9
-  },
-  {
-    "id": "ls88",
-    "text": "Please read the short note printed on the back cover.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls89",
-    "text": "Our staff will guide you through every simple step.",
-    "difficulty": "hard",
-    "wordCount": 9
-  },
-  {
-    "id": "ls90",
-    "text": "If you face any problem, please call us right away.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls91",
-    "text": "The repair person will arrive between two and four.",
-    "difficulty": "hard",
-    "wordCount": 9
-  },
-  {
-    "id": "ls92",
-    "text": "Please remember to sign the paper before you submit it.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls93",
-    "text": "You can download the mobile app from the app store.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls94",
-    "text": "All visitors must register their names at the front desk.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls95",
-    "text": "I have noted your request and sent it to billing.",
-    "difficulty": "hard",
-    "wordCount": 10
-  },
-  {
-    "id": "ls96",
-    "text": "Thank you for waiting, and I am glad to help you today.",
-    "difficulty": "challenge",
-    "wordCount": 12
-  },
-  {
-    "id": "ls97",
-    "text": "Please check your spam folder if you do not see our message.",
-    "difficulty": "challenge",
-    "wordCount": 12
-  },
-  {
-    "id": "ls98",
-    "text": "We are sending a link to reset your account password right now.",
-    "difficulty": "challenge",
-    "wordCount": 12
-  },
-  {
-    "id": "ls99",
-    "text": "You can collect your package from the nearest store after five o clock.",
-    "difficulty": "challenge",
     "wordCount": 13
   },
   {
+    "id": "ls59",
+    "text": "Please check that all cables are firmly plugged into your wifi router.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls60",
+    "text": "I will personally monitor your service ticket until the issue is resolved.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls61",
+    "text": "The bank requires two business days to clear the transferred balance amount.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls62",
+    "text": "Please confirm your date of birth and postal code for security reasons.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls63",
+    "text": "Your monthly data plan will automatically renew on the first of next month.",
+    "difficulty": "medium",
+    "wordCount": 13
+  },
+  {
+    "id": "ls64",
+    "text": "We can schedule a callback for you when our lines are less busy.",
+    "difficulty": "medium",
+    "wordCount": 13
+  },
+  {
+    "id": "ls65",
+    "text": "The tracking update shows that your parcel is out for delivery today.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls66",
+    "text": "Please take a screenshot of the error message displayed on your monitor.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls67",
+    "text": "I have updated your home address and your new card is dispatched.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls68",
+    "text": "You will receive an automated notification as soon as the driver arrives.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls69",
+    "text": "Our billing department has waived the late fee on your current statement.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls70",
+    "text": "Please ensure that you log out of all public computers after browsing.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls71",
+    "text": "The flight departure gate was shifted from gate twelve to gate twenty.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls72",
+    "text": "I am pleased to inform you that your claim has been approved.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls73",
+    "text": "Please read the terms and conditions before submitting your online warranty registration.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls74",
+    "text": "We have credited twenty five dollars to your account for the delay.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls75",
+    "text": "You can track the live location of your technician on our website.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls76",
+    "text": "Please keep your order confirmation number handy for future reference and assistance.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls77",
+    "text": "The customer care department will follow up with an email update tomorrow.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls78",
+    "text": "I have successfully updated your email address across our entire customer database.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls79",
+    "text": "Your subscription plan allows streaming on up to four separate personal devices.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls80",
+    "text": "Please disable your popup blocker before continuing with the online verification process.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls81",
+    "text": "We will send a replacement unit immediately without waiting for the return.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls82",
+    "text": "You can download your detailed statement in PDF format from the dashboard.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls83",
+    "text": "Please double check that the shipping address includes your apartment unit number.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls84",
+    "text": "I will stay on the phone while you restart your desktop computer.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls85",
+    "text": "Our team has escalated your complaint to the priority support team leader.",
+    "difficulty": "medium",
+    "wordCount": 12
+  },
+  {
+    "id": "ls86",
+    "text": "Although the order was delayed, our dispatch warehouse expedited priority delivery at no additional cost.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls87",
+    "text": "Please make sure you have your passport and booking reference number ready at the counter.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls88",
+    "text": "We have issued a replacement order that will arrive within two to three business days.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls89",
+    "text": "If you do not recognize this transaction, we can block your payment card right now.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls90",
+    "text": "The technical support agent will guide you step by step through the device installation procedure.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls91",
+    "text": "You can view your real time account balance and recent transactions on the mobile dashboard.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls92",
+    "text": "Please remember to keep your login credentials and temporary passwords completely confidential at all times.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls93",
+    "text": "Our company policy allows customers to return unopened items within thirty days of purchase date.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls94",
+    "text": "I have forwarded your request to the regional supervisor who will call you back today.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls95",
+    "text": "Please verify that your registered contact email address is spelled correctly in our current records.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls96",
+    "text": "We appreciate your cooperation while our technical team works to resolve this unexpected network disruption.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls97",
+    "text": "You can reschedule your technician appointment online anytime without paying any additional cancellation fees whatsoever.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls98",
+    "text": "The tracking page indicates that your package was delivered safely to your neighbor next door.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls99",
+    "text": "Please keep your service contract agreement number handy whenever you contact our technical support helpline.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
     "id": "ls100",
-    "text": "Please keep this reference number safe for all your future questions.",
+    "text": "Our billing department has refunded the duplicate payment charge directly back to your checking account.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls101",
+    "text": "You will receive an email confirmation containing your revised flight itinerary within the next hour.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls102",
+    "text": "Please ensure that your computer remains connected to power during the firmware software update process.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls103",
+    "text": "I have placed a temporary hold on your account until our security specialists complete verification.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls104",
+    "text": "The supervisor confirmed that your store warranty covers both parts and labor for three years.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls105",
+    "text": "Please take a moment to answer three brief questions about your customer support experience today.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls106",
+    "text": "We have applied a courtesy credit to compensate for the downtime you experienced this week.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls107",
+    "text": "You may upload photos of the damaged merchandise directly through our mobile customer portal anytime.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls108",
+    "text": "Our customer service department is committed to providing prompt and courteous assistance to every caller.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls109",
+    "text": "Please check your spam or junk folder if the confirmation email does not appear immediately.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls110",
+    "text": "The shipping company will attempt delivery three times before returning the parcel to our facility.",
+    "difficulty": "hard",
+    "wordCount": 15
+  },
+  {
+    "id": "ls111",
+    "text": "May I please confirm your full legal name, current residential address, and your registered account telephone number?",
     "difficulty": "challenge",
-    "wordCount": 11
+    "wordCount": 17
+  },
+  {
+    "id": "ls112",
+    "text": "Although the scheduled flight was canceled due to weather, all affected passengers received complimentary hotel accommodations.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls113",
+    "text": "Please ensure that your mobile device is fully charged before initiating the required system software upgrade process.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls114",
+    "text": "Our customer support manager has authorized a full refund along with a twenty dollar store gift voucher.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls115",
+    "text": "If your broadband connection does not restore after rebooting, our technician will visit your home tomorrow morning.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls116",
+    "text": "Please keep your identification card ready when our courier agent arrives to complete the mandatory physical verification.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls117",
+    "text": "We have documented your feedback regarding the delivery delay and shared it with regional logistics management.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls118",
+    "text": "You can access all previous monthly billing statements and invoices through the secure online document archive.",
+    "difficulty": "challenge",
+    "wordCount": 16
+  },
+  {
+    "id": "ls119",
+    "text": "Please verify that the shipping address listed on your order confirmation matches your current residential delivery location.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls120",
+    "text": "Our customer care team is available around the clock to ensure all your service inquiries are answered.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls121",
+    "text": "The warranty coverage protects your electronic equipment against manufacturing defects and sudden hardware malfunctions for two years.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls122",
+    "text": "Please allow three to five business days for the credited refund amount to appear on bank statement.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls123",
+    "text": "Our senior technical specialist will call you back within thirty minutes to assist with broadband network troubleshooting.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls124",
+    "text": "We upgraded your shipping service to priority express delivery at no extra charge to prevent any delays.",
+    "difficulty": "challenge",
+    "wordCount": 17
+  },
+  {
+    "id": "ls125",
+    "text": "Please confirm the verification code that was just sent to your secondary emergency contact mobile telephone number.",
+    "difficulty": "challenge",
+    "wordCount": 17
   }
 ];
 
@@ -4017,6 +4167,1001 @@ export const APTITUDE_QUESTIONS: AptitudeQuestion[] = [
     ],
     "correct": 0,
     "explanation": "Company H = 14%, Company A = 16%, Company G = 15%. Combined = 14% + 16% + 15% = 45%."
+  },
+{
+    "id": "ret16",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the ratio of the total number of posters distributed by Company B to the total number of danglers distributed by Company B?",
+    "options": [
+      "25 : 18",
+      "15 : 18",
+      "12 : 7",
+      "5 : 3"
+    ],
+    "correct": 0,
+    "explanation": "Posters of Company B = 15% of 20,000 = 3,000. Danglers of Company B = 18% of 12,000 = 2,160. Ratio = 3,000 : 2,160 = 300 : 216 = 25 : 18."
+  },
+  {
+    "id": "ret17",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which company has the identical total count of posters distributed as Company E?",
+    "options": [
+      "Company A",
+      "Company C",
+      "Company G",
+      "Company H"
+    ],
+    "correct": 3,
+    "explanation": "Company E accounts for 10% of posters (2,000). Looking at Figure 1, Company H also accounts for 10% of posters (2,000)."
+  },
+  {
+    "id": "ret18",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the total combined merchandise (posters plus danglers) distributed by Company G across retail stores?",
+    "options": [
+      "1,800",
+      "2,000",
+      "2,200",
+      "2,400"
+    ],
+    "correct": 1,
+    "explanation": "Company G posters = 7% of 20,000 = 1,400. Company G danglers = 5% of 12,000 = 600. Total combined = 1,400 + 600 = 2,000."
+  },
+  {
+    "id": "ret19",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "By what percentage does the total count of posters distributed by Company F exceed the total count of danglers distributed by Company F?",
+    "options": [
+      "33.33%",
+      "40%",
+      "50%",
+      "66.67%"
+    ],
+    "correct": 2,
+    "explanation": "Company F posters = 18% of 20,000 = 3,600. Company F danglers = 20% of 12,000 = 2,400. Difference = 3,600 - 2,400 = 1,200. Percentage excess over danglers = (1,200 / 2,400) * 100 = 50%."
+  },
+  {
+    "id": "ret20",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the average number of posters distributed per company by Company A, Company B, and Company C combined?",
+    "options": [
+      "2,100",
+      "2,333",
+      "2,500",
+      "2,800"
+    ],
+    "correct": 1,
+    "explanation": "Posters: Company A = 2,400 (12%), Company B = 3,000 (15%), Company C = 1,600 (8%). Sum = 2,400 + 3,000 + 1,600 = 7,000. Average across 3 companies = 7,000 / 3 = 2,333.33 (rounded to 2,333)."
+  },
+  {
+    "id": "ret21",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the difference between the total danglers distributed by the highest dangler distributor (F) and the lowest dangler distributor (G)?",
+    "options": [
+      "1,500",
+      "1,800",
+      "2,100",
+      "2,400"
+    ],
+    "correct": 1,
+    "explanation": "Highest dangler distributor is Company F at 20% of 12,000 = 2,400. Lowest is Company G at 5% of 12,000 = 600. Difference = 2,400 - 600 = 1,800."
+  },
+  {
+    "id": "ret22",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "If each poster costs \u20b950 to print and distribute, how much total money was spent on printing posters for Company D?",
+    "options": [
+      "\u20b9150,000",
+      "\u20b9180,000",
+      "\u20b9200,000",
+      "\u20b9250,000"
+    ],
+    "correct": 2,
+    "explanation": "Company D posters = 20% of 20,000 = 4,000 posters. Total cost = 4,000 * \u20b950 = \u20b9200,000."
+  },
+  {
+    "id": "ret23",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What percentage of the grand total retail merchandise (32,000 items) is represented by Company D's combined merchandise?",
+    "options": [
+      "15.25%",
+      "18.125%",
+      "20.5%",
+      "22.0%"
+    ],
+    "correct": 1,
+    "explanation": "Company D posters = 4,000. Company D danglers = 15% of 12,000 = 1,800. Combined D items = 5,800. Grand total merchandise = 20,000 + 12,000 = 32,000. Percentage = (5,800 / 32,000) * 100 = 18.125%."
+  },
+  {
+    "id": "ret24",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the ratio of danglers distributed by Company A to danglers distributed by Company F?",
+    "options": [
+      "1 : 2",
+      "2 : 3",
+      "3 : 4",
+      "1 : 3"
+    ],
+    "correct": 0,
+    "explanation": "Company A danglers = 10% of 12,000 = 1,200. Company F danglers = 20% of 12,000 = 2,400. Ratio = 1,200 : 2,400 = 1 : 2."
+  },
+  {
+    "id": "ret25",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "If the total poster distribution increases by 25% next year with Company A maintaining its 12% share, how many posters will Company A distribute?",
+    "options": [
+      "2,700",
+      "2,850",
+      "3,000",
+      "3,200"
+    ],
+    "correct": 2,
+    "explanation": "New total posters = 20,000 * 1.25 = 25,000. Company A share = 12% of 25,000 = 3,000."
+  },
+  {
+    "id": "ret26",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the central angle (in degrees) occupied by Company D in the Poster Distribution pie chart?",
+    "options": [
+      "60\u00b0",
+      "72\u00b0",
+      "80\u00b0",
+      "90\u00b0"
+    ],
+    "correct": 1,
+    "explanation": "Company D percentage in Poster Distribution = 20%. Central angle = 20% of 360\u00b0 = (20 / 100) * 360 = 72\u00b0."
+  },
+  {
+    "id": "ret27",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the central angle (in degrees) occupied by Company B in the Dangler Distribution pie chart?",
+    "options": [
+      "54.8\u00b0",
+      "64.8\u00b0",
+      "70.2\u00b0",
+      "75.6\u00b0"
+    ],
+    "correct": 1,
+    "explanation": "Company B percentage in Dangler Distribution = 18%. Central angle = 18% of 360\u00b0 = (18 / 100) * 360 = 64.8\u00b0."
+  },
+  {
+    "id": "ret28",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which two companies distributed an equal count of danglers?",
+    "options": [
+      "Company A and Company E",
+      "Company C and Company H",
+      "Company B and Company F",
+      "Company D and Company G"
+    ],
+    "correct": 1,
+    "explanation": "Looking at Dangler Distribution: Company C has 12% (1,440) and Company H has 12% (1,440). Both distributed exactly 1,440 danglers."
+  },
+  {
+    "id": "ret29",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "How many companies have a higher share percentage in Dangler Distribution than in Poster Distribution?",
+    "options": [
+      "2 companies",
+      "3 companies",
+      "4 companies",
+      "5 companies"
+    ],
+    "correct": 2,
+    "explanation": "Compare (Dangler % vs Poster %): B (18% > 15%), C (12% > 8%), F (20% > 18%), H (12% > 10%). Wait, that's 4 companies! Let's check: B(18>15), C(12>8), F(20>18), H(12>10). There are 4 companies (B, C, F, H)."
+  },
+  {
+    "id": "ret30",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the combined percentage of Poster Distribution held by the top three companies (D, F, and B)?",
+    "options": [
+      "45%",
+      "48%",
+      "53%",
+      "56%"
+    ],
+    "correct": 2,
+    "explanation": "Top three poster distributors: Company D (20%), Company F (18%), and Company B (15%). Combined share = 20% + 18% + 15% = 53%."
+  },
+  {
+    "id": "shl21",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety item for high-decibel machinery calibration.",
+    "tableData": {
+      "title": "Industrial Safety & Equipment Table",
+      "headers": [
+        "Department / Hazard Zone",
+        "Primary Exposure",
+        "Mandatory Safeguard Item"
+      ],
+      "rows": [
+        [
+          "Acoustics & Turbine Testing",
+          "Sustained noise > 90 dB",
+          "Padded Ear Muffs (Hearing Protection)"
+        ],
+        [
+          "Electronics Assembly Line",
+          "Electrostatic Discharge (ESD)",
+          "Anti-Static Grounding Wristband"
+        ],
+        [
+          "High-Altitude Antenna Rigging",
+          "Fall hazards above 4 meters",
+          "Full-Body Fall Arrest Safety Harness"
+        ],
+        [
+          "Chemical Decanting Lab",
+          "Corrosive aerosol mists",
+          "Chemical Splash Goggles with Seal"
+        ],
+        [
+          "Warehouse Heavy Logistics",
+          "Falling pallets and crushing risks",
+          "Steel-Toe Puncture-Proof Safety Boots"
+        ]
+      ]
+    },
+    "question": "A worker is assigned to perform calibration inside the Acoustics & Turbine Testing room. Which personal protective equipment must be worn?",
+    "options": [
+      "Padded Ear Muffs (Hearing Protection)",
+      "Chemical Splash Goggles",
+      "Anti-Static Wristband",
+      "Fall Arrest Safety Harness"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_earmuffs.svg",
+      "/images/aptitude/opt_goggles.svg",
+      "/images/aptitude/opt_antistatic.svg",
+      "/images/aptitude/opt_harness.svg"
+    ],
+    "correct": 0,
+    "explanation": "According to the safety table, the Acoustics & Turbine Testing zone requires Padded Ear Muffs to protect against sustained noise above 90 dB."
+  },
+  {
+    "id": "shl22",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety item for handling electrostatic sensitive microchips.",
+    "tableData": {
+      "title": "Industrial Safety & Equipment Table",
+      "headers": [
+        "Department / Hazard Zone",
+        "Primary Exposure",
+        "Mandatory Safeguard Item"
+      ],
+      "rows": [
+        [
+          "Acoustics & Turbine Testing",
+          "Sustained noise > 90 dB",
+          "Padded Ear Muffs (Hearing Protection)"
+        ],
+        [
+          "Electronics Assembly Line",
+          "Electrostatic Discharge (ESD)",
+          "Anti-Static Grounding Wristband"
+        ],
+        [
+          "High-Altitude Antenna Rigging",
+          "Fall hazards above 4 meters",
+          "Full-Body Fall Arrest Safety Harness"
+        ],
+        [
+          "Chemical Decanting Lab",
+          "Corrosive aerosol mists",
+          "Chemical Splash Goggles with Seal"
+        ],
+        [
+          "Warehouse Heavy Logistics",
+          "Falling pallets and crushing risks",
+          "Steel-Toe Puncture-Proof Safety Boots"
+        ]
+      ]
+    },
+    "question": "A technician is installing sensitive microprocessor chips on the Electronics Assembly Line. Which safeguard is mandatory according to the safety table?",
+    "options": [
+      "Full-Body Fall Arrest Safety Harness",
+      "Anti-Static Grounding Wristband",
+      "Steel-Toe Safety Boots",
+      "Padded Ear Muffs"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_harness.svg",
+      "/images/aptitude/opt_antistatic.svg",
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_earmuffs.svg"
+    ],
+    "correct": 1,
+    "explanation": "The safety table designates Anti-Static Grounding Wristband for the Electronics Assembly Line to prevent electrostatic discharge."
+  },
+  {
+    "id": "shl23",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety item for working on rooftop satellite antennas.",
+    "tableData": {
+      "title": "Industrial Safety & Equipment Table",
+      "headers": [
+        "Department / Hazard Zone",
+        "Primary Exposure",
+        "Mandatory Safeguard Item"
+      ],
+      "rows": [
+        [
+          "Acoustics & Turbine Testing",
+          "Sustained noise > 90 dB",
+          "Padded Ear Muffs (Hearing Protection)"
+        ],
+        [
+          "Electronics Assembly Line",
+          "Electrostatic Discharge (ESD)",
+          "Anti-Static Grounding Wristband"
+        ],
+        [
+          "High-Altitude Antenna Rigging",
+          "Fall hazards above 4 meters",
+          "Full-Body Fall Arrest Safety Harness"
+        ],
+        [
+          "Chemical Decanting Lab",
+          "Corrosive aerosol mists",
+          "Chemical Splash Goggles with Seal"
+        ],
+        [
+          "Warehouse Heavy Logistics",
+          "Falling pallets and crushing risks",
+          "Steel-Toe Puncture-Proof Safety Boots"
+        ]
+      ]
+    },
+    "question": "Technicians scaling an outdoor telecommunications tower in the High-Altitude Antenna Rigging zone must equip which item?",
+    "options": [
+      "Padded Ear Muffs",
+      "Steel-Toe Safety Boots",
+      "Full-Body Fall Arrest Safety Harness",
+      "Anti-Static Grounding Wristband"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_earmuffs.svg",
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_harness.svg",
+      "/images/aptitude/opt_antistatic.svg"
+    ],
+    "correct": 2,
+    "explanation": "High-altitude work involves fall hazards above 4 meters, mandating a Full-Body Fall Arrest Safety Harness."
+  },
+  {
+    "id": "shl24",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety item for heavy warehouse pallet operations.",
+    "tableData": {
+      "title": "Industrial Safety & Equipment Table",
+      "headers": [
+        "Department / Hazard Zone",
+        "Primary Exposure",
+        "Mandatory Safeguard Item"
+      ],
+      "rows": [
+        [
+          "Acoustics & Turbine Testing",
+          "Sustained noise > 90 dB",
+          "Padded Ear Muffs (Hearing Protection)"
+        ],
+        [
+          "Electronics Assembly Line",
+          "Electrostatic Discharge (ESD)",
+          "Anti-Static Grounding Wristband"
+        ],
+        [
+          "High-Altitude Antenna Rigging",
+          "Fall hazards above 4 meters",
+          "Full-Body Fall Arrest Safety Harness"
+        ],
+        [
+          "Chemical Decanting Lab",
+          "Corrosive aerosol mists",
+          "Chemical Splash Goggles with Seal"
+        ],
+        [
+          "Warehouse Heavy Logistics",
+          "Falling pallets and crushing risks",
+          "Steel-Toe Puncture-Proof Safety Boots"
+        ]
+      ]
+    },
+    "question": "Operating heavy forklift machinery and transporting pallets in Warehouse Heavy Logistics requires which equipment?",
+    "options": [
+      "Steel-Toe Puncture-Proof Safety Boots",
+      "Chemical Splash Goggles",
+      "Anti-Static Grounding Wristband",
+      "Padded Ear Muffs"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_goggles.svg",
+      "/images/aptitude/opt_antistatic.svg",
+      "/images/aptitude/opt_earmuffs.svg"
+    ],
+    "correct": 0,
+    "explanation": "Warehouse Heavy Logistics involves crushing hazards from pallets and rolling equipment, requiring Steel-Toe Puncture-Proof Safety Boots."
+  },
+  {
+    "id": "shl25",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Identify the safety item for high-visibility traffic coordination.",
+    "tableData": {
+      "title": "Facility Safety Protocol Table",
+      "headers": [
+        "Station",
+        "Operational Environment",
+        "Required Standard Item"
+      ],
+      "rows": [
+        [
+          "Loading Dock Marshalling",
+          "Moving delivery trucks and poor lighting",
+          "High-Visibility Reflective Safety Vest"
+        ],
+        [
+          "Overhead Crane Maintenance",
+          "Falling tools and debris",
+          "Hard Hat Safety Helmet"
+        ],
+        [
+          "Bio-hazard Waste Sorting",
+          "Needle stick and droplet risks",
+          "Heavy Nitrile Protective Gloves"
+        ],
+        [
+          "Thermal Pipe Welding",
+          "Extreme heat and weld splatter",
+          "Full Face Shield & Leather Apron"
+        ]
+      ]
+    },
+    "question": "Personnel marshalling heavy delivery trucks on the outdoor loading dock at night must wear which item?",
+    "options": [
+      "Hard Hat Safety Helmet",
+      "High-Visibility Reflective Safety Vest",
+      "Heavy Nitrile Protective Gloves",
+      "Full Face Shield"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_helmet.svg",
+      "/images/aptitude/opt_vest.svg",
+      "/images/aptitude/opt_gloves.svg",
+      "/images/aptitude/opt_faceshield.svg"
+    ],
+    "correct": 1,
+    "explanation": "High-Visibility Reflective Safety Vest is required for marshalling delivery trucks in low-light loading dock zones."
+  },
+  {
+    "id": "shl26",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Identify the safety item for overhead maintenance work.",
+    "tableData": {
+      "title": "Facility Safety Protocol Table",
+      "headers": [
+        "Station",
+        "Operational Environment",
+        "Required Standard Item"
+      ],
+      "rows": [
+        [
+          "Loading Dock Marshalling",
+          "Moving delivery trucks and poor lighting",
+          "High-Visibility Reflective Safety Vest"
+        ],
+        [
+          "Overhead Crane Maintenance",
+          "Falling tools and debris",
+          "Hard Hat Safety Helmet"
+        ],
+        [
+          "Bio-hazard Waste Sorting",
+          "Needle stick and droplet risks",
+          "Heavy Nitrile Protective Gloves"
+        ],
+        [
+          "Thermal Pipe Welding",
+          "Extreme heat and weld splatter",
+          "Full Face Shield & Leather Apron"
+        ]
+      ]
+    },
+    "question": "A maintenance engineer working underneath the overhead factory crane where falling debris may occur must equip:",
+    "options": [
+      "High-Visibility Reflective Safety Vest",
+      "Heavy Nitrile Protective Gloves",
+      "Hard Hat Safety Helmet",
+      "Full Face Shield"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_vest.svg",
+      "/images/aptitude/opt_gloves.svg",
+      "/images/aptitude/opt_helmet.svg",
+      "/images/aptitude/opt_faceshield.svg"
+    ],
+    "correct": 2,
+    "explanation": "Overhead Crane Maintenance requires a Hard Hat Safety Helmet to protect from falling tools and structural debris."
+  },
+  {
+    "id": "shl27",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety tool for verifying live AC circuit voltages.",
+    "tableData": {
+      "title": "Electrical Maintenance Equipment Standards",
+      "headers": [
+        "Task Description",
+        "Hazard Profile",
+        "Designated Diagnostic / Safety Tool"
+      ],
+      "rows": [
+        [
+          "Main Breaker Voltage Verification",
+          "Electrocution / Arc flash risk",
+          "Digital Multimeter with Insulated Probes"
+        ],
+        [
+          "Ethernet Terminal Termination",
+          "Uncut conductor shorts",
+          "Modular RJ45 Ratchet Crimper"
+        ],
+        [
+          "Server Component Soldering",
+          "Lead fumes and hot solder splatter",
+          "Temperature-Controlled Soldering Station"
+        ],
+        [
+          "Substation Enclosure Fastening",
+          "Live terminal contact",
+          "Insulated VDE Screwdriver Set"
+        ]
+      ]
+    },
+    "question": "Prior to servicing a live power distribution unit, an electrician must measure the exact voltage using which diagnostic tool?",
+    "options": [
+      "Digital Multimeter with Insulated Probes",
+      "Modular RJ45 Ratchet Crimper",
+      "Insulated VDE Screwdriver Set",
+      "Soldering Station"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_multimeter.svg",
+      "/images/aptitude/opt_crimper.svg",
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_soldering.svg"
+    ],
+    "correct": 0,
+    "explanation": "Main Breaker Voltage Verification requires a Digital Multimeter with Insulated Probes to safely measure line voltage."
+  },
+  {
+    "id": "shl28",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the tool required for network patch cabling termination.",
+    "tableData": {
+      "title": "Electrical Maintenance Equipment Standards",
+      "headers": [
+        "Task Description",
+        "Hazard Profile",
+        "Designated Diagnostic / Safety Tool"
+      ],
+      "rows": [
+        [
+          "Main Breaker Voltage Verification",
+          "Electrocution / Arc flash risk",
+          "Digital Multimeter with Insulated Probes"
+        ],
+        [
+          "Ethernet Terminal Termination",
+          "Uncut conductor shorts",
+          "Modular RJ45 Ratchet Crimper"
+        ],
+        [
+          "Server Component Soldering",
+          "Lead fumes and hot solder splatter",
+          "Temperature-Controlled Soldering Station"
+        ],
+        [
+          "Substation Enclosure Fastening",
+          "Live terminal contact",
+          "Insulated VDE Screwdriver Set"
+        ]
+      ]
+    },
+    "question": "A network support engineer crimping 8-conductor CAT6 patch cables on the telecom rack requires which designated tool?",
+    "options": [
+      "Digital Multimeter with Insulated Probes",
+      "Modular RJ45 Ratchet Crimper",
+      "Insulated VDE Screwdriver Set",
+      "Soldering Station"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_multimeter.svg",
+      "/images/aptitude/opt_crimper.svg",
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_soldering.svg"
+    ],
+    "correct": 1,
+    "explanation": "Ethernet Terminal Termination designates the Modular RJ45 Ratchet Crimper for securing RJ45 modular connectors."
+  },
+  {
+    "id": "shl29",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety containment for contaminated disposable needles.",
+    "tableData": {
+      "title": "Hazardous Waste Handling Guidelines",
+      "headers": [
+        "Hazardous Stream",
+        "Contamination Risk",
+        "Mandatory Disposal Container"
+      ],
+      "rows": [
+        [
+          "Used Syringes and Scalpels",
+          "Blood-borne pathogen transmission",
+          "Puncture-Resistant Biohazard Sharps Container"
+        ],
+        [
+          "Organic Chemical Solvents",
+          "Vapor flammability and ignition",
+          "Flammable Liquid Safety Can with Flame Arrestor"
+        ],
+        [
+          "Heavy Smoldering Metal Slag",
+          "Combustion rekindling",
+          "Class D Dry Powder Metal Fire Extinguisher"
+        ],
+        [
+          "Laser Calibration Beam Refraction",
+          "Retinal photocoagulation",
+          "Optical Density (OD 7+) Laser Safety Eyewear"
+        ]
+      ]
+    },
+    "question": "Discarded disposable scalpels and needles in the corporate health clinic must be placed inside which mandatory container?",
+    "options": [
+      "Puncture-Resistant Biohazard Sharps Container",
+      "Class D Metal Fire Extinguisher",
+      "Laser Safety Eyewear",
+      "Flammable Liquid Safety Can"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_sharpsbox.svg",
+      "/images/aptitude/opt_extinguisher.svg",
+      "/images/aptitude/opt_laserglasses.svg",
+      "/images/aptitude/opt_boots.svg"
+    ],
+    "correct": 0,
+    "explanation": "Sharps and needles require a rigid Puncture-Resistant Biohazard Sharps Container to prevent needle stick injuries."
+  },
+  {
+    "id": "shl30",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "passageTitle": "Concentrix SHL Assessment \u00b7 Aspiring Minds (AMCAT)",
+    "passageText": "Refer to the workplace safety table. Match the required safety item for optical alignment with class 4 laser transmitters.",
+    "tableData": {
+      "title": "Hazardous Waste Handling Guidelines",
+      "headers": [
+        "Hazardous Stream",
+        "Contamination Risk",
+        "Mandatory Disposal Container"
+      ],
+      "rows": [
+        [
+          "Used Syringes and Scalpels",
+          "Blood-borne pathogen transmission",
+          "Puncture-Resistant Biohazard Sharps Container"
+        ],
+        [
+          "Organic Chemical Solvents",
+          "Vapor flammability and ignition",
+          "Flammable Liquid Safety Can with Flame Arrestor"
+        ],
+        [
+          "Heavy Smoldering Metal Slag",
+          "Combustion rekindling",
+          "Class D Dry Powder Metal Fire Extinguisher"
+        ],
+        [
+          "Laser Calibration Beam Refraction",
+          "Retinal photocoagulation",
+          "Optical Density (OD 7+) Laser Safety Eyewear"
+        ]
+      ]
+    },
+    "question": "A fiber optics engineer calibrating high-powered laser transmitters must wear which designated safeguard?",
+    "options": [
+      "Puncture-Resistant Biohazard Sharps Container",
+      "Flammable Liquid Safety Can",
+      "Optical Density (OD 7+) Laser Safety Eyewear",
+      "Class D Dry Powder Fire Extinguisher"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_sharpsbox.svg",
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_laserglasses.svg",
+      "/images/aptitude/opt_extinguisher.svg"
+    ],
+    "correct": 2,
+    "explanation": "Calibrating optical laser beams requires Optical Density (OD 7+) Laser Safety Eyewear to prevent irreversible retinal damage."
+  },
+  {
+    "id": "odd21",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others in the set.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd1_a.svg",
+      "/images/aptitude/odd1_b.svg",
+      "/images/aptitude/odd1_c.svg",
+      "/images/aptitude/odd1_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the inner rectangular frame is centered with equal margins on all four sides. In Image C, the inner rectangle is offset downwards, touching the bottom border."
+  },
+  {
+    "id": "odd22",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the card that violates the geometric pattern.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd2_a.svg",
+      "/images/aptitude/odd2_b.svg",
+      "/images/aptitude/odd2_c.svg",
+      "/images/aptitude/odd2_d.svg"
+    ],
+    "correct": 1,
+    "explanation": "In Images A, C, and D, the diagonal orientation slopes upwards from bottom-left to top-right. In Image B, the diagonal slope is inverted from top-left to bottom-right."
+  },
+  {
+    "id": "odd23",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that does not conform to the pattern.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd3_a.svg",
+      "/images/aptitude/odd3_b.svg",
+      "/images/aptitude/odd3_c.svg",
+      "/images/aptitude/odd3_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Cards A, B, and C, the internal dividing line intersects the vertical midpoint. In Card D, the line intersects off-center near the upper perimeter."
+  },
+  {
+    "id": "odd24",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the figure that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd4_a.svg",
+      "/images/aptitude/odd4_b.svg",
+      "/images/aptitude/odd4_c.svg",
+      "/images/aptitude/odd4_d.svg"
+    ],
+    "correct": 0,
+    "explanation": "Cards B, C, and D exhibit rotational symmetry under a 90-degree clockwise step, whereas Card A has an inverted internal anchor."
+  },
+  {
+    "id": "odd25",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the odd card in this nested quadrilateral arrangement.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd5_a.svg",
+      "/images/aptitude/odd5_b.svg",
+      "/images/aptitude/odd5_c.svg",
+      "/images/aptitude/odd5_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In figures A, B, and D, each concentric inner quadrilateral has rounded vertices matching the parent card. In figure C, the inner polygon has sharp right-angled vertices."
+  },
+  {
+    "id": "odd26",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Which card does not follow the symmetry rule?",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd6_a.svg",
+      "/images/aptitude/odd6_b.svg",
+      "/images/aptitude/odd6_c.svg",
+      "/images/aptitude/odd6_d.svg"
+    ],
+    "correct": 1,
+    "explanation": "Figures A, C, and D contain exactly two concentric concentric boundary loops. Figure B contains three concentric loops."
+  },
+  {
+    "id": "odd27",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd7_a.svg",
+      "/images/aptitude/odd7_b.svg",
+      "/images/aptitude/odd7_c.svg",
+      "/images/aptitude/odd7_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In images A, B, and C, the internal marker is aligned along the primary diagonal axis. In image D, the marker is rotated 45 degrees along the horizontal axis."
+  },
+  {
+    "id": "odd28",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Select the odd-one-out shape from the set.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd8_a.svg",
+      "/images/aptitude/odd8_b.svg",
+      "/images/aptitude/odd8_c.svg",
+      "/images/aptitude/odd8_d.svg"
+    ],
+    "correct": 0,
+    "explanation": "Images B, C, and D possess bilateral horizontal symmetry. Image A lacks horizontal symmetry because the inner shape is skewed towards the top-left."
+  },
+  {
+    "id": "odd29",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the figure with differing spatial orientation.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd9_a.svg",
+      "/images/aptitude/odd9_b.svg",
+      "/images/aptitude/odd9_c.svg",
+      "/images/aptitude/odd9_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Cards A, B, and D, the outer rectangle has an aspect ratio of 4:3 (landscape). In Card C, the card's inner framing is rotated into a 3:4 portrait aspect ratio."
+  },
+  {
+    "id": "odd30",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the card that violates the concentric pattern.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd10_a.svg",
+      "/images/aptitude/odd10_b.svg",
+      "/images/aptitude/odd10_c.svg",
+      "/images/aptitude/odd10_d.svg"
+    ],
+    "correct": 1,
+    "explanation": "In Cards A, C, and D, the distance between the inner and outer rectangular boundaries is uniform along all edges. In Card B, the right margin is double the left margin."
   }
 ];
 

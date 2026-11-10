@@ -12,77 +12,115 @@ import ContentModeration from './sections/ContentModeration';
 interface Props {
   candidateName?: string;
   mode: ExamMode;
+  learningQuestionCount?: number; // 5, 10, 20, or 30 questions
   onComplete: (results: QuestionResult[], timeTaken: number, sectionScores: [number, number, number, number]) => void;
 }
 
 type Phase = 'section-intro' | 'question';
 
-export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
-  // Session 1: 5 sentences drawn from 100-sentence bank
-  const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, 5));
-  // Session 2: 1 story drawn from 15 unique stories, picking 5 varied questions from its 10-question bank
-  const [story] = useState(() => {
-    const chosen = pickRandom(STORIES, 1)[0];
-    const sampledQuestions = pickRandom(chosen.questions, 5);
-    return {
-      ...chosen,
-      questions: sampledQuestions
-    };
+export default function ExamFlow({ candidateName, mode, learningQuestionCount = 10, onComplete }: Props) {
+  // Question count per section:
+  // Learning Mode: user-selected count (5, 10, 20, or 30)
+  // Full / Rapid Mode: 5 questions per section (20 questions total)
+  const effectiveCount = mode === 'learning' ? learningQuestionCount : 5;
+
+  // Session 1: effectiveCount sentences from 125-sentence bank (all 7-17 words)
+  const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, effectiveCount));
+
+  // Session 2: Stories configured according to effectiveCount:
+  // <= 5: 1 story, 5 questions
+  // 10: 1 story, all 10 questions
+  // 20: 2 stories, all 10 questions each
+  // 30: 3 stories, all 10 questions each
+  const [stories] = useState(() => {
+    if (effectiveCount <= 5) {
+      const chosen = pickRandom(STORIES, 1)[0];
+      return [{
+        ...chosen,
+        questions: pickRandom(chosen.questions, 5)
+      }];
+    } else if (effectiveCount === 10) {
+      return pickRandom(STORIES, 1);
+    } else if (effectiveCount === 20) {
+      return pickRandom(STORIES, 2);
+    } else {
+      return pickRandom(STORIES, 3);
+    }
   });
-  // Session 3: 5 questions featuring the exact YouTube screenshot questions (shl1, odd1, ret1) + 2 practice questions
+
+  // Session 3: effectiveCount questions featuring the exact YouTube screenshot questions (shl1, odd1, ret1) + practice questions
   const [aptitudeQuestions] = useState(() => {
     const q1 = APTITUDE_QUESTIONS.find(q => q.id === 'shl1');
     const q2 = APTITUDE_QUESTIONS.find(q => q.id === 'odd1');
     const q3 = APTITUDE_QUESTIONS.find(q => q.id === 'ret1');
     const others = APTITUDE_QUESTIONS.filter(q => q.id !== 'shl1' && q.id !== 'odd1' && q.id !== 'ret1');
-    const additional = pickRandom(others, 2);
-    return [q1, q2, q3, ...additional].filter(Boolean) as typeof APTITUDE_QUESTIONS;
+
+    const screenshotPicks = [q1, q2, q3].filter(Boolean) as typeof APTITUDE_QUESTIONS;
+    const remainingNeeded = Math.max(0, effectiveCount - screenshotPicks.length);
+    const additional = pickRandom(others, remainingNeeded);
+
+    return [...screenshotPicks, ...additional].slice(0, effectiveCount);
   });
-  // Session 4: 5 moderation scenarios drawn from 100-scenario bank
-  const [scenarios] = useState(() => pickRandom(MODERATION_SCENARIOS, 5));
+
+  // Session 4: effectiveCount moderation scenarios drawn from 100-scenario bank
+  const [scenarios] = useState(() => pickRandom(MODERATION_SCENARIOS, effectiveCount));
 
   const [section, setSection] = useState<SectionId>(1);
   const [phase, setPhase] = useState<Phase>('section-intro');
 
-  // Sub-indices for questions within sections (5 questions each = 25 marks per session)
-  const [s1Index, setS1Index] = useState(0); // 0 to 4
-  const [storyQIndex, setStoryQIndex] = useState(0); // 0 to 4
-  const [aptIndex, setAptIndex] = useState(0); // 0 to 4
-  const [s4Index, setS4Index] = useState(0); // 0 to 4
+  // Sub-indices for questions within sections
+  const [s1Index, setS1Index] = useState(0);
+
+  // Session 2 multi-story tracking
+  const [s2StoryIndex, setS2StoryIndex] = useState(0); // which story (0, 1, 2)
+  const [s2GlobalIndex, setS2GlobalIndex] = useState(0); // 0 to effectiveCount - 1
+
+  const [aptIndex, setAptIndex] = useState(0);
+  const [s4Index, setS4Index] = useState(0);
 
   const [results, setResults] = useState<QuestionResult[]>([]);
   const [sectionScores, setSectionScores] = useState<[number, number, number, number]>([0, 0, 0, 0]);
   const resultsRef = useRef<QuestionResult[]>([]);
   const sectionScoresRef = useRef<[number, number, number, number]>([0, 0, 0, 0]);
 
-  // Timers: Full Exam: 15 min, Rapid Practice: 10 min, Learning: untimed (45 min safe cap)
-  const totalSeconds = mode === 'full' ? 15 * 60 : mode === 'rapid' ? 10 * 60 : 45 * 60;
+  // Timers: Full Exam: 15 min, Rapid Practice: 10 min, Learning: 100% UNTIMED
+  const totalSeconds = mode === 'full' ? 15 * 60 : mode === 'rapid' ? 10 * 60 : 0;
   const [timeLeft, setTimeLeft] = useState(totalSeconds);
+  const [elapsedTime, setElapsedTime] = useState(0);
   const [startTime] = useState(Date.now());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [warned, setWarned] = useState(false);
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setTimeLeft((t) => {
-        if (t <= 1) {
-          clearInterval(timerRef.current!);
-          finishExam();
-          return 0;
-        }
-        return t - 1;
-      });
-    }, 1000);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current!);
-    };
-  }, []);
+    if (mode === 'learning') {
+      // 100% untimed practice: track elapsed time with no deadline or cutoff
+      const interval = setInterval(() => {
+        setElapsedTime((prev) => prev + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    } else {
+      // Countdown timer for Exam and Rapid modes
+      timerRef.current = setInterval(() => {
+        setTimeLeft((t) => {
+          if (t <= 1) {
+            clearInterval(timerRef.current!);
+            finishExam();
+            return 0;
+          }
+          return t - 1;
+        });
+      }, 1000);
+      return () => {
+        if (timerRef.current) clearInterval(timerRef.current!);
+      };
+    }
+  }, [mode]);
 
   useEffect(() => {
-    if (timeLeft === 120 && !warned) {
+    if (mode !== 'learning' && timeLeft === 120 && !warned) {
       setWarned(true);
     }
-  }, [timeLeft, warned]);
+  }, [mode, timeLeft, warned]);
 
   function addResult(result: QuestionResult) {
     resultsRef.current.push(result);
@@ -104,7 +142,8 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
       setSection((s) => (s + 1) as SectionId);
       setPhase('section-intro');
       setS1Index(0);
-      setStoryQIndex(0);
+      setS2StoryIndex(0);
+      setS2GlobalIndex(0);
       setAptIndex(0);
       setS4Index(0);
     } else {
@@ -116,82 +155,100 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
     setPhase('question');
   }
 
-  // ---- Session 1: Listen & Repeat (5 Qs, 5 marks each = 25 marks) ----
+  // Points per question in each section (total 25 marks per section)
+  const pointsPerQuestion = 25 / effectiveCount;
+
+  // ---- Session 1: Listen & Repeat ----
   function handleListenAnswer(score: number) {
+    // score from ListenRepeat is on a 0-5 scale; normalize to pointsPerQuestion
+    const normalizedScore = (score / 5) * pointsPerQuestion;
     addResult({
       questionId: sentences[s1Index].id,
       section: 1,
-      earned: score,
-      max: 5,
+      earned: normalizedScore,
+      max: pointsPerQuestion,
       correct: score >= 3
     });
-    if (s1Index < 4) {
+    if (s1Index < sentences.length - 1) {
       setS1Index(prev => prev + 1);
     } else {
       advanceSection();
     }
   }
 
-  // ---- Session 2: Story Listening (5 Qs, 5 marks each = 25 marks) ----
+  // ---- Session 2: Story Listening ----
   function handleStoryAnswer(score: number) {
+    const currentStory = stories[s2StoryIndex];
     addResult({
-      questionId: `${story.id}_q${storyQIndex}`,
+      questionId: `${currentStory.id}_q${s2GlobalIndex}`,
       section: 2,
       earned: score,
-      max: 5,
-      correct: score === 5
+      max: pointsPerQuestion,
+      correct: score > 0
     });
-    if (storyQIndex < 4) {
-      setStoryQIndex(prev => prev + 1);
+
+    const nextGlobal = s2GlobalIndex + 1;
+    setS2GlobalIndex(nextGlobal);
+
+    if (nextGlobal < effectiveCount) {
+      // Check if we need to advance to the next story
+      const questionsPerStory = stories[s2StoryIndex].questions.length;
+      const currentStoryLocalQ = s2GlobalIndex % questionsPerStory;
+      if (currentStoryLocalQ === questionsPerStory - 1 && s2StoryIndex < stories.length - 1) {
+        setS2StoryIndex(prev => prev + 1);
+      }
     } else {
       advanceSection();
     }
   }
 
-  // ---- Session 3: Concentrix SHL Visual & Workplace Reasoning (5 Qs, 5 marks each = 25 marks) ----
+  // ---- Session 3: Mixed Aptitude & Reasoning ----
   function handleAptitudeAnswer(score: number) {
-    const earned = score === 1 ? 5 : score;
+    const isCorrect = score > 0;
+    const earned = isCorrect ? pointsPerQuestion : 0;
     addResult({
       questionId: aptitudeQuestions[aptIndex].id,
       section: 3,
       earned: earned,
-      max: 5,
-      correct: earned === 5
+      max: pointsPerQuestion,
+      correct: isCorrect
     });
-    if (aptIndex < 4) {
+    if (aptIndex < aptitudeQuestions.length - 1) {
       setAptIndex(prev => prev + 1);
     } else {
       advanceSection();
     }
   }
 
-  // ---- Session 4: Content Moderation (5 Qs, 5 marks each = 25 marks) ----
+  // ---- Session 4: Content Moderation ----
   function handleModerationAnswer(score: number) {
+    const isCorrect = score > 0;
+    const earned = isCorrect ? pointsPerQuestion : 0;
     addResult({
       questionId: scenarios[s4Index].id,
       section: 4,
-      earned: score,
-      max: 5,
-      correct: score === 5
+      earned: earned,
+      max: pointsPerQuestion,
+      correct: isCorrect
     });
-    if (s4Index < 4) {
+    if (s4Index < scenarios.length - 1) {
       setS4Index(prev => prev + 1);
     } else {
       finishExam();
     }
   }
 
-  // 40 questions total per attempt (5 + 5 + 25 + 5)
-  const totalQ = 40;
+  // Total questions in this assessment run
+  const totalQ = effectiveCount * 4;
   const doneQ = results.length;
-  const progressPct = (doneQ / totalQ) * 100;
+  const progressPct = totalQ > 0 ? (doneQ / totalQ) * 100 : 0;
 
   function getSectionProgress() {
     switch (section) {
-      case 1: return `Listen ${s1Index + (phase === 'question' ? 1 : 0)}/5`;
-      case 2: return `Story Q${storyQIndex + (phase === 'question' ? 1 : 0)}/5`;
-      case 3: return `Aptitude ${aptIndex + (phase === 'question' ? 1 : 0)}/25`;
-      case 4: return `Moderation ${s4Index + (phase === 'question' ? 1 : 0)}/5`;
+      case 1: return `Listen ${s1Index + (phase === 'question' ? 1 : 0)}/${effectiveCount}`;
+      case 2: return `Story Q${s2GlobalIndex + (phase === 'question' ? 1 : 0)}/${effectiveCount}`;
+      case 3: return `Aptitude ${aptIndex + (phase === 'question' ? 1 : 0)}/${effectiveCount}`;
+      case 4: return `Moderation ${s4Index + (phase === 'question' ? 1 : 0)}/${effectiveCount}`;
     }
   }
 
@@ -217,11 +274,18 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
           </div>
         </div>
 
-        {/* Timer */}
-        <div className={`flex items-center gap-2 font-mono font-black text-lg sm:text-xl ${timerColor}`}>
-          <Clock className="w-5 h-5 animate-pulse" />
-          {formatTime(timeLeft)}
-        </div>
+        {/* Timer or Untimed Learning Stopwatch */}
+        {mode === 'learning' ? (
+          <div className="flex items-center gap-2 font-mono font-bold text-emerald-400 text-xs sm:text-sm bg-emerald-950/80 px-3.5 py-1.5 rounded-full border border-emerald-800 shadow-sm">
+            <Clock className="w-4 h-4 text-emerald-400 animate-pulse" />
+            <span>Untimed Practice · {formatTime(elapsedTime)}</span>
+          </div>
+        ) : (
+          <div className={`flex items-center gap-2 font-mono font-black text-lg sm:text-xl ${timerColor}`}>
+            <Clock className="w-5 h-5 animate-pulse" />
+            {formatTime(timeLeft)}
+          </div>
+        )}
 
         <div className="flex items-center gap-3">
           {candidateName && (
@@ -240,8 +304,8 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
         <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-300" style={{ width: `${progressPct}%` }} />
       </div>
 
-      {/* Warning Banner */}
-      {warned && timeLeft > 0 && timeLeft <= 120 && (
+      {/* Warning Banner (Exam and Rapid modes only) */}
+      {mode !== 'learning' && warned && timeLeft > 0 && timeLeft <= 120 && (
         <div className="bg-rose-950 border-b border-rose-800 px-6 py-2.5 flex items-center justify-center gap-2 text-rose-300 text-xs font-bold animate-pulse">
           <AlertTriangle className="w-4 h-4 flex-shrink-0" /> Less than 2 minutes remaining! Unanswered questions will be auto-submitted on expiration.
         </div>
@@ -250,45 +314,55 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
       {/* Main Content Area */}
       <main className="max-w-4xl mx-auto px-6 py-8">
         {phase === 'section-intro' && (
-          <SectionIntro section={section} mode={mode} onStart={handleSectionStart} />
+          <SectionIntro
+            section={section}
+            mode={mode}
+            questionCount={effectiveCount}
+            onStart={handleSectionStart}
+          />
         )}
 
-        {phase === 'question' && section === 1 && (
+        {phase === 'question' && section === 1 && sentences[s1Index] && (
           <ListenRepeat
             key={sentences[s1Index].id}
             sentence={sentences[s1Index]}
             questionNumber={s1Index + 1}
+            totalQuestions={effectiveCount}
             mode={mode}
             onAnswer={(score) => handleListenAnswer(score)}
           />
         )}
 
-        {phase === 'question' && section === 2 && (
+        {phase === 'question' && section === 2 && stories[s2StoryIndex] && (
           <StoryComprehension
-            key={story.id}
-            story={story}
-            questionNumber={storyQIndex + 1}
+            key={stories[s2StoryIndex].id}
+            story={stories[s2StoryIndex]}
+            storyIndex={s2StoryIndex + 1}
+            totalStories={stories.length}
+            questionNumber={s2GlobalIndex + 1}
+            totalQuestions={effectiveCount}
             mode={mode}
-            isFirstQuestion={storyQIndex === 0}
+            isFirstQuestion={s2GlobalIndex === 0}
             onAnswer={(score) => handleStoryAnswer(score)}
           />
         )}
 
-        {phase === 'question' && section === 3 && (
+        {phase === 'question' && section === 3 && aptitudeQuestions[aptIndex] && (
           <MixedAptitude
             key={aptitudeQuestions[aptIndex].id}
             question={aptitudeQuestions[aptIndex]}
             questionNumber={aptIndex + 1}
-            totalQuestions={5}
+            totalQuestions={effectiveCount}
             onAnswer={(score) => handleAptitudeAnswer(score)}
           />
         )}
 
-        {phase === 'question' && section === 4 && (
+        {phase === 'question' && section === 4 && scenarios[s4Index] && (
           <ContentModeration
             key={scenarios[s4Index].id}
             scenario={scenarios[s4Index]}
             questionNumber={s4Index + 1}
+            totalQuestions={effectiveCount}
             onAnswer={(score) => handleModerationAnswer(score)}
           />
         )}
