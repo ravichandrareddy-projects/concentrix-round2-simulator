@@ -28,36 +28,26 @@ export default function ListenRepeat({ sentence, questionNumber, totalQuestions 
   const [playedCount, setPlayedCount] = useState(0);
   const [manualText, setManualText] = useState('');
   const [useManualInput, setUseManualInput] = useState(false);
-  const [speechRate, setSpeechRate] = useState(0.85);
+  const speechRate = 1.0; // Strictly 1.0x playback with no setting in 1st session
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<{ wer: number; score: number; diff: ReturnType<typeof wordDiff>; finalInput: string } | null>(null);
-  const [speakingTimeLeft, setSpeakingTimeLeft] = useState(15);
-  const speakingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [speakingSeconds, setSpeakingSeconds] = useState(0);
 
   const autoRecordRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 15-second speaking benchmark timer (exam & rapid mode only; untimed in learning mode)
+  // Speaking timer: counts elapsed seconds without cutting off the user until they click submit
   useEffect(() => {
-    if (phase === 'recording' && !submitted && mode !== 'learning') {
-      setSpeakingTimeLeft(15);
-      speakingTimerRef.current = setInterval(() => {
-        setSpeakingTimeLeft((prev) => {
-          if (prev <= 1) {
-            if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
-            // Benchmark expired: trigger submission
-            setTimeout(() => handleSubmit(), 200);
-            return 0;
-          }
-          return prev - 1;
-        });
+    let timer: ReturnType<typeof setInterval> | null = null;
+    if (phase === 'recording' && !submitted) {
+      setSpeakingSeconds(0);
+      timer = setInterval(() => {
+        setSpeakingSeconds((prev) => prev + 1);
       }, 1000);
-    } else {
-      if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
     }
     return () => {
-      if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
+      if (timer) clearInterval(timer);
     };
-  }, [phase, submitted, mode]);
+  }, [phase, submitted]);
 
   // Auto-play sentence on initial load
   useEffect(() => {
@@ -140,26 +130,6 @@ export default function ListenRepeat({ sentence, questionNumber, totalQuestions 
           <h3 className="text-lg font-bold text-white">Question {questionNumber} of {totalQuestions}</h3>
         </div>
         <div className="flex items-center flex-wrap gap-2">
-          {/* Audio Speed Controls */}
-          <div className="flex items-center gap-1 text-xs bg-slate-800/90 px-2.5 py-1 rounded-full border border-slate-700">
-            <span className="text-slate-400 font-medium">Speed:</span>
-            {[0.75, 0.85, 1.0].map((rate) => (
-              <button
-                key={rate}
-                type="button"
-                onClick={() => setSpeechRate(rate)}
-                className={`px-2 py-0.5 rounded text-xs font-semibold transition-colors ${
-                  speechRate === rate
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-                title={rate === 0.75 ? 'Slower pacing for easier listening' : rate === 0.85 ? 'Recommended clear pacing' : 'Normal speed'}
-              >
-                {rate === 0.75 ? '0.75x Slow' : rate === 0.85 ? '0.85x Clear' : '1.0x'}
-              </button>
-            ))}
-          </div>
-
           <span className={`text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider ${
             sentence.difficulty === 'easy' ? 'bg-emerald-900/60 text-emerald-300 border border-emerald-700/50' :
             sentence.difficulty === 'medium' ? 'bg-amber-900/60 text-amber-300 border border-amber-700/50' :
@@ -244,34 +214,16 @@ export default function ListenRepeat({ sentence, questionNumber, totalQuestions 
                   <p className="text-slate-400 text-sm mt-1">Speak clearly at a natural conversational pace.</p>
                 </div>
 
-                {/* Speaking Practice Benchmark or Untimed Learning Badge */}
-                {mode === 'learning' ? (
-                  <div className="max-w-md mx-auto bg-emerald-950/40 p-3 rounded-xl border border-emerald-800/60 flex items-center justify-between text-xs font-semibold text-emerald-300">
-                    <span className="flex items-center gap-1.5">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" /> Untimed Learning Practice
-                    </span>
-                    <span className="text-emerald-400/90 font-normal">Take your time · Re-listen anytime</span>
-                  </div>
-                ) : (
-                  <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                    <div className="flex items-center justify-between text-xs font-semibold">
-                      <span className="text-slate-400">Speaking Benchmark (15s limit)</span>
-                      <span className={`font-mono font-bold ${
-                        speakingTimeLeft > 5 ? 'text-emerald-400' : speakingTimeLeft > 2 ? 'text-amber-400' : 'text-rose-400'
-                      }`}>
-                        {speakingTimeLeft}s remaining
-                      </span>
-                    </div>
-                    <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                      <div
-                        className={`h-full transition-all duration-1000 rounded-full ${
-                          speakingTimeLeft > 5 ? 'bg-emerald-500' : speakingTimeLeft > 2 ? 'bg-amber-500' : 'bg-rose-500'
-                        }`}
-                        style={{ width: `${(speakingTimeLeft / 15) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                )}
+                {/* Speaking Status Banner - No premature cutoff */}
+                <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+                  <span className="text-slate-300 font-medium flex items-center gap-2">
+                    <span className={`w-2.5 h-2.5 rounded-full ${recState === 'listening' ? 'bg-rose-500 animate-ping' : 'bg-slate-500'}`}></span>
+                    {recState === 'listening' ? 'Recording active · Speak at your own pace' : 'Microphone ready'}
+                  </span>
+                  <span className="font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded border border-emerald-800/80">
+                    {speakingSeconds}s elapsed
+                  </span>
+                </div>
 
                 {/* Live Speech Recognition Transcript Box */}
                 <div className="min-h-[70px] bg-slate-950 rounded-xl p-4 border border-slate-800 text-left">
@@ -332,8 +284,8 @@ export default function ListenRepeat({ sentence, questionNumber, totalQuestions 
 
                   <button
                     onClick={handleSubmit}
-                    disabled={!transcript && recState === 'listening'}
-                    className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-600 text-white px-8 py-2.5 rounded-xl font-semibold transition-all shadow-lg hover:shadow-blue-500/20"
+                    disabled={submitted}
+                    className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-600 text-white px-8 py-2.5 rounded-xl font-semibold transition-all shadow-lg hover:shadow-blue-500/20 cursor-pointer"
                   >
                     Submit Response →
                   </button>
@@ -488,43 +440,27 @@ export default function ListenRepeat({ sentence, questionNumber, totalQuestions 
         )}
       </div>
 
-      {/* Voice & Rate Controls (Visible in Learning Mode) */}
-      {mode === 'learning' && (
+      {/* Voice Controls (Visible in Learning Mode when multiple voices exist) */}
+      {mode === 'learning' && voices.length > 0 && (
         <div className="bg-slate-900 rounded-xl p-4 border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2 text-slate-400">
-            <span>Speech Speed:</span>
-            {[0.8, 1.0, 1.2].map(rate => (
-              <button
-                key={rate}
-                onClick={() => setSpeechRate(rate)}
-                className={`px-2.5 py-1 rounded font-medium ${
-                  speechRate === rate ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                }`}
-              >
-                {rate}x
-              </button>
-            ))}
+            <span>Voice Selection:</span>
+            <select
+              value={selectedVoice?.name || ''}
+              onChange={(e) => {
+                const v = voices.find(v => v.name === e.target.value);
+                if (v) setSelectedVoice(v);
+              }}
+              className="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2.5 py-1 max-w-[240px] truncate"
+            >
+              {voices.map(v => (
+                <option key={v.name} value={v.name}>
+                  {v.name}
+                </option>
+              ))}
+            </select>
           </div>
-
-          {voices.length > 0 && (
-            <div className="flex items-center gap-2 text-slate-400">
-              <span>Voice:</span>
-              <select
-                value={selectedVoice?.name || ''}
-                onChange={(e) => {
-                  const v = voices.find(v => v.name === e.target.value);
-                  if (v) setSelectedVoice(v);
-                }}
-                className="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2 py-1 max-w-[200px] truncate"
-              >
-                {voices.map(v => (
-                  <option key={v.name} value={v.name}>
-                    {v.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
+          <span className="text-slate-500 italic">Session 1 audio speed fixed at standard 1.0x</span>
         </div>
       )}
     </div>

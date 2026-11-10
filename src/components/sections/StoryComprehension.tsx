@@ -248,14 +248,35 @@ export default function StoryComprehension({
             Story Question {questionNumber} of {totalQuestions}
           </h3>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
+          {mode === 'learning' && (
+            <div className="flex items-center gap-1 text-xs bg-slate-800/90 px-2.5 py-1 rounded-full border border-slate-700">
+              <span className="text-slate-400 font-medium">Speed:</span>
+              {[0.75, 0.85, 1.0].map((rate) => (
+                <button
+                  key={rate}
+                  type="button"
+                  onClick={() => setSpeechSpeed(rate)}
+                  className={`px-2 py-0.5 rounded text-xs font-semibold transition-colors cursor-pointer ${
+                    speechSpeed === rate
+                      ? 'bg-purple-600 text-white shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                  title={`${rate}x audio speed`}
+                >
+                  {rate}x
+                </button>
+              ))}
+            </div>
+          )}
+
           {mode === 'learning' && (
             <button
               onClick={handleReplayStory}
               disabled={speaking}
               className="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 border border-purple-800 px-3 py-1.5 rounded-full flex items-center gap-1.5 font-medium transition-colors cursor-pointer"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${speaking ? 'animate-spin' : ''}`} /> Replay Story Audio
+              <RefreshCw className={`w-3.5 h-3.5 ${speaking ? 'animate-spin' : ''}`} /> Replay Story ({speechSpeed}x)
             </button>
           )}
           <span className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium border border-slate-700">
