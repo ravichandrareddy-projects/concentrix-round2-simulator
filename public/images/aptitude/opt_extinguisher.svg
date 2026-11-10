@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(55, 25)">
+    <!-- Cylinder -->
+    <rect x="25" y="40" width="40" height="85" rx="16" fill="#dc2626" stroke="#fca5a5" stroke-width="2"/>
+    <!-- Valve & handle -->
+    <rect x="37" y="28" width="16" height="12" fill="#475569"/>
+    <path d="M 30 25 L 60 25 M 35 25 L 35 15 L 55 15" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+    <!-- Hose & nozzle -->
+    <path d="M 50 35 Q 80 50 75 90" fill="none" stroke="#1e293b" stroke-width="4"/>
+    <rect x="68" y="90" width="14" height="20" rx="2" fill="#18181b"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">CO2 Fire Extinguisher</text>
+</svg>

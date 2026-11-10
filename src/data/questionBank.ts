@@ -30,10 +30,14 @@ export interface StoryItem {
 export interface AptitudeQuestion {
   id: string;
   category: 'data-interpretation' | 'image-reasoning' | 'non-verbal-reasoning' | 'numerical-aptitude' | 'logical-reasoning';
-  type?: 'chart-pie' | 'chart-bar' | 'table' | 'nested-squares' | 'geometric-pattern' | 'none';
+  type?: 'chart-pie' | 'chart-bar' | 'table' | 'nested-squares' | 'geometric-pattern' | 'shl-dual-pie' | 'shl-ppe-match' | 'shl-odd-one-out' | 'none';
+  passageTitle?: string;
+  passageText?: string;
+  chartImage?: string;
   chartData?: any;
   tableData?: any;
   patternData?: any;
+  optionImages?: string[];
   question: string;
   options: string[];
   correct: number;
@@ -3576,2080 +3580,1723 @@ export const STORIES: StoryItem[] = [
 
 export const APTITUDE_QUESTIONS: AptitudeQuestion[] = [
   {
-    "id": "apt1",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "chartData": {
-      "title": "Annual Company Expenditure Breakdown ($2,000,000 Total)",
-      "slices": [
-        {
-          "label": "Marketing",
-          "pct": 30,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Human Resources",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "Research & Dev",
-          "pct": 20,
-          "color": "#8b5cf6"
-        },
-        {
-          "label": "Operations",
-          "pct": 15,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "IT Infrastructure",
-          "pct": 10,
-          "color": "#ef4444"
-        }
-      ]
-    },
-    "question": "Based on the pie chart above, what is the combined annual expenditure allocated to Marketing and IT Infrastructure?",
-    "options": [
-      "$600,000",
-      "$800,000",
-      "$700,000",
-      "$900,000"
-    ],
-    "correct": 1,
-    "explanation": "Marketing is 30% and IT Infrastructure is 10%, giving a combined 40%. 40% of $2,000,000 = 0.40 \u00d7 2,000,000 = $800,000."
-  },
-  {
-    "id": "apt2",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "chartData": {
-      "title": "Regional Sales Distribution (500,000 Units Sold)",
-      "slices": [
-        {
-          "label": "North Region",
-          "pct": 35,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "South Region",
-          "pct": 25,
-          "color": "#14b8a6"
-        },
-        {
-          "label": "East Region",
-          "pct": 20,
-          "color": "#f97316"
-        },
-        {
-          "label": "West Region",
-          "pct": 20,
-          "color": "#a855f7"
-        }
-      ]
-    },
-    "question": "What is the ratio of units sold in the North Region compared to the East Region?",
-    "options": [
-      "5 : 3",
-      "7 : 4",
-      "3 : 2",
-      "7 : 5"
-    ],
-    "correct": 1,
-    "explanation": "North Region sold 35% and East Region sold 20%. The ratio is 35 : 20, which simplifies by dividing both terms by 5 to 7 : 4."
-  },
-  {
-    "id": "apt3",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "chartData": {
-      "title": "Corporate Headcount by Department (1,200 Employees Total)",
-      "slices": [
-        {
-          "label": "Customer Support",
-          "pct": 45,
-          "color": "#2563eb"
-        },
-        {
-          "label": "Technical Engineering",
-          "pct": 25,
-          "color": "#059669"
-        },
-        {
-          "label": "Sales & Accounts",
-          "pct": 15,
-          "color": "#d97706"
-        },
-        {
-          "label": "Administration & HR",
-          "pct": 15,
-          "color": "#9333ea"
-        }
-      ]
-    },
-    "question": "How many more employees work in Customer Support than in Technical Engineering?",
-    "options": [
-      "180 employees",
-      "240 employees",
-      "200 employees",
-      "300 employees"
-    ],
-    "correct": 1,
-    "explanation": "Customer Support has 45% of 1,200 = 540 employees. Technical Engineering has 25% of 1,200 = 300 employees. Difference = 540 - 300 = 240 employees."
-  },
-  {
-    "id": "apt4",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "chartData": {
-      "title": "Customer Support Calls Handled per Weekday",
-      "bars": [
-        {
-          "label": "Mon",
-          "value": 140,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Tue",
-          "value": 180,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Wed",
-          "value": 220,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Thu",
-          "value": 160,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Fri",
-          "value": 200,
-          "color": "#3b82f6"
-        }
-      ]
-    },
-    "question": "What is the average number of customer support calls handled per day from Monday to Friday?",
-    "options": [
-      "170 calls",
-      "180 calls",
-      "185 calls",
-      "190 calls"
-    ],
-    "correct": 1,
-    "explanation": "Total calls = 140 + 180 + 220 + 160 + 200 = 900. Average = 900 / 5 = 180 calls per day."
-  },
-  {
-    "id": "apt5",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "chartData": {
-      "title": "Quarterly Revenue Comparison: Branch A vs Branch B ($ in thousands)",
-      "bars": [
-        {
-          "label": "Q1 (A: 50, B: 60)",
-          "value": 110,
-          "color": "#6366f1"
-        },
-        {
-          "label": "Q2 (A: 70, B: 65)",
-          "value": 135,
-          "color": "#6366f1"
-        },
-        {
-          "label": "Q3 (A: 80, B: 75)",
-          "value": 155,
-          "color": "#6366f1"
-        },
-        {
-          "label": "Q4 (A: 100, B: 80)",
-          "value": 180,
-          "color": "#6366f1"
-        }
-      ]
-    },
-    "question": "What is the total annual revenue achieved by Branch A across all four quarters?",
-    "options": [
-      "$280,000",
-      "$300,000",
-      "$320,000",
-      "$350,000"
-    ],
-    "correct": 1,
-    "explanation": "Branch A generated: Q1 = $50k, Q2 = $70k, Q3 = $80k, Q4 = $100k. Total = 50 + 70 + 80 + 100 = $300k ($300,000)."
-  },
-  {
-    "id": "apt6",
-    "category": "data-interpretation",
-    "type": "table",
+    "id": "shl1",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
     "tableData": {
+      "title": "Workplace Safety & First Aid Protocol \u2013 Fungicide Handling",
       "headers": [
-        "Department",
-        "Tickets Received",
-        "Resolved on First Call",
-        "Escalated"
+        "Substance Code",
+        "Target Organ Hazard",
+        "Exposure Route",
+        "Mandatory Protective Equipment"
       ],
       "rows": [
         [
-          "Hardware Support",
-          "400",
-          "280",
-          "120"
+          "Fungicide A",
+          "Dermal chemical burn",
+          "Direct skin contact",
+          "Chemical-resistant waterproof rubber gloves"
         ],
         [
-          "Software Billing",
-          "600",
-          "480",
-          "120"
+          "Fungicide B",
+          "Airborne aerosol mist",
+          "Inhalation route",
+          "Particulate vapor respirator mask"
         ],
         [
-          "Account Access",
-          "500",
-          "425",
-          "75"
+          "Fungicide C",
+          "Liquid splash irritation",
+          "Direct ocular contact",
+          "Polycarbonate safety goggles"
         ],
         [
-          "Network Operations",
-          "300",
-          "210",
-          "90"
+          "Fungicide D",
+          "Overhead orchard drift",
+          "Impact and falling branches",
+          "Hard shell construction helmet"
         ]
       ]
     },
-    "question": "Which department achieved the highest First-Call Resolution percentage rate?",
+    "question": "The given table shows the safety measures and the first aid steps that should be taken when using various fungicides. Identify the personal protective equipment that should be worn when using Fungicide A.",
     "options": [
-      "Hardware Support",
-      "Software Billing",
-      "Account Access",
-      "Network Operations"
+      "Chemical-Resistant Rubber Gloves",
+      "Safety Hard Hat Helmet",
+      "Protective Safety Goggles",
+      "Respirator Dust Mask"
     ],
-    "correct": 2,
-    "explanation": "FCR rates: Hardware = 280/400 = 70%. Software = 480/600 = 80%. Account Access = 425/500 = 85%. Network = 210/300 = 70%. Account Access has the highest rate at 85%."
+    "optionImages": [
+      "/images/aptitude/opt_gloves.svg",
+      "/images/aptitude/opt_helmet.svg",
+      "/images/aptitude/opt_goggles.svg",
+      "/images/aptitude/opt_mask.svg"
+    ],
+    "correct": 0,
+    "explanation": "According to the safety table, Fungicide A presents a severe dermal burn hazard via direct skin contact. The mandatory protective equipment is chemical-resistant waterproof rubber gloves."
   },
   {
-    "id": "apt7",
-    "category": "data-interpretation",
-    "type": "table",
+    "id": "shl2",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
     "tableData": {
+      "title": "Workplace Safety & First Aid Protocol \u2013 Fungicide Handling",
       "headers": [
-        "Product Line",
-        "Manufacturing Cost ($)",
-        "Selling Price ($)",
-        "Units Sold"
+        "Substance Code",
+        "Target Organ Hazard",
+        "Exposure Route",
+        "Mandatory Protective Equipment"
       ],
       "rows": [
         [
-          "Model Alpha",
-          "40",
-          "60",
-          "500"
+          "Fungicide A",
+          "Dermal chemical burn",
+          "Direct skin contact",
+          "Chemical-resistant waterproof rubber gloves"
         ],
         [
-          "Model Beta",
-          "75",
-          "100",
-          "300"
+          "Fungicide B",
+          "Airborne aerosol mist",
+          "Inhalation route",
+          "Particulate vapor respirator mask"
         ],
         [
-          "Model Gamma",
-          "120",
-          "180",
-          "200"
+          "Fungicide C",
+          "Liquid splash irritation",
+          "Direct ocular contact",
+          "Polycarbonate safety goggles"
         ],
         [
-          "Model Delta",
-          "200",
-          "260",
-          "150"
+          "Fungicide D",
+          "Overhead orchard drift",
+          "Impact and falling branches",
+          "Hard shell construction helmet"
         ]
       ]
     },
-    "question": "What is the total net profit earned from sales of Model Gamma?",
+    "question": "Refer to the fungicide handling safety table. Which personal protective equipment is required when spraying Fungicide B to prevent respiratory inhalation of toxic vapors?",
     "options": [
-      "$10,000",
-      "$12,000",
-      "$14,000",
-      "$16,000"
+      "Industrial Construction Helmet",
+      "Particulate Vapor Respirator Mask",
+      "Chemical-Resistant Rubber Gloves",
+      "Steel-Toed Safety Boots"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_helmet.svg",
+      "/images/aptitude/opt_mask.svg",
+      "/images/aptitude/opt_gloves.svg",
+      "/images/aptitude/opt_boots.svg"
     ],
     "correct": 1,
-    "explanation": "Profit per unit for Model Gamma = $180 - $120 = $60. Total profit for 200 units = 200 \u00d7 $60 = $12,000."
+    "explanation": "Fungicide B poses an airborne aerosol mist inhalation hazard. As stated in the table, a particulate vapor respirator mask must be worn."
   },
   {
-    "id": "apt8",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "chartData": {
-      "title": "Website Traffic Sources (100,000 Monthly Visitors)",
-      "slices": [
-        {
-          "label": "Organic Search",
-          "pct": 40,
-          "color": "#10b981"
-        },
-        {
-          "label": "Direct URL",
-          "pct": 25,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Social Media",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Email Campaigns",
-          "pct": 10,
-          "color": "#8b5cf6"
-        },
-        {
-          "label": "Referrals",
-          "pct": 5,
-          "color": "#ec4899"
-        }
-      ]
-    },
-    "question": "How many monthly visitors reached the website through Social Media and Referrals combined?",
-    "options": [
-      "20,000",
-      "22,500",
-      "25,000",
-      "30,000"
-    ],
-    "correct": 2,
-    "explanation": "Social Media (20%) + Referrals (5%) = 25%. 25% of 100,000 visitors = 25,000 visitors."
-  },
-  {
-    "id": "apt9",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "chartData": {
-      "title": "Monthly Average Ticket Resolution Time (Minutes)",
-      "bars": [
-        {
-          "label": "Jan",
-          "value": 18,
-          "color": "#f43f5e"
-        },
-        {
-          "label": "Feb",
-          "value": 16,
-          "color": "#fb7185"
-        },
-        {
-          "label": "Mar",
-          "value": 15,
-          "color": "#f43f5e"
-        },
-        {
-          "label": "Apr",
-          "value": 12,
-          "color": "#10b981"
-        },
-        {
-          "label": "May",
-          "value": 10,
-          "color": "#059669"
-        }
-      ]
-    },
-    "question": "By what percentage did the average resolution time decrease from January to May?",
-    "options": [
-      "40.0%",
-      "44.4%",
-      "50.0%",
-      "33.3%"
-    ],
-    "correct": 1,
-    "explanation": "Decrease = 18 - 10 = 8 minutes. Percentage decrease = (8 / 18) \u00d7 100% \u2248 44.4%."
-  },
-  {
-    "id": "apt10",
-    "category": "data-interpretation",
-    "type": "table",
+    "id": "shl3",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
     "tableData": {
+      "title": "Workplace Safety & First Aid Protocol \u2013 Fungicide Handling",
       "headers": [
-        "Representative",
-        "Calls Handled",
-        "Customer CSAT Score (/5)",
-        "Avg Handle Time (s)"
+        "Substance Code",
+        "Target Organ Hazard",
+        "Exposure Route",
+        "Mandatory Protective Equipment"
       ],
       "rows": [
         [
-          "Agent Priya",
-          "85",
-          "4.8",
-          "240"
+          "Fungicide A",
+          "Dermal chemical burn",
+          "Direct skin contact",
+          "Chemical-resistant waterproof rubber gloves"
         ],
         [
-          "Agent Rahul",
-          "95",
-          "4.2",
-          "210"
+          "Fungicide B",
+          "Airborne aerosol mist",
+          "Inhalation route",
+          "Particulate vapor respirator mask"
         ],
         [
-          "Agent Ananya",
-          "90",
-          "4.9",
-          "230"
+          "Fungicide C",
+          "Liquid splash irritation",
+          "Direct ocular contact",
+          "Polycarbonate safety goggles"
         ],
         [
-          "Agent David",
-          "75",
-          "4.7",
-          "260"
+          "Fungicide D",
+          "Overhead orchard drift",
+          "Impact and falling branches",
+          "Hard shell construction helmet"
         ]
       ]
     },
-    "question": "Which agent achieved the highest overall Customer Satisfaction (CSAT) score?",
+    "question": "A worker is transferring concentrated liquid Fungicide C between storage containers. Which item of protective gear is vital to guard against high-pressure chemical splashes?",
     "options": [
-      "Agent Priya",
-      "Agent Rahul",
-      "Agent Ananya",
-      "Agent David"
+      "Protective Safety Goggles",
+      "Reflective Safety Vest",
+      "Digital Multimeter",
+      "RJ-45 Crimping Tool"
     ],
-    "correct": 2,
-    "explanation": "Agent Ananya achieved the highest CSAT score at 4.9 out of 5."
+    "optionImages": [
+      "/images/aptitude/opt_goggles.svg",
+      "/images/aptitude/opt_vest.svg",
+      "/images/aptitude/opt_multimeter.svg",
+      "/images/aptitude/opt_crimper.svg"
+    ],
+    "correct": 0,
+    "explanation": "Liquid Fungicide C causes severe ocular irritation upon splash contact. Polycarbonate safety goggles must be worn to seal and protect the eyes."
   },
   {
-    "id": "apt11",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "patternData": {
-      "rule": "Concentric nested squares with alternating corner shading (Top-Left -> Top-Right -> Bottom-Right -> ?)",
-      "stage": 4
+    "id": "shl4",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Manufacturing Facility Noise Control Guidelines (OSHA 1910.95)",
+      "headers": [
+        "Operational Area",
+        "Continuous Sound Level",
+        "Permissible Exposure Time",
+        "Mandatory Hearing Protection"
+      ],
+      "rows": [
+        [
+          "Packaging Bay A",
+          "78 dB(A)",
+          "8 hours (standard)",
+          "None required"
+        ],
+        [
+          "Stamping Press Area",
+          "98 dB(A)",
+          "Less than 45 minutes",
+          "Industrial Acoustic Ear Defenders / Muffs"
+        ],
+        [
+          "Office Dispatch",
+          "65 dB(A)",
+          "Unlimited",
+          "None required"
+        ],
+        [
+          "Assembly Bench",
+          "72 dB(A)",
+          "8 hours",
+          "Optional ear plugs"
+        ]
+      ]
     },
-    "question": "In the concentric nested square sequence, following the clockwise shading rotation (Top-Left -> Top-Right -> Bottom-Right), which position must be shaded in the 4th square?",
+    "question": "Based on the noise control guidelines, identify the personal protective equipment required for an operator entering the Stamping Press Area where noise levels exceed 95 dB(A).",
     "options": [
-      "Top-Left Corner",
-      "Top-Right Corner",
-      "Bottom-Left Corner",
-      "Center Inner Square"
+      "Digital Multimeter",
+      "Industrial Acoustic Ear Defenders",
+      "Chemical-Resistant Rubber Gloves",
+      "High-Visibility Safety Vest"
     ],
-    "correct": 2,
-    "explanation": "The shaded quadrant rotates 90 degrees clockwise in each step: Step 1 = Top-Left, Step 2 = Top-Right, Step 3 = Bottom-Right, Step 4 = Bottom-Left."
+    "optionImages": [
+      "/images/aptitude/opt_multimeter.svg",
+      "/images/aptitude/opt_earmuffs.svg",
+      "/images/aptitude/opt_gloves.svg",
+      "/images/aptitude/opt_vest.svg"
+    ],
+    "correct": 1,
+    "explanation": "The Stamping Press Area operates at 98 dB(A), exceeding safe continuous limits. Industrial acoustic ear defenders (ear muffs) are strictly mandatory."
   },
   {
-    "id": "apt12",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "patternData": {
-      "rule": "Nested squares with line count incrementing: Square 1 has 1 internal square, Square 2 has 2, Square 3 has 3...",
-      "stage": 4
+    "id": "shl5",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Logistics & Warehouse Loading Dock Safety Code",
+      "headers": [
+        "Job Role",
+        "Primary Physical Risk",
+        "Safety Regulation Code",
+        "Mandatory Footwear Standard"
+      ],
+      "rows": [
+        [
+          "Forklift Marshaller",
+          "Falling heavy pallets / crush injury",
+          "EN ISO 20345 S3",
+          "Steel-Toed Puncture-Resistant Boots"
+        ],
+        [
+          "Inventory Clerk",
+          "Slip on dry concrete",
+          "EN ISO 20347",
+          "Anti-slip soft sole shoes"
+        ],
+        [
+          "Customer Desk",
+          "Minimal mechanical risk",
+          "General standard",
+          "Standard closed-toe shoes"
+        ]
+      ]
     },
-    "question": "A nested square figure contains 1 internal square in figure 1, 2 in figure 2, and 3 in figure 3. How many total bounding square boundaries exist in figure 4?",
+    "question": "A loading dock technician handles heavy freight and container pallets subject to accidental drop hazards. Identify the required protective footwear.",
     "options": [
-      "3 squares",
-      "4 squares",
-      "5 squares",
-      "6 squares"
+      "Particulate Dust Mask",
+      "Steel-Toed Safety Boots",
+      "Safety Hard Hat Helmet",
+      "Protective Safety Goggles"
     ],
-    "correct": 2,
-    "explanation": "Each figure includes the outer bounding square plus its internal nested squares. Figure 4 has 1 outer square + 4 internal nested squares = 5 total squares."
+    "optionImages": [
+      "/images/aptitude/opt_mask.svg",
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_helmet.svg",
+      "/images/aptitude/opt_goggles.svg"
+    ],
+    "correct": 1,
+    "explanation": "Forklift and loading dock operations require steel-toed puncture-resistant boots (EN ISO 20345) to protect feet against heavy crushing impacts."
   },
   {
-    "id": "apt13",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Identify the next geometric shape in the sequence: Triangle (3 sides), Square (4 sides), Pentagon (5 sides), Hexagon (6 sides), ...?",
-    "options": [
-      "Heptagon (7 sides)",
-      "Octagon (8 sides)",
-      "Nonagon (9 sides)",
-      "Decagon (10 sides)"
-    ],
-    "correct": 0,
-    "explanation": "The number of sides increases by 1 each step: 3, 4, 5, 6, so the next polygon has 7 sides (Heptagon)."
-  },
-  {
-    "id": "apt14",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "A solid dark circle is reflected horizontally across a vertical mirror line, then rotated 180 degrees. What is the net orientation transformation?",
-    "options": [
-      "Vertical reflection only",
-      "Horizontal reflection only",
-      "180 degree rotation only",
-      "Original unchanged position"
-    ],
-    "correct": 0,
-    "explanation": "A horizontal reflection followed by a 180-degree rotation is geometrically equivalent to a vertical reflection (reflection across the horizontal axis)."
-  },
-  {
-    "id": "apt15",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "patternData": {
-      "rule": "Nested squares with alternating diagonal lines from top-left to bottom-right and top-right to bottom-left.",
-      "stage": 3
+    "id": "shl6",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Ramp Operations & Night Airside Traffic Protocol",
+      "headers": [
+        "Work Environment",
+        "Visibility Condition",
+        "Vehicle Hazard Level",
+        "Mandatory Personal Protective Equipment"
+      ],
+      "rows": [
+        [
+          "Night Apron Marshalling",
+          "Low light / high moving machinery",
+          "Extreme",
+          "Fluorescent High-Visibility Vest with Retroreflective Bands"
+        ],
+        [
+          "Terminal Baggage Office",
+          "Well lit interior",
+          "Low",
+          "Standard uniform"
+        ],
+        [
+          "Fuel Storage Depot",
+          "Vapor risk area",
+          "Medium",
+          "Anti-static flame retardant overalls"
+        ]
+      ]
     },
-    "question": "Square 1 has diagonal line \\ (top-left to bottom-right). Square 2 has diagonal line / (bottom-left to top-right). Square 3 has both diagonals X. What should Square 4 contain to complete the sequence of removing the first diagonal?",
+    "question": "Identify the protective apparel required for ramp workers operating at night around moving forklifts and baggage tractors to ensure 360-degree visibility.",
     "options": [
-      "Diagonal \\",
-      "Diagonal /",
-      "No diagonals",
-      "A central dot"
+      "Fluorescent High-Visibility Safety Vest",
+      "Anti-Static Wrist Strap",
+      "CO2 Fire Extinguisher",
+      "Chemical PVC Apron"
     ],
-    "correct": 1,
-    "explanation": "Pattern progression: [Line 1], [Line 2], [Line 1 + Line 2], [Line 2 remaining]."
+    "optionImages": [
+      "/images/aptitude/opt_vest.svg",
+      "/images/aptitude/opt_antistatic.svg",
+      "/images/aptitude/opt_extinguisher.svg",
+      "/images/aptitude/opt_apron.svg"
+    ],
+    "correct": 0,
+    "explanation": "Fluorescent high-visibility vests with retroreflective stripes are legally required in low-light airside and traffic environments to prevent vehicular strikes."
   },
   {
-    "id": "apt16",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape is the odd one out among the following: Circle, Ellipse, Sphere, Parabola?",
-    "options": [
-      "Circle",
-      "Ellipse",
-      "Sphere",
-      "Parabola"
-    ],
-    "correct": 2,
-    "explanation": "Sphere is a three-dimensional (3D) solid geometric object, whereas Circle, Ellipse, and Parabola are two-dimensional (2D) planar curves."
-  },
-  {
-    "id": "apt17",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "A clock hand points at 12:00. If it rotates 135 degrees clockwise, where will it point on the clock face?",
-    "options": [
-      "Between 3 and 4",
-      "Between 4 and 5",
-      "Exactly at 5",
-      "Between 5 and 6"
-    ],
-    "correct": 1,
-    "explanation": "Each hour on a clock face represents 360 / 12 = 30 degrees. 135 degrees / 30 = 4.5 hours, so the hand points at 4:30 (between 4 and 5)."
-  },
-  {
-    "id": "apt18",
+    "id": "shl7",
     "category": "image-reasoning",
-    "question": "Which tool is primarily utilized by IT network engineers to terminate twisted-pair copper cables into RJ-45 modular connectors?",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Structured Cabling & Server Rack Maintenance Guide",
+      "headers": [
+        "Task Description",
+        "Cable Category",
+        "Connector Type",
+        "Required Termination Hand Tool"
+      ],
+      "rows": [
+        [
+          "LAN Patch Cord Assembly",
+          "Cat 6 / Cat 6A UTP",
+          "Modular RJ-45 (8P8C)",
+          "Ratchet RJ-45 Modular Crimping Tool"
+        ],
+        [
+          "Fiber Backbone Jointing",
+          "Single Mode 9/125",
+          "LC / SC Ceramic",
+          "Fusion Splicer with Precision Cleaver"
+        ],
+        [
+          "Coaxial Feed Feedline",
+          "RG-6 75 Ohm",
+          "BNC Compression",
+          "Coax Hex Compression Tool"
+        ]
+      ]
+    },
+    "question": "A network field technician needs to terminate unshielded twisted pair Cat 6 cables into 8P8C modular connectors. Identify the correct specialist tool.",
     "options": [
-      "Soldering Iron",
-      "RJ-45 Crimping Tool",
-      "Wire Stripper Plier",
-      "Oscilloscope Probe"
+      "RJ-45 Modular Crimping Tool",
+      "VDE Insulated Screwdriver",
+      "Temperature-Controlled Soldering Iron",
+      "Digital Multimeter"
     ],
-    "correct": 1,
-    "explanation": "An RJ-45 modular crimping tool mechanically compresses the contact pins into individual cable wire conductors."
+    "optionImages": [
+      "/images/aptitude/opt_crimper.svg",
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_soldering.svg",
+      "/images/aptitude/opt_multimeter.svg"
+    ],
+    "correct": 0,
+    "explanation": "Terminating Category 6 copper network cables into 8P8C modular plugs requires an RJ-45 ratchet modular crimping tool."
   },
   {
-    "id": "apt19",
+    "id": "shl8",
     "category": "image-reasoning",
-    "question": "In standard telecommunication and customer support operations, what is the primary acoustic purpose of a noise-canceling headset microphone?",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Data Center Electrical Distribution Panel Inspection",
+      "headers": [
+        "Inspection Step",
+        "Target Parameter",
+        "Safety Category",
+        "Required Diagnostic Instrument"
+      ],
+      "rows": [
+        [
+          "Step 1: Voltage Verification",
+          "AC Line-to-Neutral Voltage (230V)",
+          "CAT III 600V",
+          "True-RMS Digital Multimeter with Probes"
+        ],
+        [
+          "Step 2: Circuit Breaker Tightening",
+          "Lug torque tolerance (2.5 Nm)",
+          "Insulated 1000V",
+          "VDE Insulated Torque Screwdriver"
+        ],
+        [
+          "Step 3: Thermal Audit",
+          "Terminal busbar hotspot detection",
+          "Non-contact",
+          "Infrared Thermal Imaging Camera"
+        ]
+      ]
+    },
+    "question": "Before servicing an uninterruptible power supply (UPS) bypass panel, the technician must verify the presence of 230V AC line voltage. Identify the instrument required.",
     "options": [
-      "To amplify background keyboard typing",
-      "To eliminate ambient background room noise for the caller",
-      "To record audio directly to local flash storage",
-      "To translate foreign languages automatically"
+      "Digital Multimeter with Test Leads",
+      "Industrial Acoustic Ear Defenders",
+      "Multi-Gas Detector Alarm",
+      "Biohazard Sharps Bin"
     ],
-    "correct": 1,
-    "explanation": "Noise-canceling directional microphones attenuate ambient background room acoustic noise so callers hear the agent clearly."
+    "optionImages": [
+      "/images/aptitude/opt_multimeter.svg",
+      "/images/aptitude/opt_earmuffs.svg",
+      "/images/aptitude/opt_gasdetector.svg",
+      "/images/aptitude/opt_sharpsbox.svg"
+    ],
+    "correct": 0,
+    "explanation": "A digital multimeter with high-category insulated test probes is required to measure and verify AC line voltages safely."
   },
   {
-    "id": "apt20",
+    "id": "shl9",
     "category": "image-reasoning",
-    "question": "Select the item that maintains the same relational connection: 'Stethoscope is to Physician as Headset is to ...?'",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Facility Emergency Response \u2013 Fire Suppression Equipment",
+      "headers": [
+        "Fire Classification",
+        "Fuel / Hazard Source",
+        "Suppression Agent",
+        "Designated Extinguisher Type"
+      ],
+      "rows": [
+        [
+          "Class A",
+          "Wood, paper, packaging cartons",
+          "Water / AFFF foam",
+          "Water Mist Extinguisher"
+        ],
+        [
+          "Class B & C (Electrical)",
+          "Energized server racks, PDUs, telecom routers",
+          "Residue-free clean agent",
+          "Carbon Dioxide (CO2) Fire Extinguisher"
+        ],
+        [
+          "Class F / K",
+          "Commercial kitchen deep fryer oils",
+          "Potassium acetate wet chemical",
+          "Wet Chemical Extinguisher"
+        ]
+      ]
+    },
+    "question": "An electrical short-circuit triggers smoke inside an energized server cabinet. Which non-conductive, clean-agent extinguisher must be deployed?",
     "options": [
-      "Architect",
-      "Call Center Agent",
-      "Chef",
-      "Pilot"
+      "Carbon Dioxide (CO2) Fire Extinguisher",
+      "Steel-Toed Safety Boots",
+      "Chemical PVC Apron",
+      "Safety Hard Hat Helmet"
     ],
-    "correct": 1,
-    "explanation": "A stethoscope is the defining tool used by a physician; similarly, a headset is the essential operational communication equipment used by a call center agent."
+    "optionImages": [
+      "/images/aptitude/opt_extinguisher.svg",
+      "/images/aptitude/opt_boots.svg",
+      "/images/aptitude/opt_apron.svg",
+      "/images/aptitude/opt_helmet.svg"
+    ],
+    "correct": 0,
+    "explanation": "Class C electrical fires in energized data center equipment require CO2 extinguishers because carbon dioxide leaves zero residue and is electrically non-conductive."
   },
   {
-    "id": "apt21",
+    "id": "shl10",
     "category": "image-reasoning",
-    "question": "Which computer peripheral hardware device is strictly classified as an input device?",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Cleanroom Semiconductor & PCB Assembly Standards",
+      "headers": [
+        "Component Sensitivity",
+        "Damage Threshold",
+        "Risk Factor",
+        "Mandatory Electrostatic Discharge (ESD) Protection"
+      ],
+      "rows": [
+        [
+          "Class 1A MOSFETs",
+          "< 250 Volts ESD",
+          "Human static body charge",
+          "Anti-Static Grounding Wrist Strap (1 Megohm resistor)"
+        ],
+        [
+          "Passive Capacitors",
+          "> 2000 Volts",
+          "Low",
+          "Conductive bench mat only"
+        ],
+        [
+          "Bare Silicon Wafers",
+          "Sub-micron particulates",
+          "Skin flakes",
+          "Lint-free cleanroom hood & nitrilite gloves"
+        ]
+      ]
+    },
+    "question": "A hardware technician is installing ESD-sensitive RAM modules and processors into motherboard sockets. Which personal grounding device is mandatory?",
     "options": [
-      "Inkjet Color Printer",
-      "Flatbed Optical Scanner",
-      "Stereo Desktop Speakers",
-      "Computer LCD Monitor"
+      "Anti-Static Grounding Wrist Strap",
+      "Industrial Acoustic Ear Defenders",
+      "Fluorescent High-Visibility Vest",
+      "Particulate Dust Mask"
     ],
-    "correct": 1,
-    "explanation": "A flatbed optical scanner captures external paper images and sends digital data into the computer system (input device)."
+    "optionImages": [
+      "/images/aptitude/opt_antistatic.svg",
+      "/images/aptitude/opt_earmuffs.svg",
+      "/images/aptitude/opt_vest.svg",
+      "/images/aptitude/opt_mask.svg"
+    ],
+    "correct": 0,
+    "explanation": "An anti-static ESD grounding wrist strap safely drains human static electric charges to earth, preventing microscopic gate oxide blowout in semiconductors."
   },
   {
-    "id": "apt22",
+    "id": "shl11",
     "category": "image-reasoning",
-    "question": "Which safety icon represents mandatory ear hearing protection in an industrial data center server room?",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 11",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 11: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "Blue circle with white earmuffs",
-      "Yellow triangle with lightning bolt",
-      "Red circle with diagonal slash",
-      "Green square with first aid cross"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
+    ],
+    "correct": 3,
+    "explanation": "According to the safety protocol, option 4 matches the mandatory protective equipment specified for this industrial station."
+  },
+  {
+    "id": "shl12",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 12",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 12: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
+    "options": [
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
     ],
     "correct": 0,
-    "explanation": "Under ISO safety standards, mandatory personal protective equipment (PPE) requirements are designated by a circular blue background with a white symbol (earmuffs for hearing protection)."
+    "explanation": "According to the safety protocol, option 1 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt23",
-    "category": "numerical-aptitude",
-    "question": "A retail merchandise item priced at $80 is marked up by 25%, and subsequently sold with a 10% promotional discount. What is the final customer price?",
+    "id": "shl13",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 13",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 13: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "$88",
-      "$90",
-      "$92",
-      "$95"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
     ],
     "correct": 1,
-    "explanation": "Marked-up price = $80 \u00d7 1.25 = $100. Discounted price = $100 \u00d7 (1 - 0.10) = $100 \u00d7 0.90 = $90."
+    "explanation": "According to the safety protocol, option 2 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt24",
-    "category": "numerical-aptitude",
-    "question": "The ratio of male to female customer support agents in an operational department is 5 : 3. If there are 45 male agents, how many female agents are employed?",
+    "id": "shl14",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 14",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 14: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "24",
-      "27",
-      "30",
-      "36"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
     ],
-    "correct": 1,
-    "explanation": "Let 1 ratio unit = 45 / 5 = 9. Number of female agents = 3 \u00d7 9 = 27."
-  },
-  {
-    "id": "apt25",
-    "category": "numerical-aptitude",
-    "question": "An agent's average call quality score across five evaluated interactions is 78 points. If the sixth call receives a score of 90 points, what is the new average score?",
-    "options": [
-      "79 points",
-      "80 points",
-      "81 points",
-      "82 points"
-    ],
-    "correct": 1,
-    "explanation": "Sum of first 5 calls = 5 \u00d7 78 = 390. New sum = 390 + 90 = 480. New average across 6 calls = 480 / 6 = 80 points."
-  },
-  {
-    "id": "apt26",
-    "category": "numerical-aptitude",
-    "question": "Technician A can configure a network router in 12 minutes, while Technician B requires 6 minutes. Working collaboratively, how long will they take to configure one router?",
-    "options": [
-      "3 minutes",
-      "4 minutes",
-      "5 minutes",
-      "4.5 minutes"
-    ],
-    "correct": 1,
-    "explanation": "Combined rate per minute = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4. Time required = 1 / (1/4) = 4 minutes."
-  },
-  {
-    "id": "apt27",
-    "category": "numerical-aptitude",
-    "question": "Determine the next missing number in the mathematical progression: 3, 7, 15, 31, 63, ...?",
-    "options": [
-      "95",
-      "124",
-      "127",
-      "129"
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
     ],
     "correct": 2,
-    "explanation": "Each term follows the rule: next = (current \u00d7 2) + 1. 3\u00d72+1=7, 7\u00d72+1=15, 15\u00d72+1=31, 31\u00d72+1=63, 63\u00d72+1 = 127."
+    "explanation": "According to the safety protocol, option 3 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt28",
-    "category": "numerical-aptitude",
-    "question": "A merchant purchases a shipment of headsets for $1,200 and sells them for $1,500. What is the merchant's percentage profit on the cost price?",
+    "id": "shl15",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 15",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 15: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "20%",
-      "25%",
-      "30%",
-      "33.3%"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
+    ],
+    "correct": 3,
+    "explanation": "According to the safety protocol, option 4 matches the mandatory protective equipment specified for this industrial station."
+  },
+  {
+    "id": "shl16",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 16",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 16: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
+    "options": [
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
+    ],
+    "correct": 0,
+    "explanation": "According to the safety protocol, option 1 matches the mandatory protective equipment specified for this industrial station."
+  },
+  {
+    "id": "shl17",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 17",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 17: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
+    "options": [
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
     ],
     "correct": 1,
-    "explanation": "Profit = $1,500 - $1,200 = $300. Profit percentage = ($300 / $1,200) \u00d7 100% = 25%."
+    "explanation": "According to the safety protocol, option 2 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt29",
-    "category": "numerical-aptitude",
-    "question": "If 8 customer service agents can review 320 dispute cases in 4 hours, how many cases can 12 agents review in 5 hours at the same handling rate?",
+    "id": "shl18",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 18",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 18: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "480 cases",
-      "540 cases",
-      "600 cases",
-      "640 cases"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
     ],
     "correct": 2,
-    "explanation": "Cases per agent per hour = 320 / (8 \u00d7 4) = 320 / 32 = 10 cases/hr. For 12 agents working 5 hours: 12 \u00d7 5 \u00d7 10 = 600 cases."
+    "explanation": "According to the safety protocol, option 3 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt30",
-    "category": "numerical-aptitude",
-    "question": "What is 15% of 40% of 2,000?",
+    "id": "shl19",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 19",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 19: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "90",
-      "120",
-      "150",
-      "180"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
     ],
-    "correct": 1,
-    "explanation": "40% of 2,000 = 0.40 \u00d7 2,000 = 800. 15% of 800 = 0.15 \u00d7 800 = 120."
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
+    ],
+    "correct": 3,
+    "explanation": "According to the safety protocol, option 4 matches the mandatory protective equipment specified for this industrial station."
   },
   {
-    "id": "apt31",
-    "category": "numerical-aptitude",
-    "question": "A vehicle travels at an average speed of 60 km/h for the first 2 hours, and 90 km/h for the subsequent 3 hours. What is the vehicle's overall average speed?",
+    "id": "shl20",
+    "category": "image-reasoning",
+    "type": "shl-ppe-match",
+    "tableData": {
+      "title": "Industrial Workplace Standard Protocol 20",
+      "headers": [
+        "Work Station",
+        "Primary Risk Factor",
+        "Regulatory Reference",
+        "Designated Safe Equipment"
+      ],
+      "rows": [
+        [
+          "Electrical Sub-panel",
+          "1000V shock hazard",
+          "IEC 60900",
+          "VDE Insulated Screwdriver"
+        ],
+        [
+          "Metal Abrasive Grinding",
+          "High-velocity sparks / debris",
+          "ANSI Z87.1+",
+          "Polycarbonate Full Face Shield"
+        ],
+        [
+          "Sub-Zero Cold Storage",
+          "Hypothermia & frostbite (-25C)",
+          "EN 511 Level 3",
+          "Thermal Insulated Freezer Gloves"
+        ],
+        [
+          "Confined Space Sewer Vault",
+          "Toxic gas & oxygen depletion",
+          "OSHA 1910.146",
+          "Multi-Gas Detector Alarm Unit"
+        ]
+      ]
+    },
+    "question": "Workplace Task 20: Identify the mandatory equipment required for high-risk operations according to the safety compliance matrix.",
     "options": [
-      "72 km/h",
-      "75 km/h",
-      "78 km/h",
-      "80 km/h"
+      "VDE Insulated Screwdriver",
+      "Full Face Shield",
+      "Thermal Freezer Gloves",
+      "Multi-Gas Detector Alarm"
+    ],
+    "optionImages": [
+      "/images/aptitude/opt_screwdriver.svg",
+      "/images/aptitude/opt_faceshield.svg",
+      "/images/aptitude/opt_thermalgloves.svg",
+      "/images/aptitude/opt_gasdetector.svg"
+    ],
+    "correct": 0,
+    "explanation": "According to the safety protocol, option 1 matches the mandatory protective equipment specified for this industrial station."
+  },
+  {
+    "id": "odd1",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd1_a.svg",
+      "/images/aptitude/odd1_b.svg",
+      "/images/aptitude/odd1_c.svg",
+      "/images/aptitude/odd1_d.svg"
     ],
     "correct": 2,
-    "explanation": "Total distance = (60 \u00d7 2) + (90 \u00d7 3) = 120 + 270 = 390 km. Total time = 2 + 3 = 5 hours. Average speed = 390 / 5 = 78 km/h."
+    "explanation": "In Images A, B, and D, the inner rectangle is centered within the outer frame. In Image C, the inner rectangle is shifted down to touch the bottom boundary."
   },
   {
-    "id": "apt32",
-    "category": "numerical-aptitude",
-    "question": "Find the missing number in the sequence: 2, 6, 12, 20, 30, 42, ...?",
+    "id": "odd2",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "52",
-      "54",
-      "56",
-      "58"
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd2_a.svg",
+      "/images/aptitude/odd2_b.svg",
+      "/images/aptitude/odd2_c.svg",
+      "/images/aptitude/odd2_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and C, there are exactly 2 concentric square boundaries. Image D contains 3 nested square frames."
+  },
+  {
+    "id": "odd3",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd3_a.svg",
+      "/images/aptitude/odd3_b.svg",
+      "/images/aptitude/odd3_c.svg",
+      "/images/aptitude/odd3_d.svg"
     ],
     "correct": 2,
-    "explanation": "The differences between consecutive terms increase by 2: +4, +6, +8, +10, +12. Next difference = +14. 42 + 14 = 56. (Also n\u00d7(n+1): 1\u00d72, 2\u00d73, 3\u00d74, 4\u00d75, 5\u00d76, 6\u00d77, 7\u00d78=56)."
+    "explanation": "In Images A, B, and D, the inner polygon is oriented as an upright square. In Image C, the inner shape is rotated 45 degrees into a diamond."
   },
   {
-    "id": "apt33",
-    "category": "logical-reasoning",
-    "question": "Identify the missing letter pair in the alphabetical series: AZ, BY, CX, DW, ...?",
+    "id": "odd4",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "ET",
-      "EV",
-      "FU",
-      "EX"
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
     ],
-    "correct": 1,
-    "explanation": "First letter moves forward: A, B, C, D, E. Second letter moves backward from Z: Z, Y, X, W, V. Result is EV."
-  },
-  {
-    "id": "apt34",
-    "category": "logical-reasoning",
-    "question": "If in a certain code language, 'CHAT' is written as 'DIBU', how will 'TEAM' be coded in that same system?",
-    "options": [
-      "UDBN",
-      "UFBN",
-      "VGBN",
-      "UEBN"
+    "optionImages": [
+      "/images/aptitude/odd4_a.svg",
+      "/images/aptitude/odd4_b.svg",
+      "/images/aptitude/odd4_c.svg",
+      "/images/aptitude/odd4_d.svg"
     ],
-    "correct": 1,
-    "explanation": "Each letter is shifted forward by +1: T -> U, E -> F, A -> B, M -> N. The result is UFBN."
+    "correct": 3,
+    "explanation": "In Images A, B, and C, the top-right quadrant is shaded. In Image D, the bottom-left quadrant is shaded instead."
   },
   {
-    "id": "apt35",
-    "category": "logical-reasoning",
-    "question": "Statement 1: All supervisors are leaders. Statement 2: Some leaders are managers. Conclusion: Which deduction is logically valid?",
+    "id": "odd5",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "All supervisors are managers.",
-      "All managers are leaders.",
-      "Some leaders are supervisors.",
-      "No managers are supervisors."
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd5_a.svg",
+      "/images/aptitude/odd5_b.svg",
+      "/images/aptitude/odd5_c.svg",
+      "/images/aptitude/odd5_d.svg"
     ],
     "correct": 2,
-    "explanation": "Since all supervisors are leaders, the set of supervisors is a subset of leaders. Therefore, it is guaranteed that some leaders are supervisors."
+    "explanation": "In Images A, B, and D, the diagonal slash runs from bottom-left to top-right (/). In Image C, it runs from top-left to bottom-right (\\)."
   },
   {
-    "id": "apt36",
-    "category": "logical-reasoning",
-    "question": "Pointing to a photograph, Marcus said: 'Her brother is the only son of my father.' How is the person in the photograph related to Marcus?",
+    "id": "odd6",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "His daughter",
-      "His sister",
-      "His mother",
-      "His niece"
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
     ],
-    "correct": 1,
-    "explanation": "'The only son of my father' is Marcus himself (assuming speaker is male). Since her brother is Marcus, the person in the photograph is Marcus's sister."
-  },
-  {
-    "id": "apt37",
-    "category": "logical-reasoning",
-    "question": "A person walks 10 meters North, turns right and walks 5 meters, turns right again and walks 10 meters. How far and in which direction is the person from the starting point?",
-    "options": [
-      "5 meters North",
-      "5 meters East",
-      "10 meters South",
-      "5 meters West"
+    "optionImages": [
+      "/images/aptitude/odd6_a.svg",
+      "/images/aptitude/odd6_b.svg",
+      "/images/aptitude/odd6_c.svg",
+      "/images/aptitude/odd6_d.svg"
     ],
-    "correct": 1,
-    "explanation": "Walking 10m North and later 10m South cancels the vertical displacement. The 5m East displacement remains. The person is 5 meters East of the origin."
+    "correct": 3,
+    "explanation": "In Images A, B, and C, the two focal dots are aligned along the horizontal center axis. In Image D, the dots are aligned along the vertical axis."
   },
   {
-    "id": "apt38",
-    "category": "logical-reasoning",
-    "question": "Which word does NOT belong with the others in the group: Keyboard, Mouse, Monitor, Touchpad?",
+    "id": "odd7",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "Keyboard",
-      "Mouse",
-      "Monitor",
-      "Touchpad"
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd7_a.svg",
+      "/images/aptitude/odd7_b.svg",
+      "/images/aptitude/odd7_c.svg",
+      "/images/aptitude/odd7_d.svg"
     ],
     "correct": 2,
-    "explanation": "Keyboard, Mouse, and Touchpad are input devices. Monitor is an output display device."
+    "explanation": "In Images A, B, and D, the arrows rotate successively in a clockwise direction. In Image C, the arrow points backwards (counter-clockwise)."
   },
   {
-    "id": "apt39",
-    "category": "logical-reasoning",
-    "question": "In a line of 30 employees, Sanjay is 12th from the front. What is Sanjay's position from the back of the line?",
-    "options": [
-      "18th",
-      "19th",
-      "20th",
-      "21st"
-    ],
-    "correct": 1,
-    "explanation": "Position from back = (Total count - Position from front) + 1 = (30 - 12) + 1 = 18 + 1 = 19th."
-  },
-  {
-    "id": "apt40",
-    "category": "logical-reasoning",
-    "question": "Find the missing term in the sequence: B2D, D4F, F6H, H8J, ...?",
-    "options": [
-      "J10K",
-      "J10L",
-      "K10L",
-      "J12L"
-    ],
-    "correct": 1,
-    "explanation": "First letter skips 1 (B, D, F, H, J). Number adds 2 (2, 4, 6, 8, 10). Last letter skips 1 (D, F, H, J, L). Result is J10L."
-  },
-  {
-    "id": "apt41",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
-    "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
-    ],
-    "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt42",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
-    "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt43",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt44",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt45",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
-  },
-  {
-    "id": "apt46",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
-    "options": [
-      "42 years",
-      "45 years",
-      "48 years",
-      "50 years"
-    ],
-    "correct": 1,
-    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
-  },
-  {
-    "id": "apt47",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
-    "options": [
-      "40 liters",
-      "60 liters",
-      "50 liters",
-      "30 liters"
-    ],
-    "correct": 1,
-    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
-  },
-  {
-    "id": "apt48",
+    "id": "odd8",
     "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
     "options": [
-      "A diamond (rhombus) touching the outer midpoints",
-      "A circle",
-      "A triangle",
-      "An octagon"
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd8_a.svg",
+      "/images/aptitude/odd8_b.svg",
+      "/images/aptitude/odd8_c.svg",
+      "/images/aptitude/odd8_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and C, tick marks appear on all 4 corners of the outer frame. Image D has tick marks on only 3 corners."
+  },
+  {
+    "id": "odd9",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd9_a.svg",
+      "/images/aptitude/odd9_b.svg",
+      "/images/aptitude/odd9_c.svg",
+      "/images/aptitude/odd9_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the inner circle is dead-centered. In Image C, the circle is offset to the lower-right corner."
+  },
+  {
+    "id": "odd10",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd10_a.svg",
+      "/images/aptitude/odd10_b.svg",
+      "/images/aptitude/odd10_c.svg",
+      "/images/aptitude/odd10_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and C, the outer border is solid and the inner border is dashed. In Image D, the outer border is dashed and the inner is solid."
+  },
+  {
+    "id": "odd11",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd11_a.svg",
+      "/images/aptitude/odd11_b.svg",
+      "/images/aptitude/odd11_c.svg",
+      "/images/aptitude/odd11_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the equilateral triangle points upwards. In Image C, the triangle points downwards."
+  },
+  {
+    "id": "odd12",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd12_a.svg",
+      "/images/aptitude/odd12_b.svg",
+      "/images/aptitude/odd12_c.svg",
+      "/images/aptitude/odd12_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and D, the crosshairs intersect precisely at the circle center. In Image D, the intersection is displaced towards the top edge."
+  },
+  {
+    "id": "odd13",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd13_a.svg",
+      "/images/aptitude/odd13_b.svg",
+      "/images/aptitude/odd13_c.svg",
+      "/images/aptitude/odd13_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the inner and outer shapes are true circular rings. In Image C, the inner shape is an elongated ellipse."
+  },
+  {
+    "id": "odd14",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd14_a.svg",
+      "/images/aptitude/odd14_b.svg",
+      "/images/aptitude/odd14_c.svg",
+      "/images/aptitude/odd14_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and D, semicircular notches are cut into both left and right edges. Image D has a notch on only one edge."
+  },
+  {
+    "id": "odd15",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd15_a.svg",
+      "/images/aptitude/odd15_b.svg",
+      "/images/aptitude/odd15_c.svg",
+      "/images/aptitude/odd15_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, both outer and inner triangles point upwards in parallel. In Image C, the inner triangle is inverted."
+  },
+  {
+    "id": "odd16",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd16_a.svg",
+      "/images/aptitude/odd16_b.svg",
+      "/images/aptitude/odd16_c.svg",
+      "/images/aptitude/odd16_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and C, the 3x3 dot matrix has its central center dot missing. In Image D, the top-left corner dot is missing."
+  },
+  {
+    "id": "odd17",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd17_a.svg",
+      "/images/aptitude/odd17_b.svg",
+      "/images/aptitude/odd17_c.svg",
+      "/images/aptitude/odd17_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the two horizontal lines are strictly parallel. In Image C, the lines converge at an angle."
+  },
+  {
+    "id": "odd18",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd18_a.svg",
+      "/images/aptitude/odd18_b.svg",
+      "/images/aptitude/odd18_c.svg",
+      "/images/aptitude/odd18_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and D, the outer border has heavy stroke weight and the inner has light weight. In Image D, the stroke weights are inverted."
+  },
+  {
+    "id": "odd19",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd19_a.svg",
+      "/images/aptitude/odd19_b.svg",
+      "/images/aptitude/odd19_c.svg",
+      "/images/aptitude/odd19_d.svg"
+    ],
+    "correct": 2,
+    "explanation": "In Images A, B, and D, the inner diamond is aligned with the frame axes. In Image C, the diamond is rotated 15 degrees off-axis."
+  },
+  {
+    "id": "odd20",
+    "category": "non-verbal-reasoning",
+    "type": "shl-odd-one-out",
+    "question": "Choose the correct option. Identify the image that is unlike the others.",
+    "options": [
+      "Image A",
+      "Image B",
+      "Image C",
+      "Image D"
+    ],
+    "optionImages": [
+      "/images/aptitude/odd20_a.svg",
+      "/images/aptitude/odd20_b.svg",
+      "/images/aptitude/odd20_c.svg",
+      "/images/aptitude/odd20_d.svg"
+    ],
+    "correct": 3,
+    "explanation": "In Images A, B, and C, the outer ring is shaded and the inner circle is hollow. In Image D, the outer ring is hollow and the inner circle is shaded."
+  },
+  {
+    "id": "ret1",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Based on Figure 1, which company has the highest percentage share of Poster Distribution across retail stores in Delhi?",
+    "options": [
+      "Company A (16%)",
+      "Company E (19%)",
+      "Company G (15%)",
+      "Company H (14%)"
+    ],
+    "correct": 1,
+    "explanation": "Examining the Poster Distribution pie chart: Company E holds 19%, which is higher than A (16%), G (15%), H (14%), D (13%), F (9%), B (8%), and C (6%)."
+  },
+  {
+    "id": "ret2",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which company holds the lowest percentage share of Dangler Distribution across retail stores in Delhi?",
+    "options": [
+      "Company B (5%)",
+      "Company C (7%)",
+      "Company F (3%)",
+      "Company D (11%)"
+    ],
+    "correct": 2,
+    "explanation": "In the Dangler Distribution pie chart, Company F holds only 3%, which is the lowest of all 8 companies."
+  },
+  {
+    "id": "ret3",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the combined percentage share of Poster Distribution accounted for by Company A and Company E?",
+    "options": [
+      "32%",
+      "35%",
+      "38%",
+      "30%"
+    ],
+    "correct": 1,
+    "explanation": "Company A poster share = 16%. Company E poster share = 19%. Combined = 16% + 19% = 35%."
+  },
+  {
+    "id": "ret4",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the difference in percentage points between Company A's share of Danglers and Company A's share of Posters?",
+    "options": [
+      "6 percentage points",
+      "8 percentage points",
+      "10 percentage points",
+      "4 percentage points"
+    ],
+    "correct": 1,
+    "explanation": "Company A dangler share = 24%. Company A poster share = 16%. Difference = 24% - 16% = 8 percentage points."
+  },
+  {
+    "id": "ret5",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which two companies have an identical percentage share in Dangler Distribution?",
+    "options": [
+      "Company D and Company E",
+      "Company G and Company H",
+      "Company A and Company G",
+      "Company B and Company F"
+    ],
+    "correct": 1,
+    "explanation": "In the Dangler pie chart, both Company G and Company H hold exactly 19% each."
+  },
+  {
+    "id": "ret6",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "If a total of 10,000 posters were distributed across Delhi stores, how many posters were distributed by Company G?",
+    "options": [
+      "1,200",
+      "1,500",
+      "1,800",
+      "1,900"
+    ],
+    "correct": 1,
+    "explanation": "Company G holds 15% of Poster Distribution. 15% of 10,000 = 0.15 * 10,000 = 1,500 posters."
+  },
+  {
+    "id": "ret7",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the ratio of Poster Distribution for Company D compared to Company B?",
+    "options": [
+      "13 : 8",
+      "8 : 13",
+      "16 : 9",
+      "11 : 5"
     ],
     "correct": 0,
-    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
-    "patternData": {
-      "stage": 2,
-      "rule": "Inner square rotated 45 degrees into diamond orientation"
-    }
+    "explanation": "Company D poster share = 13%. Company B poster share = 8%. The direct ratio is 13 : 8."
   },
   {
-    "id": "apt49",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "id": "ret8",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which company experiences the largest drop in percentage points between its Poster share and its Dangler share?",
     "options": [
-      "Regular Hexagon",
-      "Regular Octagon",
-      "Equilateral Triangle",
-      "Regular Pentagon"
-    ],
-    "correct": 1,
-    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
-  },
-  {
-    "id": "apt50",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
-    "options": [
-      "BRANHC",
-      "BRAHCN",
-      "BRANHC",
-      "BRNACH"
+      "Company E (19% down to 12%)",
+      "Company F (9% down to 3%)",
+      "Company B (8% down to 5%)",
+      "Company D (13% down to 11%)"
     ],
     "correct": 0,
-    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+    "explanation": "Company E drops from 19% (posters) to 12% (danglers), a decline of 7 percentage points. Company F drops 6 points (9% to 3%). Company E is the largest drop."
   },
   {
-    "id": "apt51",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
-    "options": [
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "correct": 1,
-    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
-  },
-  {
-    "id": "apt52",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
-    "options": [
-      "45",
-      "49",
-      "50",
-      "64"
-    ],
-    "correct": 1,
-    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
-  },
-  {
-    "id": "apt53",
+    "id": "ret9",
     "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which company displays the highest increase in percentage share from Poster distribution to Dangler distribution?",
     "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
-    ],
-    "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt54",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
-    "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt55",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt56",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt57",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
-  },
-  {
-    "id": "apt58",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
-    "options": [
-      "42 years",
-      "45 years",
-      "48 years",
-      "50 years"
-    ],
-    "correct": 1,
-    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
-  },
-  {
-    "id": "apt59",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
-    "options": [
-      "40 liters",
-      "60 liters",
-      "50 liters",
-      "30 liters"
-    ],
-    "correct": 1,
-    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
-  },
-  {
-    "id": "apt60",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
-    "options": [
-      "A diamond (rhombus) touching the outer midpoints",
-      "A circle",
-      "A triangle",
-      "An octagon"
+      "Company A (16% to 24%)",
+      "Company H (14% to 19%)",
+      "Company G (15% to 19%)",
+      "Company C (6% to 7%)"
     ],
     "correct": 0,
-    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
-    "patternData": {
-      "stage": 2,
-      "rule": "Inner square rotated 45 degrees into diamond orientation"
-    }
+    "explanation": "Company A increases by 8 percentage points (from 16% to 24%). Company H increases by 5 points (14% to 19%). Company G increases by 4 points. Company A is the greatest increase."
   },
   {
-    "id": "apt61",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "id": "ret10",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the combined percentage share of Danglers distributed by Company B and Company C?",
     "options": [
-      "Regular Hexagon",
-      "Regular Octagon",
-      "Equilateral Triangle",
-      "Regular Pentagon"
-    ],
-    "correct": 1,
-    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
-  },
-  {
-    "id": "apt62",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
-    "options": [
-      "BRANHC",
-      "BRAHCN",
-      "BRANHC",
-      "BRNACH"
+      "12%",
+      "14%",
+      "11%",
+      "9%"
     ],
     "correct": 0,
-    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+    "explanation": "Company B dangler share = 5%. Company C dangler share = 7%. Combined = 5% + 7% = 12%."
   },
   {
-    "id": "apt63",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
-    "options": [
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "correct": 1,
-    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
-  },
-  {
-    "id": "apt64",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
-    "options": [
-      "45",
-      "49",
-      "50",
-      "64"
-    ],
-    "correct": 1,
-    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
-  },
-  {
-    "id": "apt65",
+    "id": "ret11",
     "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "If total danglers distributed across Delhi was 20,000 units, how many danglers were distributed by Company A?",
     "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
+      "4,200",
+      "4,800",
+      "5,200",
+      "3,800"
     ],
     "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
+    "explanation": "Company A accounts for 24% of Dangler Distribution. 24% of 20,000 = 0.24 * 20,000 = 4,800 danglers."
   },
   {
-    "id": "apt66",
+    "id": "ret12",
     "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What are the top 3 companies by Poster Distribution share ranked in descending order?",
     "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt67",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt68",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt69",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
-  },
-  {
-    "id": "apt70",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
-    "options": [
-      "42 years",
-      "45 years",
-      "48 years",
-      "50 years"
-    ],
-    "correct": 1,
-    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
-  },
-  {
-    "id": "apt71",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
-    "options": [
-      "40 liters",
-      "60 liters",
-      "50 liters",
-      "30 liters"
-    ],
-    "correct": 1,
-    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
-  },
-  {
-    "id": "apt72",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
-    "options": [
-      "A diamond (rhombus) touching the outer midpoints",
-      "A circle",
-      "A triangle",
-      "An octagon"
+      "Company E (19%), Company A (16%), Company G (15%)",
+      "Company A (24%), Company E (19%), Company H (14%)",
+      "Company E (19%), Company H (14%), Company D (13%)",
+      "Company G (15%), Company E (19%), Company A (16%)"
     ],
     "correct": 0,
-    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
-    "patternData": {
-      "stage": 2,
-      "rule": "Inner square rotated 45 degrees into diamond orientation"
-    }
+    "explanation": "Looking at posters: 1st is E (19%), 2nd is A (16%), 3rd is G (15%)."
   },
   {
-    "id": "apt73",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "id": "ret13",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the average Poster Distribution share across Company A, Company B, and Company C?",
     "options": [
-      "Regular Hexagon",
-      "Regular Octagon",
-      "Equilateral Triangle",
-      "Regular Pentagon"
-    ],
-    "correct": 1,
-    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
-  },
-  {
-    "id": "apt74",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
-    "options": [
-      "BRANHC",
-      "BRAHCN",
-      "BRANHC",
-      "BRNACH"
+      "10%",
+      "12%",
+      "8%",
+      "11%"
     ],
     "correct": 0,
-    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+    "explanation": "Company A = 16%, B = 8%, C = 6%. Total sum = 16 + 8 + 6 = 30%. Average = 30% / 3 = 10%."
   },
   {
-    "id": "apt75",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
-    "options": [
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "correct": 1,
-    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
-  },
-  {
-    "id": "apt76",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
-    "options": [
-      "45",
-      "49",
-      "50",
-      "64"
-    ],
-    "correct": 1,
-    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
-  },
-  {
-    "id": "apt77",
+    "id": "ret14",
     "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "Which company distributes exactly twice as many posters as Company B?",
     "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
-    ],
-    "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt78",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
-    "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt79",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt80",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt81",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
-  },
-  {
-    "id": "apt82",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
-    "options": [
-      "42 years",
-      "45 years",
-      "48 years",
-      "50 years"
-    ],
-    "correct": 1,
-    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
-  },
-  {
-    "id": "apt83",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
-    "options": [
-      "40 liters",
-      "60 liters",
-      "50 liters",
-      "30 liters"
-    ],
-    "correct": 1,
-    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
-  },
-  {
-    "id": "apt84",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
-    "options": [
-      "A diamond (rhombus) touching the outer midpoints",
-      "A circle",
-      "A triangle",
-      "An octagon"
+      "Company A (16% vs 8%)",
+      "Company D (13% vs 8%)",
+      "Company H (14% vs 8%)",
+      "Company G (15% vs 8%)"
     ],
     "correct": 0,
-    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
-    "patternData": {
-      "stage": 2,
-      "rule": "Inner square rotated 45 degrees into diamond orientation"
-    }
+    "explanation": "Company B distributes 8% of posters. 2 * 8% = 16%. Company A holds exactly 16%."
   },
   {
-    "id": "apt85",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "id": "ret15",
+    "category": "data-interpretation",
+    "type": "shl-dual-pie",
+    "passageTitle": "Figure 1: Shows the distribution of merchandise by different companies - A, B, C, D, E, F, G and H, at various retail stores in Delhi.",
+    "passageText": "Study Figure 1 containing Poster Distribution and Dangler Distribution across retail stores in Delhi before answering the question.",
+    "chartImage": "/images/aptitude/shl_delhi_retail_merchandise.svg",
+    "question": "What is the combined market share of posters distributed by Companies H, A, and G?",
     "options": [
-      "Regular Hexagon",
-      "Regular Octagon",
-      "Equilateral Triangle",
-      "Regular Pentagon"
-    ],
-    "correct": 1,
-    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
-  },
-  {
-    "id": "apt86",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
-    "options": [
-      "BRANHC",
-      "BRAHCN",
-      "BRANHC",
-      "BRNACH"
+      "45%",
+      "42%",
+      "48%",
+      "50%"
     ],
     "correct": 0,
-    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
-  },
-  {
-    "id": "apt87",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
-    "options": [
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "correct": 1,
-    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
-  },
-  {
-    "id": "apt88",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
-    "options": [
-      "45",
-      "49",
-      "50",
-      "64"
-    ],
-    "correct": 1,
-    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
-  },
-  {
-    "id": "apt89",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
-    "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
-    ],
-    "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt90",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
-    "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt91",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt92",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt93",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
-  },
-  {
-    "id": "apt94",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
-    "options": [
-      "42 years",
-      "45 years",
-      "48 years",
-      "50 years"
-    ],
-    "correct": 1,
-    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
-  },
-  {
-    "id": "apt95",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
-    "options": [
-      "40 liters",
-      "60 liters",
-      "50 liters",
-      "30 liters"
-    ],
-    "correct": 1,
-    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
-  },
-  {
-    "id": "apt96",
-    "category": "non-verbal-reasoning",
-    "type": "nested-squares",
-    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
-    "options": [
-      "A diamond (rhombus) touching the outer midpoints",
-      "A circle",
-      "A triangle",
-      "An octagon"
-    ],
-    "correct": 0,
-    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
-    "patternData": {
-      "stage": 2,
-      "rule": "Inner square rotated 45 degrees into diamond orientation"
-    }
-  },
-  {
-    "id": "apt97",
-    "category": "non-verbal-reasoning",
-    "type": "geometric-pattern",
-    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
-    "options": [
-      "Regular Hexagon",
-      "Regular Octagon",
-      "Equilateral Triangle",
-      "Regular Pentagon"
-    ],
-    "correct": 1,
-    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
-  },
-  {
-    "id": "apt98",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
-    "options": [
-      "BRANHC",
-      "BRAHCN",
-      "BRANHC",
-      "BRNACH"
-    ],
-    "correct": 0,
-    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
-  },
-  {
-    "id": "apt99",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
-    "options": [
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "correct": 1,
-    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
-  },
-  {
-    "id": "apt100",
-    "category": "logical-reasoning",
-    "type": "none",
-    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
-    "options": [
-      "45",
-      "49",
-      "50",
-      "64"
-    ],
-    "correct": 1,
-    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
-  },
-  {
-    "id": "apt101",
-    "category": "data-interpretation",
-    "type": "chart-pie",
-    "question": "How much budget is dedicated to Cybersecurity?",
-    "options": [
-      "$100,000",
-      "$125,000",
-      "$150,000",
-      "$175,000"
-    ],
-    "correct": 1,
-    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
-    "chartData": {
-      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
-      "slices": [
-        {
-          "label": "Cloud Hosting",
-          "pct": 40,
-          "color": "#3b82f6"
-        },
-        {
-          "label": "Cybersecurity",
-          "pct": 25,
-          "color": "#10b981"
-        },
-        {
-          "label": "DevOps Tools",
-          "pct": 20,
-          "color": "#f59e0b"
-        },
-        {
-          "label": "Data Backup",
-          "pct": 15,
-          "color": "#8b5cf6"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt102",
-    "category": "data-interpretation",
-    "type": "chart-bar",
-    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
-    "options": [
-      "50.0%",
-      "66.7%",
-      "75.0%",
-      "80.0%"
-    ],
-    "correct": 1,
-    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
-    "chartData": {
-      "title": "Quarterly Software Licenses Deployed",
-      "bars": [
-        {
-          "label": "Q1",
-          "value": 250,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q2",
-          "value": 300,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q3",
-          "value": 450,
-          "color": "#0ea5e9"
-        },
-        {
-          "label": "Q4",
-          "value": 500,
-          "color": "#0ea5e9"
-        }
-      ]
-    }
-  },
-  {
-    "id": "apt103",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
-    "options": [
-      "60 km/h",
-      "72 km/h",
-      "80 km/h",
-      "90 km/h"
-    ],
-    "correct": 1,
-    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
-  },
-  {
-    "id": "apt104",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "If 15% of a number is 45, what is 40% of that same number?",
-    "options": [
-      "100",
-      "120",
-      "140",
-      "150"
-    ],
-    "correct": 1,
-    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
-  },
-  {
-    "id": "apt105",
-    "category": "numerical-aptitude",
-    "type": "none",
-    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
-    "options": [
-      "15%",
-      "20%",
-      "25%",
-      "10%"
-    ],
-    "correct": 1,
-    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+    "explanation": "Company H = 14%, Company A = 16%, Company G = 15%. Combined = 14% + 16% + 15% = 45%."
   }
 ];
 

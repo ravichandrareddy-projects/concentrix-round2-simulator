@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(35, 45)">
+    <!-- Boot outline -->
+    <path d="M 30 20 L 70 20 L 70 65 L 115 75 C 125 78 128 92 120 98 L 20 98 L 20 40 C 20 30 25 20 30 20 Z" fill="#78350f" stroke="#d97706" stroke-width="2.5"/>
+    <!-- Steel toe cap indicator -->
+    <path d="M 95 72 Q 120 75 115 95 L 90 95 Z" fill="#92400e" stroke="#fbbf24" stroke-width="1.5"/>
+    <!-- Tread sole -->
+    <rect x="16" y="98" width="108" height="12" rx="3" fill="#18181b" stroke="#71717a" stroke-width="1.5"/>
+    <line x1="30" y1="98" x2="30" y2="110" stroke="#71717a" stroke-width="2"/>
+    <line x1="50" y1="98" x2="50" y2="110" stroke="#71717a" stroke-width="2"/>
+    <line x1="70" y1="98" x2="70" y2="110" stroke="#71717a" stroke-width="2"/>
+    <line x1="90" y1="98" x2="90" y2="110" stroke="#71717a" stroke-width="2"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">Steel-Toed Boots</text>
+</svg>

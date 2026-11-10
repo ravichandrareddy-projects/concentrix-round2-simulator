@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(45, 25)">
+    <!-- Yellow case -->
+    <rect x="15" y="10" width="80" height="115" rx="10" fill="#f59e0b" stroke="#fde68a" stroke-width="2"/>
+    <!-- Screen -->
+    <rect x="25" y="22" width="60" height="30" rx="4" fill="#022c22" stroke="#059669" stroke-width="1.5"/>
+    <text x="55" y="44" font-family="monospace" font-size="16" font-weight="bold" fill="#34d399" text-anchor="middle">230.5V</text>
+    <!-- Rotary dial -->
+    <circle cx="55" cy="80" r="16" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="55" y1="80" x2="55" y2="68" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fde68a" text-anchor="middle">Digital Multimeter</text>
+</svg>

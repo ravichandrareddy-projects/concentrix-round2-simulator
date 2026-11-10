@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(45, 25)">
+    <!-- Neck loop -->
+    <path d="M 35 30 Q 55 10 75 30" fill="none" stroke="#94a3b8" stroke-width="3"/>
+    <!-- Apron bib and skirt -->
+    <path d="M 35 30 L 75 30 L 85 65 L 100 135 L 10 135 L 25 65 Z" fill="#059669" stroke="#6ee7b7" stroke-width="2"/>
+    <line x1="10" y1="75" x2="100" y2="75" stroke="#047857" stroke-width="2"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">Chemical PVC Apron</text>
+</svg>

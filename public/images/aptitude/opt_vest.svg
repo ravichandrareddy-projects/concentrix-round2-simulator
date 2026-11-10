@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(45, 35)">
+    <!-- Vest body -->
+    <path d="M 15 20 L 40 20 L 55 50 L 70 20 L 95 20 L 105 105 L 5 105 Z" fill="#84cc16" stroke="#bef264" stroke-width="2"/>
+    <!-- Neck V -->
+    <polygon points="40,20 55,55 70,20" fill="#0f172a"/>
+    <!-- Silver reflective stripes -->
+    <rect x="10" y="65" width="90" height="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+    <rect x="10" y="85" width="90" height="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#bef264" text-anchor="middle">High-Visibility Vest</text>
+</svg>

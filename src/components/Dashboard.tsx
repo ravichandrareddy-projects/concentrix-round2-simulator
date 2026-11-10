@@ -34,11 +34,11 @@ export default function Dashboard({ candidateName, onStart, onHistory, onChangeN
     },
     {
       id: 3,
-      name: 'Mixed Aptitude & Reasoning',
+      name: 'SHL Visual & Workplace Reasoning',
       icon: '📊',
-      desc: '25 questions covering Data Interpretation (pie & bar charts, tables), Non-Verbal Reasoning (nested squares), Numerical Aptitude, and Logical patterns.',
-      points: '25 pts (25 questions)',
-      badge: 'Cognitive & Aptitude'
+      desc: '5 questions matching the Concentrix SHL assessment: Retail Store Merchandise Distribution (Pie Charts), Workplace Safety & PPE Matching, and Non-Verbal Odd-One-Out.',
+      points: '25 pts (5 questions)',
+      badge: 'SHL / AMCAT Reasoning'
     },
     {
       id: 4,

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(35, 40)">
+    <!-- Straps -->
+    <path d="M 10 40 L 120 20 M 10 60 L 120 80" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3,2"/>
+    <!-- Mask body -->
+    <path d="M 20 50 Q 65 10 110 50 Q 65 95 20 50 Z" fill="#0d9488" stroke="#2dd4bf" stroke-width="2.5"/>
+    <!-- Exhalation valve -->
+    <circle cx="65" cy="50" r="14" fill="#134e4a" stroke="#5eead4" stroke-width="2"/>
+    <rect x="63" y="42" width="4" height="16" fill="#5eead4"/>
+    <rect x="57" y="48" width="16" height="4" fill="#5eead4"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2dd4bf" text-anchor="middle">Respirator Dust Mask</text>
+</svg>

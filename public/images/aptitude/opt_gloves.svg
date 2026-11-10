@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <g transform="translate(40, 25)">
+    <!-- Right glove -->
+    <path d="M 45 130 L 45 80 C 45 75 40 70 35 70 C 30 70 25 75 25 80 L 25 55 C 25 50 20 45 15 45 C 10 45 5 50 5 55 L 5 85 C 5 85 -5 80 -10 88 C -15 95 -10 105 -5 110 L 15 130 Z" fill="#2563eb" stroke="#60a5fa" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Left glove -->
+    <path d="M 75 130 L 75 80 C 75 75 80 70 85 70 C 90 70 95 75 95 80 L 95 55 C 95 50 100 45 105 45 C 110 45 115 50 115 55 L 115 85 C 115 85 125 80 130 88 C 135 95 130 105 125 110 L 105 130 Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Cuffs -->
+    <rect x="20" y="125" width="80" height="18" rx="4" fill="#1e40af" stroke="#93c5fd" stroke-width="1.5"/>
+  </g>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#93c5fd" text-anchor="middle">Chemical Rubber Gloves</text>
+</svg>

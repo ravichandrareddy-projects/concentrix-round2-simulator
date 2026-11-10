@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_shl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="320" rx="16" fill="url(#bg_shl)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Main Figure Header -->
+  <rect x="20" y="14" width="640" height="36" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="340" y="37" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">
+    Figure 1: Distribution of merchandise by different companies (A to H) at various retail stores in Delhi
+  </text>
+
+  <!-- Left Chart Box -->
+  <rect x="40" y="60" width="280" height="210" rx="12" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+  <text x="180" y="80" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">
+    Poster Distribution at Retail Stores
+  </text>
+  <g><path d="M 180 160 L 180.00 65.00 A 95 95 0 0 1 253.20 99.44 Z" fill="#f43f5e" stroke="#0f172a" stroke-width="2"/>
+<text x="207.5" y="105.5" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">H 14%</text>
+<path d="M 180 160 L 253.20 99.44 A 95 95 0 0 1 270.35 189.36 Z" fill="#10b981" stroke="#0f172a" stroke-width="2"/>
+<text x="243.5" y="151.9" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">A 16%</text>
+<path d="M 180 160 L 270.35 189.36 A 95 95 0 0 1 245.03 229.25 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2"/>
+<text x="234.5" y="198.6" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">B 8%</text>
+<path d="M 180 160 L 245.03 229.25 A 95 95 0 0 1 214.97 248.33 Z" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+<text x="214.6" y="218.5" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">C 6%</text>
+<path d="M 180 160 L 214.97 248.33 A 95 95 0 0 1 139.55 245.96 Z" fill="#8b5cf6" stroke="#0f172a" stroke-width="2"/>
+<text x="178.0" y="228.6" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">D 13%</text>
+<path d="M 180 160 L 139.55 245.96 A 95 95 0 0 1 85.19 154.03 Z" fill="#06b6d4" stroke="#0f172a" stroke-width="2"/>
+<text x="124.4" y="196.9" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">E 19%</text>
+<path d="M 180 160 L 85.19 154.03 A 95 95 0 0 1 103.14 104.16 Z" fill="#eab308" stroke="#0f172a" stroke-width="2"/>
+<text x="119.2" y="142.1" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">F 9%</text>
+<path d="M 180 160 L 103.14 104.16 A 95 95 0 0 1 180.00 65.00 Z" fill="#ec4899" stroke="#0f172a" stroke-width="2"/>
+<text x="150.7" y="106.4" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">G 15%</text></g>
+
+  <!-- Right Chart Box -->
+  <rect x="350" y="60" width="280" height="210" rx="12" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+  <text x="490" y="80" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#a78bfa" text-anchor="middle">
+    Dangler Distribution at Retail Stores
+  </text>
+  <g><path d="M 490 160 L 490.00 65.00 A 95 95 0 0 1 578.33 125.03 Z" fill="#f43f5e" stroke="#0f172a" stroke-width="2"/>
+<text x="526.3" y="110.6" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">H 19%</text>
+<path d="M 490 160 L 578.33 125.03 A 95 95 0 0 1 530.45 245.96 Z" fill="#10b981" stroke="#0f172a" stroke-width="2"/>
+<text x="550.1" y="187.8" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">A 24%</text>
+<path d="M 490 160 L 530.45 245.96 A 95 95 0 0 1 501.91 254.25 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2"/>
+<text x="508.0" y="226.0" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">B 5%</text>
+<path d="M 490 160 L 501.91 254.25 A 95 95 0 0 1 460.64 250.35 Z" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+<text x="483.9" y="228.3" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">C 7%</text>
+<path d="M 490 160 L 460.64 250.35 A 95 95 0 0 1 409.79 210.90 Z" fill="#8b5cf6" stroke="#0f172a" stroke-width="2"/>
+<text x="450.4" y="215.0" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">D 11%</text>
+<path d="M 490 160 L 409.79 210.90 A 95 95 0 0 1 396.68 142.20 Z" fill="#06b6d4" stroke="#0f172a" stroke-width="2"/>
+<text x="426.5" y="176.1" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">E 12%</text>
+<path d="M 490 160 L 396.68 142.20 A 95 95 0 0 1 401.67 125.03 Z" fill="#eab308" stroke="#0f172a" stroke-width="2"/>
+<text x="428.0" y="146.0" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">F 3%</text>
+<path d="M 490 160 L 401.67 125.03 A 95 95 0 0 1 490.00 65.00 Z" fill="#ec4899" stroke="#0f172a" stroke-width="2"/>
+<text x="453.7" y="110.6" font-family="system-ui" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">G 19%</text></g>
+
+  <!-- Bottom Legend Bar -->
+  <rect x="20" y="278" width="640" height="28" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  
+        <g transform="translate(40, 285)">
+          <rect width="14" height="14" rx="3" fill="#f43f5e"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. H</text>
+        </g>
+
+        <g transform="translate(118, 285)">
+          <rect width="14" height="14" rx="3" fill="#10b981"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. A</text>
+        </g>
+
+        <g transform="translate(196, 285)">
+          <rect width="14" height="14" rx="3" fill="#3b82f6"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. B</text>
+        </g>
+
+        <g transform="translate(274, 285)">
+          <rect width="14" height="14" rx="3" fill="#f97316"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. C</text>
+        </g>
+
+        <g transform="translate(352, 285)">
+          <rect width="14" height="14" rx="3" fill="#8b5cf6"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. D</text>
+        </g>
+
+        <g transform="translate(430, 285)">
+          <rect width="14" height="14" rx="3" fill="#06b6d4"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. E</text>
+        </g>
+
+        <g transform="translate(508, 285)">
+          <rect width="14" height="14" rx="3" fill="#eab308"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. F</text>
+        </g>
+
+        <g transform="translate(586, 285)">
+          <rect width="14" height="14" rx="3" fill="#ec4899"/>
+          <text x="20" y="11" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Co. G</text>
+        </g>
+</svg>

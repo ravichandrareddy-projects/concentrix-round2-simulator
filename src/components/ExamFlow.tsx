@@ -22,18 +22,18 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
   const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, 5));
   // Session 2: 1 story (with 5 questions) drawn from 50-story bank
   const [story] = useState(() => pickRandom(STORIES, 1)[0]);
-  // Session 3: 25 mixed aptitude questions drawn from 105-question bank
-  const [aptitudeQuestions] = useState(() => pickRandom(APTITUDE_QUESTIONS, 25));
+  // Session 3: 5 Concentrix SHL visual & workplace questions drawn from 55-question bank
+  const [aptitudeQuestions] = useState(() => pickRandom(APTITUDE_QUESTIONS, 5));
   // Session 4: 5 moderation scenarios drawn from 100-scenario bank
   const [scenarios] = useState(() => pickRandom(MODERATION_SCENARIOS, 5));
 
   const [section, setSection] = useState<SectionId>(1);
   const [phase, setPhase] = useState<Phase>('section-intro');
 
-  // Sub-indices for questions within sections
+  // Sub-indices for questions within sections (5 questions each = 25 marks per session)
   const [s1Index, setS1Index] = useState(0); // 0 to 4
   const [storyQIndex, setStoryQIndex] = useState(0); // 0 to 4
-  const [aptIndex, setAptIndex] = useState(0); // 0 to 24
+  const [aptIndex, setAptIndex] = useState(0); // 0 to 4
   const [s4Index, setS4Index] = useState(0); // 0 to 4
 
   const [results, setResults] = useState<QuestionResult[]>([]);
@@ -134,16 +134,17 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
     }
   }
 
-  // ---- Session 3: Mixed Aptitude & Reasoning (25 Qs, 1 mark each = 25 marks) ----
+  // ---- Session 3: Concentrix SHL Visual & Workplace Reasoning (5 Qs, 5 marks each = 25 marks) ----
   function handleAptitudeAnswer(score: number) {
+    const earned = score === 1 ? 5 : score;
     addResult({
       questionId: aptitudeQuestions[aptIndex].id,
       section: 3,
-      earned: score,
-      max: 1,
-      correct: score === 1
+      earned: earned,
+      max: 5,
+      correct: earned === 5
     });
-    if (aptIndex < 24) {
+    if (aptIndex < 4) {
       setAptIndex(prev => prev + 1);
     } else {
       advanceSection();
@@ -264,7 +265,7 @@ export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
             key={aptitudeQuestions[aptIndex].id}
             question={aptitudeQuestions[aptIndex]}
             questionNumber={aptIndex + 1}
-            totalQuestions={25}
+            totalQuestions={5}
             onAnswer={(score) => handleAptitudeAnswer(score)}
           />
         )}
