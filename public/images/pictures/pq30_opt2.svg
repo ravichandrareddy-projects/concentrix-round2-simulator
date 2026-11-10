@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#374151"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Card -->
+  <rect width="400" height="280" rx="16" fill="url(#bg)"/>
+  <rect width="398" height="278" x="1" y="1" rx="15" fill="none" stroke="#9ca3af" stroke-opacity="0.25" stroke-width="2"/>
+  
+  <!-- Subtle decorative ambient circles -->
+  <circle cx="200" cy="115" r="75" fill="#4b5563" opacity="0.25"/>
+  <circle cx="200" cy="115" r="50" fill="#4b5563" opacity="0.35"/>
+  
+  <!-- Option Badge (A, B, C, D, E) -->
+  <rect x="18" y="18" width="36" height="36" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="36" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" text-anchor="middle" fill="#ffffff">C</text>
+
+  <!-- Central Graphic Icon -->
+  <text x="200" y="135" font-family="system-ui, sans-serif" font-size="64" text-anchor="middle">🖼️</text>
+  
+  <!-- Description Banner -->
+  <rect x="20" y="195" width="360" height="65" rx="10" fill="#020617" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+  <text x="200" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#f8fafc">A smoothie vendor blending</text>
+  <text x='200' y='242' font-family='system-ui, -apple-system, sans-serif' font-size='12' font-weight='500' text-anchor='middle' fill='#cbd5e1'>fresh fruit smoothies</text>
+</svg>
