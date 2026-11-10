@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 255" width="100%" height="100%">
+  <rect width="540" height="255" rx="16" fill="#090d16" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="270" y="30" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#f8fafc" text-anchor="middle">Operational Ticket / CSAT Performance</text>
+  
+  <rect x="25" y="48" width="490" height="28" rx="6" fill="#1e1b4b" stroke="#312e81"/>
+  <text x="90.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Product Line</text><text x="210.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Manufacturing Cost ($)</text><text x="330.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Selling Price ($)</text><text x="450.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Units Sold</text>
+  
+        <rect x="25" y="95" width="490" height="30" rx="4" fill="#0f172a" fill-opacity="0.5"/>
+        <text x="90.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Model Alpha</text><text x="210.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">40</text><text x="330.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">60</text><text x="450.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">500</text>
+        
+        <rect x="25" y="130" width="490" height="30" rx="4" fill="#1e293b" fill-opacity="0.5"/>
+        <text x="90.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Model Beta</text><text x="210.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">75</text><text x="330.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">100</text><text x="450.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">300</text>
+        
+        <rect x="25" y="165" width="490" height="30" rx="4" fill="#0f172a" fill-opacity="0.5"/>
+        <text x="90.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Model Gamma</text><text x="210.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">120</text><text x="330.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">180</text><text x="450.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">200</text>
+        
+        <rect x="25" y="200" width="490" height="30" rx="4" fill="#1e293b" fill-opacity="0.5"/>
+        <text x="90.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Model Delta</text><text x="210.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">200</text><text x="330.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">260</text><text x="450.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">150</text>
+        
+</svg>

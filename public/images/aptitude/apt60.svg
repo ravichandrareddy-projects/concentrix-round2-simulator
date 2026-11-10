@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nsbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="260" rx="16" fill="url(#nsbg)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="240" y="24" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#c4b5fd" text-anchor="middle">CONCENTRIC NESTED SQUARES · PATTERN SEQUENCE</text>
+
+  <!-- Left: Figure progression sequence (Figures 1, 2, 3, ?) -->
+  <g transform="translate(30, 45)">
+    <!-- Fig 1: Top-Left shaded -->
+    <rect x="0" y="0" width="60" height="60" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="30" height="30" fill="#8b5cf6" fill-opacity="0.8"/>
+    <rect x="15" y="15" width="30" height="30" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    <text x="30" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Fig 1</text>
+    
+    <text x="80" y="35" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#64748b">→</text>
+
+    <!-- Fig 2: Top-Right shaded -->
+    <rect x="100" y="0" width="60" height="60" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="130" y="0" width="30" height="30" fill="#8b5cf6" fill-opacity="0.8"/>
+    <rect x="115" y="15" width="30" height="30" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    <text x="130" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Fig 2</text>
+    
+    <text x="180" y="35" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#64748b">→</text>
+
+    <!-- Fig 3: Bottom-Right shaded -->
+    <rect x="200" y="0" width="60" height="60" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="230" y="30" width="30" height="30" fill="#8b5cf6" fill-opacity="0.8"/>
+    <rect x="215" y="15" width="30" height="30" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    <text x="230" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Fig 3</text>
+    
+    <text x="280" y="35" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#64748b">→</text>
+
+    <!-- Fig 4: Question Mark Target -->
+    <rect x="300" y="0" width="60" height="60" fill="#2e1065" stroke="#ec4899" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="330" y="38" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#f43f5e" text-anchor="middle">?</text>
+    <text x="330" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#f43f5e" text-anchor="middle">Target [?]</text>
+  </g>
+
+  <!-- Bottom Detailed Concentric Breakdown -->
+  <g transform="translate(160, 140)">
+    <rect x="-45" y="-10" width="90" height="90" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+    <line x1="0" y1="-10" x2="0" y2="80" stroke="#4c1d95" stroke-dasharray="2,2"/>
+    <line x1="-45" y1="35" x2="45" y2="35" stroke="#4c1d95" stroke-dasharray="2,2"/>
+    <rect x="-30" y="5" width="60" height="60" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1.5"/>
+    <polygon points="0,5 30,35 0,65 -30,35" fill="#3b0764" stroke="#c4b5fd" stroke-width="1"/>
+    <circle cx="0" cy="35" r="3" fill="#ffffff"/>
+  </g>
+  <text x="270" y="175" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Rule: Clockwise 90° Quadrant Transition</text>
+  <text x="270" y="195" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94a3b8">Outer ➔ Inner concentric midpoint mapping</text>
+  <text x="240" y="245" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#c4b5fd" text-anchor="middle">Concentrix Assessment Item #Nested-Pattern</text>
+</svg>

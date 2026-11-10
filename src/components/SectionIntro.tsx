@@ -6,49 +6,61 @@ interface Props {
   onStart: () => void;
 }
 
-const SECTION_INFO: Record<SectionId, { name: string; icon: string; desc: string; tips: string[] }> = {
+const SECTION_INFO: Record<SectionId, { name: string; icon: string; desc: string; questionsCount: number; pointsPerQ: number; totalMarks: number; tips: string[] }> = {
   1: {
-    name: 'Listen & Repeat',
+    name: 'Session 1: Listen and Repeat',
     icon: '🎧',
-    desc: 'You will hear a sentence spoken aloud. Listen carefully, then repeat it as accurately as possible into your microphone.',
+    desc: 'You will hear customer service and workplace sentences spoken aloud. Listen carefully and repeat into your microphone within the 12-second speech benchmark.',
+    questionsCount: 5,
+    pointsPerQ: 5,
+    totalMarks: 25,
     tips: [
-      'The sentence will be played once (Full Exam Mode).',
-      'Speak clearly and at a natural pace.',
-      'Avoid background noise for best recognition.',
-      'You will be scored on word accuracy.',
+      'Each sentence is played once in Full Exam Mode.',
+      'Allow 12 seconds for speaking as a practice benchmark.',
+      'Word accuracy, missing words, extra words, and sequence are evaluated.',
+      'The original sentence is never revealed before submission.',
     ],
   },
   2: {
-    name: 'Picture Selection',
-    icon: '🖼️',
-    desc: 'Read the question and select the image that best matches the description from five options.',
+    name: 'Session 2: Story Listening',
+    icon: '📖',
+    desc: 'A complete narrative scenario will be read aloud through Text-to-Speech. Listen actively without on-screen text, then answer 5 comprehension questions.',
+    questionsCount: 5,
+    pointsPerQ: 5,
+    totalMarks: 25,
     tips: [
-      'Read the question carefully before selecting.',
-      'Only one option is correct.',
-      'All five images will be clearly different.',
-      'You have one attempt per question.',
+      'The story is read once through TTS (text is hidden during exam).',
+      'Focus on who, where, when, why, key events, and outcomes.',
+      'Five comprehension questions will follow with 4 options each.',
+      'Learning Mode allows story replay and speed adjustments.',
     ],
   },
   3: {
-    name: 'Story Comprehension',
-    icon: '📖',
-    desc: 'A short story will be read to you. After listening, answer five multiple-choice questions about the story.',
+    name: 'Session 3: Mixed Aptitude and Reasoning',
+    icon: '📊',
+    desc: 'A comprehensive 25-question mixed aptitude test covering Data Interpretation (pie charts, bar charts, tables), Non-Verbal Reasoning (nested squares, geometric patterns), Numerical Aptitude, and Logical Reasoning.',
+    questionsCount: 25,
+    pointsPerQ: 1,
+    totalMarks: 25,
     tips: [
-      'The story is played once (Full Exam Mode).',
-      'Focus on who, what, when, where, and why.',
-      'Questions appear after the story ends.',
-      'The written story is not shown — listen actively.',
+      'Contains 25 questions displayed one at a time (1/25).',
+      'Analyze pie charts, bar charts, data tables, and concentric nested squares.',
+      'Test your numerical aptitude, percentages, ratios, and logical patterns.',
+      'Each question has 4 or 5 options with mathematical verification.',
     ],
   },
   4: {
-    name: 'Content Moderation',
+    name: 'Session 4: Content Moderation',
     icon: '🛡️',
-    desc: 'Review each scenario and select the most appropriate content policy classification.',
+    desc: 'Review 5 Trust & Safety moderation cases and select the correct policy classification across 14 categories, using "Appropriate Content" for harmless images.',
+    questionsCount: 5,
+    pointsPerQ: 5,
+    totalMarks: 25,
     tips: [
-      'Consider context carefully — not just objects shown.',
-      'A kitchen knife in a cooking video is NOT a weapon.',
-      'Think about intent, harm potential, and audience.',
-      'Explanations are shown after each submission.',
+      'Classify according to platform safety policy and context.',
+      'Use the exact category "Appropriate Content" for ordinary safe images.',
+      'Consider context and intent, not merely isolated objects.',
+      'Detailed policy reasoning is displayed after each submission.',
     ],
   },
 };
@@ -59,55 +71,51 @@ export default function SectionIntro({ section, mode, onStart }: Props) {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-6">
-      <div className="max-w-lg w-full bg-slate-900 rounded-2xl border border-slate-800 p-8 text-center">
-        <div className="text-6xl mb-4">{info.icon}</div>
-        <div className="inline-block bg-blue-900 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-          Section {section} of 4 · {modeLabel}
+      <div className="max-w-xl w-full bg-slate-900 rounded-3xl border border-slate-800 p-8 text-center shadow-2xl">
+        <div className="text-6xl mb-4 select-none drop-shadow-md">{info.icon}</div>
+        <div className="inline-block bg-blue-900/80 border border-blue-700/60 text-blue-300 text-xs font-bold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
+          Session {section} of 4 · {modeLabel}
         </div>
-        <h2 className="text-2xl font-bold mb-3">{info.name}</h2>
-        <p className="text-slate-400 text-sm mb-6">{info.desc}</p>
+        <h2 className="text-2xl font-extrabold text-white mb-2">{info.name}</h2>
+        <p className="text-slate-400 text-sm mb-6 leading-relaxed">{info.desc}</p>
 
-        <div className="bg-slate-800 rounded-xl p-5 text-left mb-8">
-          <p className="text-sm font-semibold text-slate-300 mb-3">📌 Instructions</p>
+        <div className="bg-slate-950 rounded-2xl p-5 text-left mb-6 border border-slate-800/80">
+          <p className="text-xs uppercase tracking-wider font-bold text-slate-300 mb-3">📌 Key Session Guidelines</p>
           <ul className="space-y-2">
             {info.tips.map((tip, i) => (
-              <li key={i} className="text-sm text-slate-400 flex items-start gap-2">
+              <li key={i} className="text-xs text-slate-300 flex items-start gap-2 leading-relaxed">
                 <span className="text-blue-400 mt-0.5">•</span> {tip}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="bg-slate-800 rounded-xl p-4 mb-6 flex justify-between text-sm">
-          <div className="text-center">
-            <p className="text-slate-400 text-xs">Questions</p>
-            <p className="font-bold text-white">5</p>
+        <div className="bg-slate-950 rounded-2xl p-4 mb-6 flex justify-around text-center border border-slate-800 text-sm">
+          <div>
+            <p className="text-slate-500 text-xs">Questions</p>
+            <p className="font-extrabold text-white text-lg">{info.questionsCount}</p>
           </div>
-          <div className="text-center">
-            <p className="text-slate-400 text-xs">Points Each</p>
-            <p className="font-bold text-yellow-400">5</p>
+          <div className="border-r border-slate-800" />
+          <div>
+            <p className="text-slate-500 text-xs">Points Each</p>
+            <p className="font-extrabold text-amber-400 text-lg">{info.pointsPerQ} mark</p>
           </div>
-          <div className="text-center">
-            <p className="text-slate-400 text-xs">Section Total</p>
-            <p className="font-bold text-blue-400">25</p>
-          </div>
-          <div className="text-center">
-            <p className="text-slate-400 text-xs">Replay</p>
-            <p className={`font-bold ${mode === 'learning' ? 'text-emerald-400' : 'text-red-400'}`}>
-              {mode === 'learning' ? 'Yes' : 'No'}
-            </p>
+          <div className="border-r border-slate-800" />
+          <div>
+            <p className="text-slate-500 text-xs">Session Marks</p>
+            <p className="font-extrabold text-blue-400 text-lg">{info.totalMarks} marks</p>
           </div>
         </div>
 
         <p className="text-xs text-slate-500 mb-6">
-          Please ensure your audio devices and microphone are working before clicking Start.
+          Please ensure your audio devices and microphone are working. You cannot pause during Full Exam Mode.
         </p>
 
         <button
           onClick={onStart}
-          className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-xl py-4 font-bold text-lg transition-colors"
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-2xl py-4 font-bold text-base transition-all shadow-xl hover:shadow-blue-500/20 cursor-pointer"
         >
-          Start Section {section} →
+          Begin Session {section} →
         </button>
       </div>
     </div>

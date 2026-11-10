@@ -70,11 +70,11 @@ export default function ContentModeration({ scenario, questionNumber, onAnswer }
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Visual Scenario Card */}
         <div className="lg:col-span-5 flex flex-col gap-4">
-          <div className="rounded-2xl overflow-hidden border border-slate-700/80 shadow-xl bg-slate-950 flex flex-col items-center justify-center text-center relative group">
+          <div className="rounded-2xl overflow-hidden border border-slate-700/80 shadow-xl bg-slate-950 flex flex-col items-center justify-center text-center relative group p-2">
             <img
               src={scenario.image || `/images/moderation/${scenario.id}.svg`}
               alt={scenario.description}
-              className="w-full h-auto object-cover max-h-[220px]"
+              className="w-full h-auto object-contain max-h-[280px] rounded-xl"
               onError={(e) => {
                 // If svg fails, show gradient card
                 (e.target as HTMLElement).style.display = 'none';

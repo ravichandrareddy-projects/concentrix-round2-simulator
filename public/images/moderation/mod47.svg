@@ -1,17 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 350" width="100%" height="100%">
   <defs>
-    <linearGradient id="modbg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#0f0e26"/>
+    <linearGradient id="modbg_mod47" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
   </defs>
-  <rect width="500" height="320" rx="16" fill="url(#modbg)"/>
-  <rect width="498" height="318" x="1" y="1" rx="15" fill="none" stroke="#818cf8" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- Base Console Review Card -->
+  <rect width="560" height="350" rx="16" fill="url(#modbg_mod47)" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Top Moderator Console Header (NEUTRAL - NO SPOILERS!) -->
+  <rect x="18" y="16" width="524" height="32" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <circle cx="34" cy="32" r="4" fill="#3b82f6"/>
+  <text x="46" y="36" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TRUST &amp; SAFETY REVIEW</text>
+  <text x="280" y="36" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="middle">Item #MOD47 · Queue: Community Standards</text>
+  <rect x="465" y="22" width="65" height="20" rx="4" fill="#1e293b"/>
+  <text x="497" y="36" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38bdf8" text-anchor="middle">PENDING</text>
+
+  <!-- Left: Content Media Visual (300px wide) -->
+  <g transform="translate(18, 56)">
+    <rect width="300" height="180" rx="10" fill="#090d16" stroke="#1e293b"/>
+    
+        <rect x="20" y="20" width="260" height="140" rx="8" fill="#0f172a" stroke="#1e293b"/>
+        <circle cx="150" cy="80" r="42" fill="#1e1b4b" fill-opacity="0.6"/>
+        <circle cx="150" cy="80" r="30" fill="#312e81" fill-opacity="0.8"/>
+        <text x="150" y="93" font-family="system-ui, sans-serif" font-size="42" text-anchor="middle">👁️</text>
+        <text x="150" y="148" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle">User Uploaded Media Post</text>
+        
+  </g>
+
+  <!-- Right: Author & Platform Metadata -->
+  <g transform="translate(330, 56)">
+    <rect width="212" height="180" rx="10" fill="#0f172a" stroke="#1e293b"/>
+    
+    <!-- User Profile Header -->
+    <circle cx="28" cy="28" r="14" fill="#3b82f6"/>
+    <text x="28" y="33" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">E</text>
+    <text x="48" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">@explorer_dan</text>
+    <text x="48" y="38" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">12m ago · Social Feed</text>
+
+    <!-- Engagement Stats -->
+    <rect x="14" y="55" width="184" height="28" rx="6" fill="#0b1120"/>
+    <text x="24" y="73" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">❤️ 1.4K   💬 182   🔄 94</text>
+
+    <!-- Content Context Snippet -->
+    <text x="14" y="105" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#94a3b8">PLATFORM CONTEXT:</text>
+    <foreignObject x="14" y="112" width="184" height="60">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="color: #cbd5e1; font-size: 10px; font-family: system-ui, sans-serif; line-height: 1.35; font-style: italic;">
+        "Sent directly to a journalist."
+      </div>
+    </foreignObject>
+  </g>
+
+  <!-- Bottom Detailed Description Strip -->
+  <rect x="18" y="246" width="524" height="88" rx="10" fill="#090d16" stroke="#1e293b"/>
+  <text x="32" y="268" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#38bdf8" letter-spacing="0.5">SUBMITTED CONTENT TRANSCRIPT / SCENARIO DESCRIPTION:</text>
   
-  <circle cx="250" cy="130" r="70" fill="#4f46e5" opacity="0.3"/>
-  <text x="250" y="155" font-family="system-ui, sans-serif" font-size="80" text-anchor="middle">👁️</text>
-  
-  <rect x="25" y="235" width="450" height="60" rx="10" fill="#020617" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
-  <text x="250" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#f8fafc">Case #47</text>
-  <text x="250" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#cbd5e1">A threatening post stating &#x27;we know where you slee...</text>
+  <foreignObject x="32" y="276" width="496" height="52">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="color: #f1f5f9; font-size: 11.5px; font-family: system-ui, sans-serif; line-height: 1.4; font-weight: 500;">
+      A threatening post stating &#x27;we know where you sleep and you will not survive the week.&#x27;
+    </div>
+  </foreignObject>
 </svg>

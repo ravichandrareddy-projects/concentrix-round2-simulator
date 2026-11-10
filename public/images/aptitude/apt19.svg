@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" width="100%" height="100%">
+  <rect width="500" height="240" rx="16" fill="#090d16" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="250" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#a5b4fc" text-anchor="middle">TELECOMMUNICATION HARDWARE · BINAURAL NOISE-CANCELLING HEADSET</text>
+
+  <!-- Headset Vector -->
+  <g transform="translate(130, 45)">
+    <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+    <rect x="8" y="80" width="24" height="45" rx="10" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <rect x="148" y="80" width="24" height="45" rx="10" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <path d="M 20 115 Q 40 150 95 145" fill="none" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="95" y="137" width="18" height="15" rx="4" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+    <path d="M 120 135 Q 125 144 120 153" fill="none" stroke="#22c55e" stroke-width="2"/>
+    <path d="M 126 130 Q 133 144 126 158" fill="none" stroke="#22c55e" stroke-width="2" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- Feature callout tags -->
+  <g transform="translate(290, 75)">
+    <rect width="180" height="95" rx="10" fill="#0f172a" stroke="#1e293b"/>
+    <text x="15" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#818cf8">Acoustic Specifications:</text>
+    <text x="15" y="46" font-family="system-ui, sans-serif" font-size="10" fill="#cbd5e1">• Directional Cardioid Mic</text>
+    <text x="15" y="66" font-family="system-ui, sans-serif" font-size="10" fill="#22c55e">• Ambient Noise Suppression</text>
+    <text x="15" y="86" font-family="system-ui, sans-serif" font-size="10" fill="#cbd5e1">• High Acoustic Vocal Clarity</text>
+  </g>
+
+  <rect x="30" y="195" width="440" height="28" rx="6" fill="#0f172a" stroke="#1e293b"/>
+  <text x="250" y="213" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Essential Call Center Hardware: Eliminates background office room acoustics for crystal-clear caller audio</text>
+</svg>

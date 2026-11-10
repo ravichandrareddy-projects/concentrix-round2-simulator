@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" width="100%" height="100%">
+  <rect width="520" height="240" rx="16" fill="#090d16" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="260" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">IT HARDWARE REASONING · MODULAR CRIMPING TOOL &amp; RJ-45</text>
+
+  <!-- RJ-45 Crimping Tool Vector -->
+  <g transform="translate(50, 45)">
+    <path d="M 30 140 L 90 60 L 130 50 L 140 70 L 60 160 Z" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+    <path d="M 120 145 L 140 70 L 170 80 L 150 160 Z" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="120" y="35" width="55" height="40" rx="6" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="135" y="45" width="25" height="20" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="100" y="185" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#93c5fd" text-anchor="middle">RJ-45 Ratchet Crimper</text>
+  </g>
+
+  <!-- Connecting Cable & Modular Plug -->
+  <g transform="translate(290, 60)">
+    <rect x="0" y="40" width="70" height="24" rx="4" fill="#0284c7"/>
+    <text x="35" y="56" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">CAT-6 UTP</text>
+    <line x1="70" y1="44" x2="105" y2="44" stroke="#f97316" stroke-width="2"/>
+    <line x1="70" y1="48" x2="105" y2="48" stroke="#22c55e" stroke-width="2"/>
+    <line x1="70" y1="52" x2="105" y2="52" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="70" y1="56" x2="105" y2="56" stroke="#a855f7" stroke-width="2"/>
+    <line x1="70" y1="60" x2="105" y2="60" stroke="#eab308" stroke-width="2"/>
+    <rect x="105" y="34" width="45" height="36" rx="4" fill="#1e293b" fill-opacity="0.8" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="135" y="38" width="10" height="28" fill="#eab308"/>
+    <text x="127" y="90" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#facc15" text-anchor="middle">8P8C Modular Plug</text>
+  </g>
+
+  <rect x="30" y="195" width="460" height="30" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="260" y="214" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#cbd5e1" text-anchor="middle">Primary Function: Compresses internal copper pins to terminate 8-conductor twisted pair Ethernet</text>
+</svg>

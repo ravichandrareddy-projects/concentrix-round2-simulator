@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" width="100%" height="100%">
+  <rect width="500" height="240" rx="16" fill="#090d16" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="250" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">MIXTURE &amp; RATIO APTITUDE · MILK &amp; WATER RATIO BALANCING</text>
+
+  <!-- Initial 60L Flask -->
+  <g transform="translate(60, 50)">
+    <rect width="130" height="140" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="10" y="55" width="110" height="50" fill="#059669" rx="4"/>
+    <text x="65" y="85" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Milk: 40L (2x)</text>
+    <rect x="10" y="110" width="110" height="25" fill="#0284c7" rx="4"/>
+    <text x="65" y="127" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">Water: 20L (1x)</text>
+    <text x="65" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">Initial 60L (2:1)</text>
+  </g>
+
+  <text x="225" y="125" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#64748b">→</text>
+
+  <!-- Final 120L Flask with 60L added -->
+  <g transform="translate(280, 50)">
+    <rect width="160" height="140" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <rect x="10" y="35" width="140" height="30" fill="#059669" rx="4"/>
+    <text x="80" y="55" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Milk: 40L (1 part)</text>
+    <rect x="10" y="70" width="140" height="65" fill="#0284c7" rx="4"/>
+    <text x="80" y="100" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Water: 80L (2 parts)</text>
+    <text x="80" y="120" font-family="system-ui, sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">(20L original + 60L added)</text>
+    <text x="80" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#34d399" text-anchor="middle">Final 120L (1:2)</text>
+  </g>
+
+  <rect x="30" y="200" width="440" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+  <text x="250" y="217" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Required water addition = (2 × 40L) - 20L = <tspan fill="#38bdf8" font-weight="bold">60 Liters</tspan></text>
+</svg>

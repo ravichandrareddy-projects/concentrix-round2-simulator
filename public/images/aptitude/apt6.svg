@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 255" width="100%" height="100%">
+  <rect width="540" height="255" rx="16" fill="#090d16" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="270" y="30" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#f8fafc" text-anchor="middle">Operational Ticket / CSAT Performance</text>
+  
+  <rect x="25" y="48" width="490" height="28" rx="6" fill="#1e1b4b" stroke="#312e81"/>
+  <text x="90.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Department</text><text x="210.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Tickets Received</text><text x="330.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Resolved on First Call</text><text x="450.0" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Escalated</text>
+  
+        <rect x="25" y="95" width="490" height="30" rx="4" fill="#0f172a" fill-opacity="0.5"/>
+        <text x="90.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Hardware Support</text><text x="210.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">400</text><text x="330.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">280</text><text x="450.0" y="113" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">120</text>
+        
+        <rect x="25" y="130" width="490" height="30" rx="4" fill="#1e293b" fill-opacity="0.5"/>
+        <text x="90.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Software Billing</text><text x="210.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">600</text><text x="330.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">480</text><text x="450.0" y="148" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">120</text>
+        
+        <rect x="25" y="165" width="490" height="30" rx="4" fill="#0f172a" fill-opacity="0.5"/>
+        <text x="90.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Account Access</text><text x="210.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">500</text><text x="330.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">425</text><text x="450.0" y="183" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">75</text>
+        
+        <rect x="25" y="200" width="490" height="30" rx="4" fill="#1e293b" fill-opacity="0.5"/>
+        <text x="90.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Network Operations</text><text x="210.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">300</text><text x="330.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">210</text><text x="450.0" y="218" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#38bdf8" text-anchor="middle">90</text>
+        
+</svg>

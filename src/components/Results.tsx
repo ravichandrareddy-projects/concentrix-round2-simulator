@@ -16,8 +16,8 @@ interface Props {
 
 const SECTION_NAMES: Record<SectionId, { title: string; icon: string }> = {
   1: { title: 'Listen & Repeat', icon: '🎧' },
-  2: { title: 'Picture Selection', icon: '🖼️' },
-  3: { title: 'Story Comprehension', icon: '📖' },
+  2: { title: 'Story Listening', icon: '📖' },
+  3: { title: 'Mixed Aptitude & Reasoning', icon: '📊' },
   4: { title: 'Content Moderation', icon: '🛡️' },
 };
 

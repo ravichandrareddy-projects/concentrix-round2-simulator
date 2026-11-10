@@ -1,28 +1,16 @@
 // ============================================================
-// QUESTION BANK – Concentrix Round 2 Assessment Simulator
-// 50 Listen & Repeat Sentences
-// 50 Picture Selection Questions (5 options each)
-// 50 Story Listening & Comprehension Cases (5 MCQs each)
-// 50 Content Moderation Scenarios (14 Policy Categories)
-// Total Practice Items: 200 items (350+ individual questions)
+// CONCENTRIX ROUND 2 QUESTION BANK (CORRECTED SPECIFICATION)
+// Session 1: 100 Sentences (40% Easy, 40% Med, 15% Hard, 5% Challenge)
+// Session 2: 50 Stories (80-150 words, 5 MCQs each)
+// Session 3: 105 Mixed Aptitude Qs (Pie charts, Nested squares, Numerical, Logical)
+// Session 4: 100 Content Moderation Scenarios (14 categories, "Appropriate Content")
 // ============================================================
 
 export interface SentenceItem {
   id: string;
   text: string;
-  difficulty: 'easy' | 'medium' | 'hard';
-}
-
-export interface PictureOption {
-  label: string;
-  image: string;
-  correct: boolean;
-}
-
-export interface PictureQuestion {
-  id: string;
-  question: string;
-  options: PictureOption[];
+  difficulty: 'easy' | 'medium' | 'hard' | 'challenge';
+  wordCount: number;
 }
 
 export interface StoryQuestion {
@@ -39,6 +27,19 @@ export interface StoryItem {
   questions: StoryQuestion[];
 }
 
+export interface AptitudeQuestion {
+  id: string;
+  category: 'data-interpretation' | 'image-reasoning' | 'non-verbal-reasoning' | 'numerical-aptitude' | 'logical-reasoning';
+  type?: 'chart-pie' | 'chart-bar' | 'table' | 'nested-squares' | 'geometric-pattern' | 'none';
+  chartData?: any;
+  tableData?: any;
+  patternData?: any;
+  question: string;
+  options: string[];
+  correct: number;
+  explanation: string;
+}
+
 export interface ModerationScenario {
   id: string;
   description: string;
@@ -51,1825 +52,622 @@ export interface ModerationScenario {
 }
 
 export const CATEGORIES: string[] = [
-  'Child Safety / Minor Exploitation',
-  'Adult Nudity',
-  'Sexual Content',
-  'Violence',
-  'Graphic Violence',
-  'Weapons',
-  'Animal Cruelty',
-  'Hate Speech',
-  'Harassment',
-  'Self-Harm',
-  'Dangerous Activities',
-  'Drugs',
-  'Spam / Misleading Content',
-  'Safe / No Violation'
+  "Child Safety",
+  "Adult Nudity",
+  "Sexual Content",
+  "Violence",
+  "Graphic Violence",
+  "Weapons",
+  "Animal Cruelty",
+  "Hate Speech",
+  "Harassment",
+  "Self-Harm",
+  "Dangerous Activities",
+  "Drugs",
+  "Spam",
+  "Appropriate Content"
 ];
 
 export const LISTEN_SENTENCES: SentenceItem[] = [
   {
     "id": "ls1",
-    "text": "Please keep the documents on the table.",
-    "difficulty": "easy"
+    "text": "Insert a coin and choose a beverage.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls2",
-    "text": "The meeting starts at nine in the morning.",
-    "difficulty": "easy"
+    "text": "I'm sorry, I lost the file.",
+    "difficulty": "easy",
+    "wordCount": 6
   },
   {
     "id": "ls3",
-    "text": "Could you please send me the report by Friday?",
-    "difficulty": "easy"
+    "text": "Please keep the files in the red folder.",
+    "difficulty": "easy",
+    "wordCount": 8
   },
   {
     "id": "ls4",
-    "text": "The package arrived this morning without any damage.",
-    "difficulty": "easy"
+    "text": "Please keep the documents on the table.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls5",
-    "text": "Please fill in the form and return it to the front desk.",
-    "difficulty": "easy"
+    "text": "The meeting starts at nine in the morning.",
+    "difficulty": "easy",
+    "wordCount": 8
   },
   {
     "id": "ls6",
-    "text": "Your appointment has been confirmed for three o'clock.",
-    "difficulty": "easy"
+    "text": "Could you send me the report today?",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls7",
-    "text": "The office will be closed on the national holiday.",
-    "difficulty": "easy"
+    "text": "The package arrived this morning without damage.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls8",
-    "text": "Please sign here before you leave the counter.",
-    "difficulty": "easy"
+    "text": "Please fill in the registration form now.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls9",
-    "text": "The supervisor will call you back within thirty minutes.",
-    "difficulty": "easy"
+    "text": "Your appointment is confirmed for three o'clock.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls10",
-    "text": "Your order will be delivered within three to five working days.",
-    "difficulty": "easy"
+    "text": "The office will be closed this Friday.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls11",
-    "text": "We appreciate your patience and understanding.",
-    "difficulty": "easy"
+    "text": "Please sign your name on the line.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls12",
-    "text": "The helpdesk is available from Monday to Saturday.",
-    "difficulty": "easy"
+    "text": "The supervisor will call you back shortly.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls13",
-    "text": "Please have your account number ready before calling.",
-    "difficulty": "easy"
+    "text": "Your order will be delivered this week.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls14",
-    "text": "The technician will arrive at your location by noon.",
-    "difficulty": "easy"
+    "text": "We appreciate your patience and kind understanding.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls15",
-    "text": "You may track your shipment using the reference number provided.",
-    "difficulty": "easy"
+    "text": "The customer service counter is now open.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls16",
-    "text": "The customer requested an update regarding the delayed delivery.",
-    "difficulty": "medium"
+    "text": "Please have your account number ready today.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls17",
-    "text": "Please ensure that all required fields are completed before submitting the application.",
-    "difficulty": "medium"
+    "text": "The technician will arrive before noon today.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls18",
-    "text": "The manager reviewed the complaint and offered a full refund to the customer.",
-    "difficulty": "medium"
+    "text": "You may track your parcel online anytime.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls19",
-    "text": "Our technical team is currently investigating the issue and will provide an update shortly.",
-    "difficulty": "medium"
+    "text": "Thank you for contacting our support desk.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls20",
-    "text": "The representative apologized for the inconvenience and escalated the matter immediately.",
-    "difficulty": "medium"
+    "text": "Our team is ready to assist you.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls21",
-    "text": "The new policy will take effect starting from the first of next month.",
-    "difficulty": "medium"
+    "text": "Please confirm your current billing postal code.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls22",
-    "text": "All employees are required to complete the mandatory training by the end of the quarter.",
-    "difficulty": "medium"
+    "text": "The system will restart in five minutes.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls23",
-    "text": "The client confirmed that the invoice was received but payment has not yet been processed.",
-    "difficulty": "medium"
+    "text": "All visitors must wear a security badge.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls24",
-    "text": "Could you please verify the billing address associated with your account?",
-    "difficulty": "medium"
+    "text": "She forwarded the email to her manager.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls25",
-    "text": "The team successfully resolved the network outage within two hours of the initial report.",
-    "difficulty": "medium"
+    "text": "The store offers free returns within thirty days.",
+    "difficulty": "easy",
+    "wordCount": 8
   },
   {
     "id": "ls26",
-    "text": "The warranty covers all manufacturing defects but excludes physical damage caused by misuse.",
-    "difficulty": "medium"
+    "text": "Please mute your microphone during the presentation.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls27",
-    "text": "Please allow up to ten business days for the refund to appear in your account.",
-    "difficulty": "medium"
+    "text": "A confirmation receipt was sent by email.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls28",
-    "text": "The supervisor will review your feedback and respond within forty-eight hours.",
-    "difficulty": "medium"
+    "text": "He answered all questions clearly and politely.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls29",
-    "text": "Your account has been temporarily suspended due to unusual activity detected on our system.",
-    "difficulty": "medium"
+    "text": "The training session will begin at ten.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls30",
-    "text": "All documents must be certified and notarized before they can be accepted for processing.",
-    "difficulty": "medium"
+    "text": "You can download the mobile application free.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls31",
-    "text": "We recommend restarting your device after the installation process is finalized.",
-    "difficulty": "medium"
+    "text": "Check your inbox for the verification link.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls32",
-    "text": "The payment confirmation was dispatched automatically to your registered email address.",
-    "difficulty": "medium"
+    "text": "The elevator is located near the entrance.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls33",
-    "text": "Please make sure your internet connection remains stable during the assessment.",
-    "difficulty": "medium"
+    "text": "We sent a reminder message this afternoon.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls34",
-    "text": "The customer support helpline operates twenty-four hours a day throughout the week.",
-    "difficulty": "medium"
+    "text": "Please review the attached contract before signing.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls35",
-    "text": "Kindly verify your identity by providing the one-time passcode sent to your mobile phone.",
-    "difficulty": "medium"
+    "text": "The cafeteria serves lunch until two o'clock.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls36",
-    "text": "Although the meeting was postponed, the team completed all assigned responsibilities before the revised deadline.",
-    "difficulty": "hard"
+    "text": "Keep your password confidential at all times.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls37",
-    "text": "The compliance department has identified several discrepancies in the financial records that require immediate attention.",
-    "difficulty": "hard"
+    "text": "The printer needs more paper to finish.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls38",
-    "text": "Despite multiple attempts to resolve the issue remotely, the technician concluded that an on-site visit would be necessary.",
-    "difficulty": "hard"
+    "text": "Our business hours are Monday through Friday.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls39",
-    "text": "The customer expressed dissatisfaction with the service quality and requested that the case be escalated to a senior manager.",
-    "difficulty": "hard"
+    "text": "Kindly update your profile with current details.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls40",
-    "text": "According to our records, the subscription was renewed automatically on the fifteenth of last month without prior notification.",
-    "difficulty": "hard"
+    "text": "Please hold the line for a moment.",
+    "difficulty": "easy",
+    "wordCount": 7
   },
   {
     "id": "ls41",
-    "text": "The proposed changes to the service agreement will be presented to the board during next week's executive meeting.",
-    "difficulty": "hard"
+    "text": "You can use our web check-in services three hours before the flight.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls42",
-    "text": "Our investigation revealed that the unauthorized transaction originated from an unrecognized device in a different geographical location.",
-    "difficulty": "hard"
+    "text": "I take full personal responsibility for every single unanswered question.",
+    "difficulty": "medium",
+    "wordCount": 10
   },
   {
     "id": "ls43",
-    "text": "The candidate demonstrated exceptional communication skills and a thorough understanding of customer relationship management during the interview.",
-    "difficulty": "hard"
+    "text": "The customer requested an urgent status update regarding the delayed product delivery.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls44",
-    "text": "Pursuant to the terms and conditions of the agreement, early termination of the contract may result in applicable penalties and fees.",
-    "difficulty": "hard"
+    "text": "Please ensure that all mandatory fields are completed before submitting the application.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls45",
-    "text": "The operations team implemented a series of corrective measures to prevent recurrence of the system failure that occurred last Thursday.",
-    "difficulty": "hard"
+    "text": "The regional manager reviewed the complaint and offered a full immediate refund.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls46",
-    "text": "All correspondence relating to this matter should be directed to the legal department for review prior to any external communication.",
-    "difficulty": "hard"
+    "text": "Our technical engineering team is investigating the server issue and will report shortly.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
     "id": "ls47",
-    "text": "The regional director emphasized the importance of maintaining consistent service standards across all branches during the quarterly performance review.",
-    "difficulty": "hard"
+    "text": "The customer service representative apologized politely and escalated the priority ticket immediately.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls48",
-    "text": "Following a thorough assessment of the situation, the management team decided to extend the product warranty by an additional six months.",
-    "difficulty": "hard"
+    "text": "The revised company security policy will take effect starting next Monday morning.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls49",
-    "text": "The integration of the new software platform is expected to significantly improve operational efficiency and reduce processing time by forty percent.",
-    "difficulty": "hard"
+    "text": "All full-time employees are required to finish the compliance training this week.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
     "id": "ls50",
-    "text": "In accordance with data protection regulations, all personal information collected from customers must be stored securely and accessed only by authorized personnel.",
-    "difficulty": "hard"
-  }
-];
-
-export const PICTURE_QUESTIONS: PictureQuestion[] = [
-  {
-    "id": "pq1",
-    "question": "Which image shows a person working on a laptop computer?",
-    "options": [
-      {
-        "label": "A person working on a laptop",
-        "image": "/images/pictures/pq1_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A person cooking in a kitchen",
-        "image": "/images/pictures/pq1_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A person riding a bicycle",
-        "image": "/images/pictures/pq1_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A person reading a paper book",
-        "image": "/images/pictures/pq1_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A person swimming in an outdoor pool",
-        "image": "/images/pictures/pq1_opt4.svg",
-        "correct": false
-      }
-    ]
+    "text": "The financial client confirmed that payment was initiated through direct bank transfer.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq2",
-    "question": "Which image shows an office meeting room with colleagues gathered around a table?",
-    "options": [
-      {
-        "label": "People dining at a restaurant",
-        "image": "/images/pictures/pq2_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "An office team meeting around a conference table",
-        "image": "/images/pictures/pq2_opt1.svg",
-        "correct": true
-      },
-      {
-        "label": "Students sitting in a lecture classroom",
-        "image": "/images/pictures/pq2_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "Friends having an outdoor barbecue picnic",
-        "image": "/images/pictures/pq2_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A quiet library interior with bookshelves",
-        "image": "/images/pictures/pq2_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls51",
+    "text": "Could you please verify the primary billing address currently registered on file?",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq3",
-    "question": "Which image shows fresh fruits and vegetables arranged in market crates?",
-    "options": [
-      {
-        "label": "A hardware and tools store",
-        "image": "/images/pictures/pq3_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A boutique clothing store",
-        "image": "/images/pictures/pq3_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Fresh fruits and vegetables in display stalls",
-        "image": "/images/pictures/pq3_opt2.svg",
-        "correct": true
-      },
-      {
-        "label": "A burger and fast food counter",
-        "image": "/images/pictures/pq3_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "An electronic gadgets showcase",
-        "image": "/images/pictures/pq3_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls52",
+    "text": "The network operations center successfully restored internet connectivity within ninety minutes.",
+    "difficulty": "medium",
+    "wordCount": 11
   },
   {
-    "id": "pq4",
-    "question": "Which image shows a customer service agent wearing a headset and smiling at a computer?",
-    "options": [
-      {
-        "label": "A surgeon in hospital scrubs",
-        "image": "/images/pictures/pq4_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A chef preparing dough in a bakery",
-        "image": "/images/pictures/pq4_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A customer support representative wearing a headset",
-        "image": "/images/pictures/pq4_opt2.svg",
-        "correct": true
-      },
-      {
-        "label": "A courier delivery driver carrying packages",
-        "image": "/images/pictures/pq4_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A retail cashier scanning items at checkout",
-        "image": "/images/pictures/pq4_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls53",
+    "text": "The manufacturer warranty covers internal mechanical defects but excludes intentional physical drop damage.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq5",
-    "question": "Which image shows a commercial passenger airplane flying through clouds?",
-    "options": [
-      {
-        "label": "A yacht sailing in open coastal waters",
-        "image": "/images/pictures/pq5_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A commuter train arriving at a railway platform",
-        "image": "/images/pictures/pq5_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "An automobile driving along an interstate highway",
-        "image": "/images/pictures/pq5_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A road bicycle leaning against a stone wall",
-        "image": "/images/pictures/pq5_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A commercial airplane ascending in the sky",
-        "image": "/images/pictures/pq5_opt4.svg",
-        "correct": true
-      }
-    ]
+    "id": "ls54",
+    "text": "Please allow up to five business days for the funds to reflect.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq6",
-    "question": "Which image shows a physician consulting with a patient in an examination room?",
-    "options": [
-      {
-        "label": "A doctor with stethoscope examining a patient",
-        "image": "/images/pictures/pq6_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A teacher tutoring a child at a blackboard",
-        "image": "/images/pictures/pq6_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A pastry cook frosting a cake",
-        "image": "/images/pictures/pq6_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A law enforcement patrol officer",
-        "image": "/images/pictures/pq6_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A rescue worker holding safety ropes",
-        "image": "/images/pictures/pq6_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls55",
+    "text": "The shift supervisor will examine your service request and provide written feedback.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq7",
-    "question": "Which image shows a tropical sandy beach with turquoise ocean water and palm trees?",
-    "options": [
-      {
-        "label": "A snow-covered alpine peak",
-        "image": "/images/pictures/pq7_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A misty evergreen pine forest",
-        "image": "/images/pictures/pq7_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Sand dunes stretching across an arid desert",
-        "image": "/images/pictures/pq7_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A pristine tropical beach with crystal-clear water",
-        "image": "/images/pictures/pq7_opt3.svg",
-        "correct": true
-      },
-      {
-        "label": "A crowded downtown street in a metropolis",
-        "image": "/images/pictures/pq7_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls56",
+    "text": "Your user account was temporarily locked due to repeated incorrect password entries.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq8",
-    "question": "Which image shows a hot ceramic cup of coffee with latte art on a wooden caf\u00e9 table?",
-    "options": [
-      {
-        "label": "A tall glass of chilled orange juice",
-        "image": "/images/pictures/pq8_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A ceramic cup of freshly brewed coffee with latte art",
-        "image": "/images/pictures/pq8_opt1.svg",
-        "correct": true
-      },
-      {
-        "label": "A clear bottle of mineral spring water",
-        "image": "/images/pictures/pq8_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A bowl of steaming vegetable soup",
-        "image": "/images/pictures/pq8_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A fresh garden salad with greens and tomatoes",
-        "image": "/images/pictures/pq8_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls57",
+    "text": "All supporting legal documents must be certified before submitting for administrative processing.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq9",
-    "question": "Which image shows a golden retriever dog catching a flying disc outdoors in a park?",
-    "options": [
-      {
-        "label": "A tabby cat napping on a living room sofa",
-        "image": "/images/pictures/pq9_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A colorful wild bird resting on a tree branch",
-        "image": "/images/pictures/pq9_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Exotic tropical fish swimming in an aquarium",
-        "image": "/images/pictures/pq9_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A white rabbit chewing leaves in a garden",
-        "image": "/images/pictures/pq9_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "An energetic golden retriever dog playing in a park",
-        "image": "/images/pictures/pq9_opt4.svg",
-        "correct": true
-      }
-    ]
+    "id": "ls58",
+    "text": "We recommend restarting your desktop computer after installing the mandatory system updates.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq10",
-    "question": "Which image shows an illuminated city skyline with skyscrapers reflecting in water at night?",
-    "options": [
-      {
-        "label": "A brightly lit city skyline with illuminated skyscrapers",
-        "image": "/images/pictures/pq10_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A rural farmhouse amidst green fields",
-        "image": "/images/pictures/pq10_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Sun setting over ocean horizon",
-        "image": "/images/pictures/pq10_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A serene mountain lake at daybreak",
-        "image": "/images/pictures/pq10_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "An empty professional football arena",
-        "image": "/images/pictures/pq10_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls59",
+    "text": "The automated transaction notification was dispatched directly to your mobile phone number.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq11",
-    "question": "Which image shows a professional speaker presenting charts on a stage screen?",
-    "options": [
-      {
-        "label": "A business speaker giving a keynote on stage",
-        "image": "/images/pictures/pq11_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An employee sitting alone in a cubicle",
-        "image": "/images/pictures/pq11_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Guests chatting at a birthday celebration",
-        "image": "/images/pictures/pq11_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "Students reading textbooks quietly",
-        "image": "/images/pictures/pq11_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A live outdoor music concert festival",
-        "image": "/images/pictures/pq11_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls60",
+    "text": "Please maintain a stable high-speed broadband connection throughout the entire evaluation period.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq12",
-    "question": "Which image shows a customer pushing a supermarket shopping cart loaded with groceries?",
-    "options": [
-      {
-        "label": "An empty outdoor parking lot",
-        "image": "/images/pictures/pq12_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A metal shopping cart filled with fresh groceries",
-        "image": "/images/pictures/pq12_opt1.svg",
-        "correct": true
-      },
-      {
-        "label": "Designer shirts hanging on a store rack",
-        "image": "/images/pictures/pq12_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "Hardcover books neatly stacked on wooden shelves",
-        "image": "/images/pictures/pq12_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "Modern smartphones displayed on glass tables",
-        "image": "/images/pictures/pq12_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls61",
+    "text": "The technical helpline operates twenty-four hours a day to assist global customers.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq13",
-    "question": "Which image shows two professionals performing a firm business handshake after an agreement?",
-    "options": [
-      {
-        "label": "Two colleagues greeting with an informal hug",
-        "image": "/images/pictures/pq13_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "Two business executives shaking hands in an office",
-        "image": "/images/pictures/pq13_opt1.svg",
-        "correct": true
-      },
-      {
-        "label": "People waving hand gestures at a train station",
-        "image": "/images/pictures/pq13_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A group dining around a banquet table",
-        "image": "/images/pictures/pq13_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "An employee receiving a glass trophy award",
-        "image": "/images/pictures/pq13_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls62",
+    "text": "Kindly verify your identity by providing the six-digit verification code sent earlier.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq14",
-    "question": "Which image shows an open umbrella protecting a pedestrian from heavy rainfall on a sidewalk?",
-    "options": [
-      {
-        "label": "A traveler wearing sunglasses under bright sunshine",
-        "image": "/images/pictures/pq14_opt0.svg",
-        "correct": false
-      },
-      {
-        "label": "A mountaineer hiking through heavy snowfall",
-        "image": "/images/pictures/pq14_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A person holding an open umbrella in pouring rain",
-        "image": "/images/pictures/pq14_opt2.svg",
-        "correct": true
-      },
-      {
-        "label": "People flying kites in strong sea wind",
-        "image": "/images/pictures/pq14_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A quiet forest road covered in thick morning fog",
-        "image": "/images/pictures/pq14_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls63",
+    "text": "The quarterly financial performance metrics show steady growth across all domestic business sectors.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq15",
-    "question": "Which image shows a commuter stepping onto a public city transit bus at a bus stop?",
-    "options": [
-      {
-        "label": "A passenger boarding a red public transit bus",
-        "image": "/images/pictures/pq15_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A person raising their arm to hail a taxi cab",
-        "image": "/images/pictures/pq15_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Air travelers waiting in line at airport luggage drop",
-        "image": "/images/pictures/pq15_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A customer signing rental paperwork at car rental",
-        "image": "/images/pictures/pq15_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A cyclist wearing a helmet pedaling down a bike path",
-        "image": "/images/pictures/pq15_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls64",
+    "text": "Please hold the line while I transfer your call to billing.",
+    "difficulty": "medium",
+    "wordCount": 11
   },
   {
-    "id": "pq16",
-    "question": "Which image shows a person riding an electric bicycle through a city street?",
-    "options": [
-      {
-        "label": "An electric bicycle rider on a city street",
-        "image": "/images/pictures/pq16_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A person driving a pickup truck",
-        "image": "/images/pictures/pq16_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A person riding a horse in a field",
-        "image": "/images/pictures/pq16_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A person running on a treadmill",
-        "image": "/images/pictures/pq16_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A person paddling a kayak on a river",
-        "image": "/images/pictures/pq16_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls65",
+    "text": "The updated guidelines instruct all representatives to confirm at least two security identifiers.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq17",
-    "question": "Which image shows a warehouse worker using a barcode scanner to scan storage cartons?",
-    "options": [
-      {
-        "label": "A warehouse employee scanning boxes with handheld scanner",
-        "image": "/images/pictures/pq17_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An office accountant sorting paper folders",
-        "image": "/images/pictures/pq17_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A pharmacist organizing pill bottles on shelves",
-        "image": "/images/pictures/pq17_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A supermarket customer checking price tags",
-        "image": "/images/pictures/pq17_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A library clerk arranging returned books",
-        "image": "/images/pictures/pq17_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls66",
+    "text": "We regret to inform you that the selected model is temporarily out of stock.",
+    "difficulty": "medium",
+    "wordCount": 14
   },
   {
-    "id": "pq18",
-    "question": "Which image shows a computer screen showing a remote multi-person video conference?",
-    "options": [
-      {
-        "label": "A laptop screen displaying a grid of video meeting participants",
-        "image": "/images/pictures/pq18_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A television playing a broadcast soccer match",
-        "image": "/images/pictures/pq18_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A gaming computer displaying a 3D racing game",
-        "image": "/images/pictures/pq18_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A tablet displaying an animated children cartoon",
-        "image": "/images/pictures/pq18_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A smartphone playing music video playlist",
-        "image": "/images/pictures/pq18_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls67",
+    "text": "Your honest feedback is valuable in helping us improve customer service response standards.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq19",
-    "question": "Which image shows a chef in a white uniform plating food inside a busy restaurant kitchen?",
-    "options": [
-      {
-        "label": "A professional chef garnishing dishes in a commercial kitchen",
-        "image": "/images/pictures/pq19_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A barista pulling an espresso shot at coffee counter",
-        "image": "/images/pictures/pq19_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A waiter carrying multiple drink glasses on a tray",
-        "image": "/images/pictures/pq19_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A baker pulling hot loaves of bread from an oven",
-        "image": "/images/pictures/pq19_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A dishwasher scrubbing cooking pots in a stainless sink",
-        "image": "/images/pictures/pq19_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls68",
+    "text": "The project coordinator scheduled an emergency meeting to discuss the revised project timeline.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq20",
-    "question": "Which image shows a woman doing a yoga tree pose on a mat in a bright studio?",
-    "options": [
-      {
-        "label": "A practitioner balancing in a yoga pose on a mat",
-        "image": "/images/pictures/pq20_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An athlete performing heavy barbell squats",
-        "image": "/images/pictures/pq20_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A swimmer preparing to dive from a starting block",
-        "image": "/images/pictures/pq20_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A tennis player hitting a forehand stroke",
-        "image": "/images/pictures/pq20_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A marathon runner crossing a finish line ribbon",
-        "image": "/images/pictures/pq20_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls69",
+    "text": "Please submit all travel expense receipts to the accounting department before month-end.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq21",
-    "question": "Which image shows a modern high-speed bullet train stationed at a clean passenger terminal?",
-    "options": [
-      {
-        "label": "A streamlined bullet train stopped along a modern platform",
-        "image": "/images/pictures/pq21_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A cargo freight train carrying shipping containers",
-        "image": "/images/pictures/pq21_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A vintage steam locomotive releasing white steam",
-        "image": "/images/pictures/pq21_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "An underground subway car packed with commuters",
-        "image": "/images/pictures/pq21_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A scenic tourist mountain tram ascending a hill",
-        "image": "/images/pictures/pq21_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls70",
+    "text": "Our digital banking application allows customers to freeze misplaced credit cards instantly.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq22",
-    "question": "Which image shows a construction worker wearing a yellow hard hat and high-visibility vest?",
-    "options": [
-      {
-        "label": "A site worker wearing safety hardhat and reflective vest",
-        "image": "/images/pictures/pq22_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A firefighter in protective turnout gear with firehose",
-        "image": "/images/pictures/pq22_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A police officer conducting roadside vehicle inspection",
-        "image": "/images/pictures/pq22_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A utility lineman repairing electrical poles",
-        "image": "/images/pictures/pq22_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A factory assembly worker wearing safety glasses",
-        "image": "/images/pictures/pq22_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls71",
+    "text": "You will receive an automated tracking link once the warehouse ships your package.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq23",
-    "question": "Which image shows a student studying with highlighters and notebooks in a quiet library?",
-    "options": [
-      {
-        "label": "A student taking detailed notes with textbooks in a library",
-        "image": "/images/pictures/pq23_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "Students chatting noisily in a school cafeteria",
-        "image": "/images/pictures/pq23_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Children playing games in a playground sandbox",
-        "image": "/images/pictures/pq23_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A tutor giving instructions at a white chalkboard",
-        "image": "/images/pictures/pq23_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A graduate receiving their university diploma onstage",
-        "image": "/images/pictures/pq23_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls72",
+    "text": "The conference room on the fifth floor is reserved for executive interviews today.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq24",
-    "question": "Which image shows a delivery person in uniform handing a cardboard package to a homeowner?",
-    "options": [
-      {
-        "label": "A courier handing a delivered parcel at a front doorstep",
-        "image": "/images/pictures/pq24_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A mail carrier placing letter envelopes in a mailbox",
-        "image": "/images/pictures/pq24_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A moving company mover lifting a heavy wooden sofa",
-        "image": "/images/pictures/pq24_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A food delivery rider handing over brown takeout bags",
-        "image": "/images/pictures/pq24_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A retail store associate packing clothes in paper bags",
-        "image": "/images/pictures/pq24_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls73",
+    "text": "Please inform the receptionist if you require parking validation before departing the premises.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq25",
-    "question": "Which image shows a technician repairing internal hardware components of a desktop PC?",
-    "options": [
-      {
-        "label": "A technician fixing computer motherboard circuits with tools",
-        "image": "/images/pictures/pq25_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An electrician wiring an electrical distribution box",
-        "image": "/images/pictures/pq25_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "An auto mechanic inspecting an automobile engine",
-        "image": "/images/pictures/pq25_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A mobile technician replacing a phone battery",
-        "image": "/images/pictures/pq25_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A network engineer patching blue ethernet cables",
-        "image": "/images/pictures/pq25_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls74",
+    "text": "Customer service representatives must document every call summary accurately in the database system.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq26",
-    "question": "Which image shows a vibrant farmers market stall displaying jars of organic honey and jams?",
-    "options": [
-      {
-        "label": "Market table stacked with artisanal honey jars and preserves",
-        "image": "/images/pictures/pq26_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A butcher display case filled with fresh meat cuts",
-        "image": "/images/pictures/pq26_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A bakery display filled with croissants and pastries",
-        "image": "/images/pictures/pq26_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A flower stall overflowing with fresh bouquets and blooms",
-        "image": "/images/pictures/pq26_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A seafood counter featuring crushed ice and fresh fish",
-        "image": "/images/pictures/pq26_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls75",
+    "text": "The new employee orientation program will introduce company values and health benefits.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq27",
-    "question": "Which image shows a dental hygienist inspecting a patient's teeth using dental instruments?",
-    "options": [
-      {
-        "label": "A dentist examining a patient seated in a dental chair",
-        "image": "/images/pictures/pq27_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An optometrist conducting an eye refraction test",
-        "image": "/images/pictures/pq27_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A physical therapist guiding shoulder exercises",
-        "image": "/images/pictures/pq27_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A radiologist examining black and white chest X-rays",
-        "image": "/images/pictures/pq27_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A laboratory chemist testing fluids in glass vials",
-        "image": "/images/pictures/pq27_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls76",
+    "text": "All remote staff members must connect through the virtual private network daily.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq28",
-    "question": "Which image shows a family assembling a tent together at a wooded campsite near a lake?",
-    "options": [
-      {
-        "label": "Campers pitching a blue nylon tent in a forested clearing",
-        "image": "/images/pictures/pq28_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "Hikers resting with heavy trekking backpacks on a trail",
-        "image": "/images/pictures/pq28_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "Kayakers paddling across calm mountain lake water",
-        "image": "/images/pictures/pq28_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "People roasting marshmallows over a wood campfire",
-        "image": "/images/pictures/pq28_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A camper fishing from a wooden lake dock at sunrise",
-        "image": "/images/pictures/pq28_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls77",
+    "text": "We can reschedule your technician service visit to Thursday morning if that suits you.",
+    "difficulty": "medium",
+    "wordCount": 14
   },
   {
-    "id": "pq29",
-    "question": "Which image shows an empty boardroom featuring a long mahogany table and leather executive chairs?",
-    "options": [
-      {
-        "label": "A vacant formal corporate boardroom with conference seating",
-        "image": "/images/pictures/pq29_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An open-plan coworking space with colorful beanbags",
-        "image": "/images/pictures/pq29_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A school computer lab with desktop terminals",
-        "image": "/images/pictures/pq29_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A hotel lobby with marble pillars and chandeliers",
-        "image": "/images/pictures/pq29_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "An executive private corner office with city views",
-        "image": "/images/pictures/pq29_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls78",
+    "text": "The international shipping fee depends on package weight and final destination customs regulations.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq30",
-    "question": "Which image shows a barista steaming milk foam using a commercial espresso machine?",
-    "options": [
-      {
-        "label": "A barista frothing milk wand on an espresso machine",
-        "image": "/images/pictures/pq30_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A bartender shaking cocktails behind a bar counter",
-        "image": "/images/pictures/pq30_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A smoothie vendor blending fresh fruit smoothies",
-        "image": "/images/pictures/pq30_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A sommelier pouring red wine into crystal glasses",
-        "image": "/images/pictures/pq30_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A tea master pouring hot green tea from a teapot",
-        "image": "/images/pictures/pq30_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls79",
+    "text": "A customer satisfaction survey will appear on your screen after this conversation ends.",
+    "difficulty": "medium",
+    "wordCount": 13
   },
   {
-    "id": "pq31",
-    "question": "Which image shows a passenger looking out of an airplane window at cloud formations below?",
-    "options": [
-      {
-        "label": "A traveler viewing fluffy white clouds from a jet window",
-        "image": "/images/pictures/pq31_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A driver looking into a vehicle rearview side mirror",
-        "image": "/images/pictures/pq31_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A ship captain viewing ocean horizon through binoculars",
-        "image": "/images/pictures/pq31_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A passenger gazing out of a high-speed train window",
-        "image": "/images/pictures/pq31_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A tourist peering through an observation tower telescope",
-        "image": "/images/pictures/pq31_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls80",
+    "text": "Please verify that your headset microphone volume is adjusted properly before speaking.",
+    "difficulty": "medium",
+    "wordCount": 12
   },
   {
-    "id": "pq32",
-    "question": "Which image shows a group of people planting young tree saplings in an ecological restoration park?",
-    "options": [
-      {
-        "label": "Volunteers planting tree saplings into fertile soil",
-        "image": "/images/pictures/pq32_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A gardener mowing green grass with a rotary mower",
-        "image": "/images/pictures/pq32_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A farmer harvesting wheat using a large combine harvester",
-        "image": "/images/pictures/pq32_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A landscaper trimming tall hedges with electric shears",
-        "image": "/images/pictures/pq32_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A greenhouse worker watering potted indoor succulents",
-        "image": "/images/pictures/pq32_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls81",
+    "text": "May I have your name, company name, email address, and phone number for our official records?",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq33",
-    "question": "Which image shows an artist using paintbrushes to paint an oil landscape on an easel canvas?",
-    "options": [
-      {
-        "label": "An oil painter working with palette and brush on an easel",
-        "image": "/images/pictures/pq33_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A sculptor shaping clay on a rotating pottery wheel",
-        "image": "/images/pictures/pq33_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A graphic designer creating digital vector art on a tablet",
-        "image": "/images/pictures/pq33_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A photographer adjusting camera tripod in an art studio",
-        "image": "/images/pictures/pq33_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A calligrapher writing ornate letters with fountain pen",
-        "image": "/images/pictures/pq33_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls82",
+    "text": "Although the meeting was postponed, the team completed all assigned responsibilities before the revised deadline.",
+    "difficulty": "hard",
+    "wordCount": 15
   },
   {
-    "id": "pq34",
-    "question": "Which image shows an airport baggage carousel with suitcases circulating on conveyor belts?",
-    "options": [
-      {
-        "label": "Luggage bags revolving on an airport luggage carousel",
-        "image": "/images/pictures/pq34_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A traveler pulling a wheeled trolley suitcase down corridor",
-        "image": "/images/pictures/pq34_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A security scanner conveyor scanning passenger carry-on bags",
-        "image": "/images/pictures/pq34_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A baggage handler loading luggage onto an aircraft cargo bay",
-        "image": "/images/pictures/pq34_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A lost luggage help counter with customer inquiry forms",
-        "image": "/images/pictures/pq34_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls83",
+    "text": "The internal audit team uncovered several unexplained discrepancies in the financial spreadsheets during their review.",
+    "difficulty": "hard",
+    "wordCount": 15
   },
   {
-    "id": "pq35",
-    "question": "Which image shows a person examining a paper map while standing at a historic European plaza?",
-    "options": [
-      {
-        "label": "A lost tourist checking an unfolded street map at a monument",
-        "image": "/images/pictures/pq35_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A pedestrian following turn-by-turn navigation on phone",
-        "image": "/images/pictures/pq35_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A tour guide holding up a colored flag for a travel group",
-        "image": "/images/pictures/pq35_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A tourist taking photos of an ancient cathedral facade",
-        "image": "/images/pictures/pq35_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A traveler waiting at an outdoor foreign currency exchange",
-        "image": "/images/pictures/pq35_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls84",
+    "text": "Despite multiple remote troubleshooting attempts, the senior engineer concluded that an on-site hardware inspection was mandatory.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq36",
-    "question": "Which image shows a server placing a hot pizza with melting mozzarella on a table?",
-    "options": [
-      {
-        "label": "A waiter serving a freshly baked wood-fired pizza",
-        "image": "/images/pictures/pq36_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A cook flipping burger patties on an iron flat-top grill",
-        "image": "/images/pictures/pq36_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A dining guest twirling pasta onto a fork from a plate",
-        "image": "/images/pictures/pq36_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A cashier handing a box of fried chicken across counter",
-        "image": "/images/pictures/pq36_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A sushi chef slicing fresh salmon sashimi on a board",
-        "image": "/images/pictures/pq36_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls85",
+    "text": "The dissatisfied customer requested that their ongoing service escalation be transferred directly to an operations manager.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq37",
-    "question": "Which image shows a server room with rows of computer server racks glowing with blue LED lights?",
-    "options": [
-      {
-        "label": "A high-tech datacenter corridor with glowing server racks",
-        "image": "/images/pictures/pq37_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A computer assembly workbench with exposed circuit boards",
-        "image": "/images/pictures/pq37_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A telecom cell tower surrounded by radio transmission dishes",
-        "image": "/images/pictures/pq37_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A company electrical panel with circuit breaker switches",
-        "image": "/images/pictures/pq37_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A network cables organizer with colored patch cords",
-        "image": "/images/pictures/pq37_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls86",
+    "text": "According to our subscription records, the annual membership was renewed automatically without receiving a cancellation request.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq38",
-    "question": "Which image shows a tailor measuring jacket sleeve length with a soft measuring tape?",
-    "options": [
-      {
-        "label": "A bespoke tailor measuring suit fabric on a client",
-        "image": "/images/pictures/pq38_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A seamstress operating a mechanical sewing machine",
-        "image": "/images/pictures/pq38_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A fashion designer sketching apparel designs on tracing paper",
-        "image": "/images/pictures/pq38_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A clothing store clerk folding polo shirts on a table",
-        "image": "/images/pictures/pq38_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A model walking down an illuminated fashion runway",
-        "image": "/images/pictures/pq38_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls87",
+    "text": "The executive committee will present the proposed organizational restructuring plan during tomorrow's general employee assembly.",
+    "difficulty": "hard",
+    "wordCount": 15
   },
   {
-    "id": "pq39",
-    "question": "Which image shows a child receiving a vaccination injection in the arm from a clinic nurse?",
-    "options": [
-      {
-        "label": "A pediatric nurse administering an immunization shot to a child",
-        "image": "/images/pictures/pq39_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A doctor listening to a patient's breathing with a stethoscope",
-        "image": "/images/pictures/pq39_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A pharmacist explaining dosage instructions on medicine bottle",
-        "image": "/images/pictures/pq39_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A paramedic bandaging an injured arm in an ambulance",
-        "image": "/images/pictures/pq39_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A medical assistant measuring patient blood pressure cuff",
-        "image": "/images/pictures/pq39_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls88",
+    "text": "Our fraud investigation determined that the unauthorized login originated from an unrecognized browser in another territory.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq40",
-    "question": "Which image shows a mechanic working underneath an elevated automobile on a hydraulic lift?",
-    "options": [
-      {
-        "label": "An auto mechanic inspecting vehicle chassis under a car lift",
-        "image": "/images/pictures/pq40_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A technician changing a flat vehicle tire on a roadside",
-        "image": "/images/pictures/pq40_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A driver washing their vehicle windshield at a gas station",
-        "image": "/images/pictures/pq40_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "An auto body painter spraying glossy lacquer on a car door",
-        "image": "/images/pictures/pq40_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A driver checking vehicle engine oil level with a dipstick",
-        "image": "/images/pictures/pq40_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls89",
+    "text": "The interview candidate demonstrated exceptional verbal communication skills and a deep understanding of corporate customer service.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq41",
-    "question": "Which image shows a cashier handing a paper receipt and shopping bag to a retail customer?",
-    "options": [
-      {
-        "label": "A store cashier completing a transaction at a cash register",
-        "image": "/images/pictures/pq41_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A customer tapping a contactless credit card on payment terminal",
-        "image": "/images/pictures/pq41_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A store associate restocking canned goods on retail shelves",
-        "image": "/images/pictures/pq41_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A customer returning an item at a department store counter",
-        "image": "/images/pictures/pq41_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A store greeter welcoming shoppers near automatic glass doors",
-        "image": "/images/pictures/pq41_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls90",
+    "text": "Pursuant to the signed commercial terms, early termination of the maintenance contract incurs administrative penalty fees.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq42",
-    "question": "Which image shows a veterinarian examining a small domestic cat on a clean clinic table?",
-    "options": [
-      {
-        "label": "A vet gently palpating a cat during an examination",
-        "image": "/images/pictures/pq42_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A pet groomer washing a fluffy poodle in a grooming tub",
-        "image": "/images/pictures/pq42_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A dog walker exercising multiple leashed dogs in a park",
-        "image": "/images/pictures/pq42_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "An animal shelter volunteer feeding rescue puppies in a kennel",
-        "image": "/images/pictures/pq42_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A pet owner purchasing kibble at an animal supply shop",
-        "image": "/images/pictures/pq42_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls91",
+    "text": "The engineering team implemented several redundancy safeguards to prevent any recurrence of last Thursday's network failure.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq43",
-    "question": "Which image shows a photographer adjusting lens aperture on a DSLR camera mounted on a tripod?",
-    "options": [
-      {
-        "label": "A photographer framing a scenic shot with camera on a tripod",
-        "image": "/images/pictures/pq43_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A tourist taking a selfie with a smartphone selfie stick",
-        "image": "/images/pictures/pq43_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A cameraman operating a large television broadcast studio camera",
-        "image": "/images/pictures/pq43_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "An editor reviewing digital photograph proofs on dual monitors",
-        "image": "/images/pictures/pq43_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A model posing under softbox studio strobe lights",
-        "image": "/images/pictures/pq43_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls92",
+    "text": "All official media correspondence regarding this incident must receive written approval from the legal affairs department.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq44",
-    "question": "Which image shows an architect inspecting printed blueprint drawings on a drafting table?",
-    "options": [
-      {
-        "label": "An architect examining architectural blueprints and building schematics",
-        "image": "/images/pictures/pq44_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A civil engineer surveying topography with a laser theodolite",
-        "image": "/images/pictures/pq44_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A carpenter driving screws into drywall framing",
-        "image": "/images/pictures/pq44_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A building inspector taking safety notes on a digital clipboard",
-        "image": "/images/pictures/pq44_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A real estate developer pointing at a miniature scale model",
-        "image": "/images/pictures/pq44_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls93",
+    "text": "The executive director emphasized maintaining consistent quality benchmarks across regional call centers during the quarterly review.",
+    "difficulty": "hard",
+    "wordCount": 16
   },
   {
-    "id": "pq45",
-    "question": "Which image shows a person watering flowering potted plants on an apartment balcony?",
-    "options": [
-      {
-        "label": "A resident tending and watering balcony flower planters",
-        "image": "/images/pictures/pq45_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A gardener raking autumn leaves in a spacious backyard",
-        "image": "/images/pictures/pq45_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A florist arranging cut roses in a decorative glass vase",
-        "image": "/images/pictures/pq45_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A homeowner pruning overgrown tree branches with hedge shears",
-        "image": "/images/pictures/pq45_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A greenhouse horticulturist inspecting tomato vines",
-        "image": "/images/pictures/pq45_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls94",
+    "text": "Following an exhaustive product safety evaluation, corporate leadership chose to extend customer warranty protection by six months.",
+    "difficulty": "hard",
+    "wordCount": 17
   },
   {
-    "id": "pq46",
-    "question": "Which image shows a soccer goalkeeper diving horizontally to block a ball near the goal post?",
-    "options": [
-      {
-        "label": "A soccer goalkeeper making a diving save at the goalmouth",
-        "image": "/images/pictures/pq46_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A striker kicking a penalty ball toward the goal net",
-        "image": "/images/pictures/pq46_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A referee showing a yellow penalty card to a soccer player",
-        "image": "/images/pictures/pq46_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "Players celebrating a winning goal near the corner flag",
-        "image": "/images/pictures/pq46_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A coach explaining match tactics on a tactical chalkboard",
-        "image": "/images/pictures/pq46_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls95",
+    "text": "The deployment of automated customer ticketing software is expected to decrease customer waiting times by forty percent.",
+    "difficulty": "hard",
+    "wordCount": 17
   },
   {
-    "id": "pq47",
-    "question": "Which image shows a musician playing a grand piano on a spotlighted concert hall stage?",
-    "options": [
-      {
-        "label": "A concert pianist performing at a grand piano under spotlights",
-        "image": "/images/pictures/pq47_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "An acoustic guitarist strumming chords on an outdoor bench",
-        "image": "/images/pictures/pq47_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A violinist playing classical music in an orchestra section",
-        "image": "/images/pictures/pq47_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A drummer playing a complete drum kit in a rehearsal studio",
-        "image": "/images/pictures/pq47_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A sound engineer adjusting mixing faders at an audio console",
-        "image": "/images/pictures/pq47_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls96",
+    "text": "Although the meeting was postponed, the team completed all assigned responsibilities before the revised deadline without any complaints from stakeholders.",
+    "difficulty": "challenge",
+    "wordCount": 20
   },
   {
-    "id": "pq48",
-    "question": "Which image shows a person sipping iced tea while reading an e-reader tablet under a sun umbrella?",
-    "options": [
-      {
-        "label": "A person relaxing on a sun lounger reading an e-book reader",
-        "image": "/images/pictures/pq48_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A commuter reading paper newspaper on an underground train",
-        "image": "/images/pictures/pq48_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A student reading course material on a laptop in a cafe",
-        "image": "/images/pictures/pq48_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A child listening to an audiobook with over-ear headphones",
-        "image": "/images/pictures/pq48_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A librarian sorting returned paperbacks onto a book cart",
-        "image": "/images/pictures/pq48_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls97",
+    "text": "In accordance with international privacy regulations, all confidential customer records must be encrypted securely and accessed strictly by certified personnel.",
+    "difficulty": "challenge",
+    "wordCount": 20
   },
   {
-    "id": "pq49",
-    "question": "Which image shows a mountain climber reaching a snowy ridge summit holding trekking poles?",
-    "options": [
-      {
-        "label": "An alpine climber standing on a snowy mountain ridge summit",
-        "image": "/images/pictures/pq49_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A skier carving turns down a steep snow powder slope",
-        "image": "/images/pictures/pq49_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A snowboarder performing an aerial jump in a terrain park",
-        "image": "/images/pictures/pq49_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A cross-country skier gliding along a forest trail",
-        "image": "/images/pictures/pq49_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A rescue snowmobile traversing a snowy mountain valley",
-        "image": "/images/pictures/pq49_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls98",
+    "text": "Despite severe winter weather conditions that delayed regional transportation networks, the logistics center fulfilled every priority medical shipment on schedule.",
+    "difficulty": "challenge",
+    "wordCount": 20
   },
   {
-    "id": "pq50",
-    "question": "Which image shows a barista creating intricate latte art while pouring steamed milk into coffee?",
-    "options": [
-      {
-        "label": "A barista skillfully pouring milk into coffee to form a rosetta pattern",
-        "image": "/images/pictures/pq50_opt0.svg",
-        "correct": true
-      },
-      {
-        "label": "A customer stirring sugar cubes into a cup of black coffee",
-        "image": "/images/pictures/pq50_opt1.svg",
-        "correct": false
-      },
-      {
-        "label": "A coffee roaster inspecting roasted brown coffee beans in a cooling tray",
-        "image": "/images/pictures/pq50_opt2.svg",
-        "correct": false
-      },
-      {
-        "label": "A server bringing a tray of iced cold brew drinks to a booth",
-        "image": "/images/pictures/pq50_opt3.svg",
-        "correct": false
-      },
-      {
-        "label": "A caf\u00e9 patron typing on a keyboard next to an empty espresso cup",
-        "image": "/images/pictures/pq50_opt4.svg",
-        "correct": false
-      }
-    ]
+    "id": "ls99",
+    "text": "The comprehensive performance review revealed that introducing interactive agent coaching modules resulted in a twenty percent increase in customer satisfaction.",
+    "difficulty": "challenge",
+    "wordCount": 20
+  },
+  {
+    "id": "ls100",
+    "text": "Before signing the final commercial purchase contract, both corporate legal counsels carefully reviewed every indemnification clause to eliminate operational risks.",
+    "difficulty": "challenge",
+    "wordCount": 20
   }
 ];
 
@@ -4776,6 +3574,2085 @@ export const STORIES: StoryItem[] = [
   }
 ];
 
+export const APTITUDE_QUESTIONS: AptitudeQuestion[] = [
+  {
+    "id": "apt1",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "chartData": {
+      "title": "Annual Company Expenditure Breakdown ($2,000,000 Total)",
+      "slices": [
+        {
+          "label": "Marketing",
+          "pct": 30,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Human Resources",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "Research & Dev",
+          "pct": 20,
+          "color": "#8b5cf6"
+        },
+        {
+          "label": "Operations",
+          "pct": 15,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "IT Infrastructure",
+          "pct": 10,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    "question": "Based on the pie chart above, what is the combined annual expenditure allocated to Marketing and IT Infrastructure?",
+    "options": [
+      "$600,000",
+      "$800,000",
+      "$700,000",
+      "$900,000"
+    ],
+    "correct": 1,
+    "explanation": "Marketing is 30% and IT Infrastructure is 10%, giving a combined 40%. 40% of $2,000,000 = 0.40 \u00d7 2,000,000 = $800,000."
+  },
+  {
+    "id": "apt2",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "chartData": {
+      "title": "Regional Sales Distribution (500,000 Units Sold)",
+      "slices": [
+        {
+          "label": "North Region",
+          "pct": 35,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "South Region",
+          "pct": 25,
+          "color": "#14b8a6"
+        },
+        {
+          "label": "East Region",
+          "pct": 20,
+          "color": "#f97316"
+        },
+        {
+          "label": "West Region",
+          "pct": 20,
+          "color": "#a855f7"
+        }
+      ]
+    },
+    "question": "What is the ratio of units sold in the North Region compared to the East Region?",
+    "options": [
+      "5 : 3",
+      "7 : 4",
+      "3 : 2",
+      "7 : 5"
+    ],
+    "correct": 1,
+    "explanation": "North Region sold 35% and East Region sold 20%. The ratio is 35 : 20, which simplifies by dividing both terms by 5 to 7 : 4."
+  },
+  {
+    "id": "apt3",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "chartData": {
+      "title": "Corporate Headcount by Department (1,200 Employees Total)",
+      "slices": [
+        {
+          "label": "Customer Support",
+          "pct": 45,
+          "color": "#2563eb"
+        },
+        {
+          "label": "Technical Engineering",
+          "pct": 25,
+          "color": "#059669"
+        },
+        {
+          "label": "Sales & Accounts",
+          "pct": 15,
+          "color": "#d97706"
+        },
+        {
+          "label": "Administration & HR",
+          "pct": 15,
+          "color": "#9333ea"
+        }
+      ]
+    },
+    "question": "How many more employees work in Customer Support than in Technical Engineering?",
+    "options": [
+      "180 employees",
+      "240 employees",
+      "200 employees",
+      "300 employees"
+    ],
+    "correct": 1,
+    "explanation": "Customer Support has 45% of 1,200 = 540 employees. Technical Engineering has 25% of 1,200 = 300 employees. Difference = 540 - 300 = 240 employees."
+  },
+  {
+    "id": "apt4",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "chartData": {
+      "title": "Customer Support Calls Handled per Weekday",
+      "bars": [
+        {
+          "label": "Mon",
+          "value": 140,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Tue",
+          "value": 180,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Wed",
+          "value": 220,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Thu",
+          "value": 160,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Fri",
+          "value": 200,
+          "color": "#3b82f6"
+        }
+      ]
+    },
+    "question": "What is the average number of customer support calls handled per day from Monday to Friday?",
+    "options": [
+      "170 calls",
+      "180 calls",
+      "185 calls",
+      "190 calls"
+    ],
+    "correct": 1,
+    "explanation": "Total calls = 140 + 180 + 220 + 160 + 200 = 900. Average = 900 / 5 = 180 calls per day."
+  },
+  {
+    "id": "apt5",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "chartData": {
+      "title": "Quarterly Revenue Comparison: Branch A vs Branch B ($ in thousands)",
+      "bars": [
+        {
+          "label": "Q1 (A: 50, B: 60)",
+          "value": 110,
+          "color": "#6366f1"
+        },
+        {
+          "label": "Q2 (A: 70, B: 65)",
+          "value": 135,
+          "color": "#6366f1"
+        },
+        {
+          "label": "Q3 (A: 80, B: 75)",
+          "value": 155,
+          "color": "#6366f1"
+        },
+        {
+          "label": "Q4 (A: 100, B: 80)",
+          "value": 180,
+          "color": "#6366f1"
+        }
+      ]
+    },
+    "question": "What is the total annual revenue achieved by Branch A across all four quarters?",
+    "options": [
+      "$280,000",
+      "$300,000",
+      "$320,000",
+      "$350,000"
+    ],
+    "correct": 1,
+    "explanation": "Branch A generated: Q1 = $50k, Q2 = $70k, Q3 = $80k, Q4 = $100k. Total = 50 + 70 + 80 + 100 = $300k ($300,000)."
+  },
+  {
+    "id": "apt6",
+    "category": "data-interpretation",
+    "type": "table",
+    "tableData": {
+      "headers": [
+        "Department",
+        "Tickets Received",
+        "Resolved on First Call",
+        "Escalated"
+      ],
+      "rows": [
+        [
+          "Hardware Support",
+          "400",
+          "280",
+          "120"
+        ],
+        [
+          "Software Billing",
+          "600",
+          "480",
+          "120"
+        ],
+        [
+          "Account Access",
+          "500",
+          "425",
+          "75"
+        ],
+        [
+          "Network Operations",
+          "300",
+          "210",
+          "90"
+        ]
+      ]
+    },
+    "question": "Which department achieved the highest First-Call Resolution percentage rate?",
+    "options": [
+      "Hardware Support",
+      "Software Billing",
+      "Account Access",
+      "Network Operations"
+    ],
+    "correct": 2,
+    "explanation": "FCR rates: Hardware = 280/400 = 70%. Software = 480/600 = 80%. Account Access = 425/500 = 85%. Network = 210/300 = 70%. Account Access has the highest rate at 85%."
+  },
+  {
+    "id": "apt7",
+    "category": "data-interpretation",
+    "type": "table",
+    "tableData": {
+      "headers": [
+        "Product Line",
+        "Manufacturing Cost ($)",
+        "Selling Price ($)",
+        "Units Sold"
+      ],
+      "rows": [
+        [
+          "Model Alpha",
+          "40",
+          "60",
+          "500"
+        ],
+        [
+          "Model Beta",
+          "75",
+          "100",
+          "300"
+        ],
+        [
+          "Model Gamma",
+          "120",
+          "180",
+          "200"
+        ],
+        [
+          "Model Delta",
+          "200",
+          "260",
+          "150"
+        ]
+      ]
+    },
+    "question": "What is the total net profit earned from sales of Model Gamma?",
+    "options": [
+      "$10,000",
+      "$12,000",
+      "$14,000",
+      "$16,000"
+    ],
+    "correct": 1,
+    "explanation": "Profit per unit for Model Gamma = $180 - $120 = $60. Total profit for 200 units = 200 \u00d7 $60 = $12,000."
+  },
+  {
+    "id": "apt8",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "chartData": {
+      "title": "Website Traffic Sources (100,000 Monthly Visitors)",
+      "slices": [
+        {
+          "label": "Organic Search",
+          "pct": 40,
+          "color": "#10b981"
+        },
+        {
+          "label": "Direct URL",
+          "pct": 25,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Social Media",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Email Campaigns",
+          "pct": 10,
+          "color": "#8b5cf6"
+        },
+        {
+          "label": "Referrals",
+          "pct": 5,
+          "color": "#ec4899"
+        }
+      ]
+    },
+    "question": "How many monthly visitors reached the website through Social Media and Referrals combined?",
+    "options": [
+      "20,000",
+      "22,500",
+      "25,000",
+      "30,000"
+    ],
+    "correct": 2,
+    "explanation": "Social Media (20%) + Referrals (5%) = 25%. 25% of 100,000 visitors = 25,000 visitors."
+  },
+  {
+    "id": "apt9",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "chartData": {
+      "title": "Monthly Average Ticket Resolution Time (Minutes)",
+      "bars": [
+        {
+          "label": "Jan",
+          "value": 18,
+          "color": "#f43f5e"
+        },
+        {
+          "label": "Feb",
+          "value": 16,
+          "color": "#fb7185"
+        },
+        {
+          "label": "Mar",
+          "value": 15,
+          "color": "#f43f5e"
+        },
+        {
+          "label": "Apr",
+          "value": 12,
+          "color": "#10b981"
+        },
+        {
+          "label": "May",
+          "value": 10,
+          "color": "#059669"
+        }
+      ]
+    },
+    "question": "By what percentage did the average resolution time decrease from January to May?",
+    "options": [
+      "40.0%",
+      "44.4%",
+      "50.0%",
+      "33.3%"
+    ],
+    "correct": 1,
+    "explanation": "Decrease = 18 - 10 = 8 minutes. Percentage decrease = (8 / 18) \u00d7 100% \u2248 44.4%."
+  },
+  {
+    "id": "apt10",
+    "category": "data-interpretation",
+    "type": "table",
+    "tableData": {
+      "headers": [
+        "Representative",
+        "Calls Handled",
+        "Customer CSAT Score (/5)",
+        "Avg Handle Time (s)"
+      ],
+      "rows": [
+        [
+          "Agent Priya",
+          "85",
+          "4.8",
+          "240"
+        ],
+        [
+          "Agent Rahul",
+          "95",
+          "4.2",
+          "210"
+        ],
+        [
+          "Agent Ananya",
+          "90",
+          "4.9",
+          "230"
+        ],
+        [
+          "Agent David",
+          "75",
+          "4.7",
+          "260"
+        ]
+      ]
+    },
+    "question": "Which agent achieved the highest overall Customer Satisfaction (CSAT) score?",
+    "options": [
+      "Agent Priya",
+      "Agent Rahul",
+      "Agent Ananya",
+      "Agent David"
+    ],
+    "correct": 2,
+    "explanation": "Agent Ananya achieved the highest CSAT score at 4.9 out of 5."
+  },
+  {
+    "id": "apt11",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "patternData": {
+      "rule": "Concentric nested squares with alternating corner shading (Top-Left -> Top-Right -> Bottom-Right -> ?)",
+      "stage": 4
+    },
+    "question": "In the concentric nested square sequence, following the clockwise shading rotation (Top-Left -> Top-Right -> Bottom-Right), which position must be shaded in the 4th square?",
+    "options": [
+      "Top-Left Corner",
+      "Top-Right Corner",
+      "Bottom-Left Corner",
+      "Center Inner Square"
+    ],
+    "correct": 2,
+    "explanation": "The shaded quadrant rotates 90 degrees clockwise in each step: Step 1 = Top-Left, Step 2 = Top-Right, Step 3 = Bottom-Right, Step 4 = Bottom-Left."
+  },
+  {
+    "id": "apt12",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "patternData": {
+      "rule": "Nested squares with line count incrementing: Square 1 has 1 internal square, Square 2 has 2, Square 3 has 3...",
+      "stage": 4
+    },
+    "question": "A nested square figure contains 1 internal square in figure 1, 2 in figure 2, and 3 in figure 3. How many total bounding square boundaries exist in figure 4?",
+    "options": [
+      "3 squares",
+      "4 squares",
+      "5 squares",
+      "6 squares"
+    ],
+    "correct": 2,
+    "explanation": "Each figure includes the outer bounding square plus its internal nested squares. Figure 4 has 1 outer square + 4 internal nested squares = 5 total squares."
+  },
+  {
+    "id": "apt13",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Identify the next geometric shape in the sequence: Triangle (3 sides), Square (4 sides), Pentagon (5 sides), Hexagon (6 sides), ...?",
+    "options": [
+      "Heptagon (7 sides)",
+      "Octagon (8 sides)",
+      "Nonagon (9 sides)",
+      "Decagon (10 sides)"
+    ],
+    "correct": 0,
+    "explanation": "The number of sides increases by 1 each step: 3, 4, 5, 6, so the next polygon has 7 sides (Heptagon)."
+  },
+  {
+    "id": "apt14",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "A solid dark circle is reflected horizontally across a vertical mirror line, then rotated 180 degrees. What is the net orientation transformation?",
+    "options": [
+      "Vertical reflection only",
+      "Horizontal reflection only",
+      "180 degree rotation only",
+      "Original unchanged position"
+    ],
+    "correct": 0,
+    "explanation": "A horizontal reflection followed by a 180-degree rotation is geometrically equivalent to a vertical reflection (reflection across the horizontal axis)."
+  },
+  {
+    "id": "apt15",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "patternData": {
+      "rule": "Nested squares with alternating diagonal lines from top-left to bottom-right and top-right to bottom-left.",
+      "stage": 3
+    },
+    "question": "Square 1 has diagonal line \\ (top-left to bottom-right). Square 2 has diagonal line / (bottom-left to top-right). Square 3 has both diagonals X. What should Square 4 contain to complete the sequence of removing the first diagonal?",
+    "options": [
+      "Diagonal \\",
+      "Diagonal /",
+      "No diagonals",
+      "A central dot"
+    ],
+    "correct": 1,
+    "explanation": "Pattern progression: [Line 1], [Line 2], [Line 1 + Line 2], [Line 2 remaining]."
+  },
+  {
+    "id": "apt16",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape is the odd one out among the following: Circle, Ellipse, Sphere, Parabola?",
+    "options": [
+      "Circle",
+      "Ellipse",
+      "Sphere",
+      "Parabola"
+    ],
+    "correct": 2,
+    "explanation": "Sphere is a three-dimensional (3D) solid geometric object, whereas Circle, Ellipse, and Parabola are two-dimensional (2D) planar curves."
+  },
+  {
+    "id": "apt17",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "A clock hand points at 12:00. If it rotates 135 degrees clockwise, where will it point on the clock face?",
+    "options": [
+      "Between 3 and 4",
+      "Between 4 and 5",
+      "Exactly at 5",
+      "Between 5 and 6"
+    ],
+    "correct": 1,
+    "explanation": "Each hour on a clock face represents 360 / 12 = 30 degrees. 135 degrees / 30 = 4.5 hours, so the hand points at 4:30 (between 4 and 5)."
+  },
+  {
+    "id": "apt18",
+    "category": "image-reasoning",
+    "question": "Which tool is primarily utilized by IT network engineers to terminate twisted-pair copper cables into RJ-45 modular connectors?",
+    "options": [
+      "Soldering Iron",
+      "RJ-45 Crimping Tool",
+      "Wire Stripper Plier",
+      "Oscilloscope Probe"
+    ],
+    "correct": 1,
+    "explanation": "An RJ-45 modular crimping tool mechanically compresses the contact pins into individual cable wire conductors."
+  },
+  {
+    "id": "apt19",
+    "category": "image-reasoning",
+    "question": "In standard telecommunication and customer support operations, what is the primary acoustic purpose of a noise-canceling headset microphone?",
+    "options": [
+      "To amplify background keyboard typing",
+      "To eliminate ambient background room noise for the caller",
+      "To record audio directly to local flash storage",
+      "To translate foreign languages automatically"
+    ],
+    "correct": 1,
+    "explanation": "Noise-canceling directional microphones attenuate ambient background room acoustic noise so callers hear the agent clearly."
+  },
+  {
+    "id": "apt20",
+    "category": "image-reasoning",
+    "question": "Select the item that maintains the same relational connection: 'Stethoscope is to Physician as Headset is to ...?'",
+    "options": [
+      "Architect",
+      "Call Center Agent",
+      "Chef",
+      "Pilot"
+    ],
+    "correct": 1,
+    "explanation": "A stethoscope is the defining tool used by a physician; similarly, a headset is the essential operational communication equipment used by a call center agent."
+  },
+  {
+    "id": "apt21",
+    "category": "image-reasoning",
+    "question": "Which computer peripheral hardware device is strictly classified as an input device?",
+    "options": [
+      "Inkjet Color Printer",
+      "Flatbed Optical Scanner",
+      "Stereo Desktop Speakers",
+      "Computer LCD Monitor"
+    ],
+    "correct": 1,
+    "explanation": "A flatbed optical scanner captures external paper images and sends digital data into the computer system (input device)."
+  },
+  {
+    "id": "apt22",
+    "category": "image-reasoning",
+    "question": "Which safety icon represents mandatory ear hearing protection in an industrial data center server room?",
+    "options": [
+      "Blue circle with white earmuffs",
+      "Yellow triangle with lightning bolt",
+      "Red circle with diagonal slash",
+      "Green square with first aid cross"
+    ],
+    "correct": 0,
+    "explanation": "Under ISO safety standards, mandatory personal protective equipment (PPE) requirements are designated by a circular blue background with a white symbol (earmuffs for hearing protection)."
+  },
+  {
+    "id": "apt23",
+    "category": "numerical-aptitude",
+    "question": "A retail merchandise item priced at $80 is marked up by 25%, and subsequently sold with a 10% promotional discount. What is the final customer price?",
+    "options": [
+      "$88",
+      "$90",
+      "$92",
+      "$95"
+    ],
+    "correct": 1,
+    "explanation": "Marked-up price = $80 \u00d7 1.25 = $100. Discounted price = $100 \u00d7 (1 - 0.10) = $100 \u00d7 0.90 = $90."
+  },
+  {
+    "id": "apt24",
+    "category": "numerical-aptitude",
+    "question": "The ratio of male to female customer support agents in an operational department is 5 : 3. If there are 45 male agents, how many female agents are employed?",
+    "options": [
+      "24",
+      "27",
+      "30",
+      "36"
+    ],
+    "correct": 1,
+    "explanation": "Let 1 ratio unit = 45 / 5 = 9. Number of female agents = 3 \u00d7 9 = 27."
+  },
+  {
+    "id": "apt25",
+    "category": "numerical-aptitude",
+    "question": "An agent's average call quality score across five evaluated interactions is 78 points. If the sixth call receives a score of 90 points, what is the new average score?",
+    "options": [
+      "79 points",
+      "80 points",
+      "81 points",
+      "82 points"
+    ],
+    "correct": 1,
+    "explanation": "Sum of first 5 calls = 5 \u00d7 78 = 390. New sum = 390 + 90 = 480. New average across 6 calls = 480 / 6 = 80 points."
+  },
+  {
+    "id": "apt26",
+    "category": "numerical-aptitude",
+    "question": "Technician A can configure a network router in 12 minutes, while Technician B requires 6 minutes. Working collaboratively, how long will they take to configure one router?",
+    "options": [
+      "3 minutes",
+      "4 minutes",
+      "5 minutes",
+      "4.5 minutes"
+    ],
+    "correct": 1,
+    "explanation": "Combined rate per minute = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4. Time required = 1 / (1/4) = 4 minutes."
+  },
+  {
+    "id": "apt27",
+    "category": "numerical-aptitude",
+    "question": "Determine the next missing number in the mathematical progression: 3, 7, 15, 31, 63, ...?",
+    "options": [
+      "95",
+      "124",
+      "127",
+      "129"
+    ],
+    "correct": 2,
+    "explanation": "Each term follows the rule: next = (current \u00d7 2) + 1. 3\u00d72+1=7, 7\u00d72+1=15, 15\u00d72+1=31, 31\u00d72+1=63, 63\u00d72+1 = 127."
+  },
+  {
+    "id": "apt28",
+    "category": "numerical-aptitude",
+    "question": "A merchant purchases a shipment of headsets for $1,200 and sells them for $1,500. What is the merchant's percentage profit on the cost price?",
+    "options": [
+      "20%",
+      "25%",
+      "30%",
+      "33.3%"
+    ],
+    "correct": 1,
+    "explanation": "Profit = $1,500 - $1,200 = $300. Profit percentage = ($300 / $1,200) \u00d7 100% = 25%."
+  },
+  {
+    "id": "apt29",
+    "category": "numerical-aptitude",
+    "question": "If 8 customer service agents can review 320 dispute cases in 4 hours, how many cases can 12 agents review in 5 hours at the same handling rate?",
+    "options": [
+      "480 cases",
+      "540 cases",
+      "600 cases",
+      "640 cases"
+    ],
+    "correct": 2,
+    "explanation": "Cases per agent per hour = 320 / (8 \u00d7 4) = 320 / 32 = 10 cases/hr. For 12 agents working 5 hours: 12 \u00d7 5 \u00d7 10 = 600 cases."
+  },
+  {
+    "id": "apt30",
+    "category": "numerical-aptitude",
+    "question": "What is 15% of 40% of 2,000?",
+    "options": [
+      "90",
+      "120",
+      "150",
+      "180"
+    ],
+    "correct": 1,
+    "explanation": "40% of 2,000 = 0.40 \u00d7 2,000 = 800. 15% of 800 = 0.15 \u00d7 800 = 120."
+  },
+  {
+    "id": "apt31",
+    "category": "numerical-aptitude",
+    "question": "A vehicle travels at an average speed of 60 km/h for the first 2 hours, and 90 km/h for the subsequent 3 hours. What is the vehicle's overall average speed?",
+    "options": [
+      "72 km/h",
+      "75 km/h",
+      "78 km/h",
+      "80 km/h"
+    ],
+    "correct": 2,
+    "explanation": "Total distance = (60 \u00d7 2) + (90 \u00d7 3) = 120 + 270 = 390 km. Total time = 2 + 3 = 5 hours. Average speed = 390 / 5 = 78 km/h."
+  },
+  {
+    "id": "apt32",
+    "category": "numerical-aptitude",
+    "question": "Find the missing number in the sequence: 2, 6, 12, 20, 30, 42, ...?",
+    "options": [
+      "52",
+      "54",
+      "56",
+      "58"
+    ],
+    "correct": 2,
+    "explanation": "The differences between consecutive terms increase by 2: +4, +6, +8, +10, +12. Next difference = +14. 42 + 14 = 56. (Also n\u00d7(n+1): 1\u00d72, 2\u00d73, 3\u00d74, 4\u00d75, 5\u00d76, 6\u00d77, 7\u00d78=56)."
+  },
+  {
+    "id": "apt33",
+    "category": "logical-reasoning",
+    "question": "Identify the missing letter pair in the alphabetical series: AZ, BY, CX, DW, ...?",
+    "options": [
+      "ET",
+      "EV",
+      "FU",
+      "EX"
+    ],
+    "correct": 1,
+    "explanation": "First letter moves forward: A, B, C, D, E. Second letter moves backward from Z: Z, Y, X, W, V. Result is EV."
+  },
+  {
+    "id": "apt34",
+    "category": "logical-reasoning",
+    "question": "If in a certain code language, 'CHAT' is written as 'DIBU', how will 'TEAM' be coded in that same system?",
+    "options": [
+      "UDBN",
+      "UFBN",
+      "VGBN",
+      "UEBN"
+    ],
+    "correct": 1,
+    "explanation": "Each letter is shifted forward by +1: T -> U, E -> F, A -> B, M -> N. The result is UFBN."
+  },
+  {
+    "id": "apt35",
+    "category": "logical-reasoning",
+    "question": "Statement 1: All supervisors are leaders. Statement 2: Some leaders are managers. Conclusion: Which deduction is logically valid?",
+    "options": [
+      "All supervisors are managers.",
+      "All managers are leaders.",
+      "Some leaders are supervisors.",
+      "No managers are supervisors."
+    ],
+    "correct": 2,
+    "explanation": "Since all supervisors are leaders, the set of supervisors is a subset of leaders. Therefore, it is guaranteed that some leaders are supervisors."
+  },
+  {
+    "id": "apt36",
+    "category": "logical-reasoning",
+    "question": "Pointing to a photograph, Marcus said: 'Her brother is the only son of my father.' How is the person in the photograph related to Marcus?",
+    "options": [
+      "His daughter",
+      "His sister",
+      "His mother",
+      "His niece"
+    ],
+    "correct": 1,
+    "explanation": "'The only son of my father' is Marcus himself (assuming speaker is male). Since her brother is Marcus, the person in the photograph is Marcus's sister."
+  },
+  {
+    "id": "apt37",
+    "category": "logical-reasoning",
+    "question": "A person walks 10 meters North, turns right and walks 5 meters, turns right again and walks 10 meters. How far and in which direction is the person from the starting point?",
+    "options": [
+      "5 meters North",
+      "5 meters East",
+      "10 meters South",
+      "5 meters West"
+    ],
+    "correct": 1,
+    "explanation": "Walking 10m North and later 10m South cancels the vertical displacement. The 5m East displacement remains. The person is 5 meters East of the origin."
+  },
+  {
+    "id": "apt38",
+    "category": "logical-reasoning",
+    "question": "Which word does NOT belong with the others in the group: Keyboard, Mouse, Monitor, Touchpad?",
+    "options": [
+      "Keyboard",
+      "Mouse",
+      "Monitor",
+      "Touchpad"
+    ],
+    "correct": 2,
+    "explanation": "Keyboard, Mouse, and Touchpad are input devices. Monitor is an output display device."
+  },
+  {
+    "id": "apt39",
+    "category": "logical-reasoning",
+    "question": "In a line of 30 employees, Sanjay is 12th from the front. What is Sanjay's position from the back of the line?",
+    "options": [
+      "18th",
+      "19th",
+      "20th",
+      "21st"
+    ],
+    "correct": 1,
+    "explanation": "Position from back = (Total count - Position from front) + 1 = (30 - 12) + 1 = 18 + 1 = 19th."
+  },
+  {
+    "id": "apt40",
+    "category": "logical-reasoning",
+    "question": "Find the missing term in the sequence: B2D, D4F, F6H, H8J, ...?",
+    "options": [
+      "J10K",
+      "J10L",
+      "K10L",
+      "J12L"
+    ],
+    "correct": 1,
+    "explanation": "First letter skips 1 (B, D, F, H, J). Number adds 2 (2, 4, 6, 8, 10). Last letter skips 1 (D, F, H, J, L). Result is J10L."
+  },
+  {
+    "id": "apt41",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt42",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt43",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt44",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt45",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  },
+  {
+    "id": "apt46",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
+    "options": [
+      "42 years",
+      "45 years",
+      "48 years",
+      "50 years"
+    ],
+    "correct": 1,
+    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
+  },
+  {
+    "id": "apt47",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
+    "options": [
+      "40 liters",
+      "60 liters",
+      "50 liters",
+      "30 liters"
+    ],
+    "correct": 1,
+    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
+  },
+  {
+    "id": "apt48",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "options": [
+      "A diamond (rhombus) touching the outer midpoints",
+      "A circle",
+      "A triangle",
+      "An octagon"
+    ],
+    "correct": 0,
+    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
+    "patternData": {
+      "stage": 2,
+      "rule": "Inner square rotated 45 degrees into diamond orientation"
+    }
+  },
+  {
+    "id": "apt49",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "options": [
+      "Regular Hexagon",
+      "Regular Octagon",
+      "Equilateral Triangle",
+      "Regular Pentagon"
+    ],
+    "correct": 1,
+    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
+  },
+  {
+    "id": "apt50",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
+    "options": [
+      "BRANHC",
+      "BRAHCN",
+      "BRANHC",
+      "BRNACH"
+    ],
+    "correct": 0,
+    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+  },
+  {
+    "id": "apt51",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
+    "options": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "correct": 1,
+    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
+  },
+  {
+    "id": "apt52",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
+    "options": [
+      "45",
+      "49",
+      "50",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
+  },
+  {
+    "id": "apt53",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt54",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt55",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt56",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt57",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  },
+  {
+    "id": "apt58",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
+    "options": [
+      "42 years",
+      "45 years",
+      "48 years",
+      "50 years"
+    ],
+    "correct": 1,
+    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
+  },
+  {
+    "id": "apt59",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
+    "options": [
+      "40 liters",
+      "60 liters",
+      "50 liters",
+      "30 liters"
+    ],
+    "correct": 1,
+    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
+  },
+  {
+    "id": "apt60",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "options": [
+      "A diamond (rhombus) touching the outer midpoints",
+      "A circle",
+      "A triangle",
+      "An octagon"
+    ],
+    "correct": 0,
+    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
+    "patternData": {
+      "stage": 2,
+      "rule": "Inner square rotated 45 degrees into diamond orientation"
+    }
+  },
+  {
+    "id": "apt61",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "options": [
+      "Regular Hexagon",
+      "Regular Octagon",
+      "Equilateral Triangle",
+      "Regular Pentagon"
+    ],
+    "correct": 1,
+    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
+  },
+  {
+    "id": "apt62",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
+    "options": [
+      "BRANHC",
+      "BRAHCN",
+      "BRANHC",
+      "BRNACH"
+    ],
+    "correct": 0,
+    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+  },
+  {
+    "id": "apt63",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
+    "options": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "correct": 1,
+    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
+  },
+  {
+    "id": "apt64",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
+    "options": [
+      "45",
+      "49",
+      "50",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
+  },
+  {
+    "id": "apt65",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt66",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt67",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt68",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt69",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  },
+  {
+    "id": "apt70",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
+    "options": [
+      "42 years",
+      "45 years",
+      "48 years",
+      "50 years"
+    ],
+    "correct": 1,
+    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
+  },
+  {
+    "id": "apt71",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
+    "options": [
+      "40 liters",
+      "60 liters",
+      "50 liters",
+      "30 liters"
+    ],
+    "correct": 1,
+    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
+  },
+  {
+    "id": "apt72",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "options": [
+      "A diamond (rhombus) touching the outer midpoints",
+      "A circle",
+      "A triangle",
+      "An octagon"
+    ],
+    "correct": 0,
+    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
+    "patternData": {
+      "stage": 2,
+      "rule": "Inner square rotated 45 degrees into diamond orientation"
+    }
+  },
+  {
+    "id": "apt73",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "options": [
+      "Regular Hexagon",
+      "Regular Octagon",
+      "Equilateral Triangle",
+      "Regular Pentagon"
+    ],
+    "correct": 1,
+    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
+  },
+  {
+    "id": "apt74",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
+    "options": [
+      "BRANHC",
+      "BRAHCN",
+      "BRANHC",
+      "BRNACH"
+    ],
+    "correct": 0,
+    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+  },
+  {
+    "id": "apt75",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
+    "options": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "correct": 1,
+    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
+  },
+  {
+    "id": "apt76",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
+    "options": [
+      "45",
+      "49",
+      "50",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
+  },
+  {
+    "id": "apt77",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt78",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt79",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt80",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt81",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  },
+  {
+    "id": "apt82",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
+    "options": [
+      "42 years",
+      "45 years",
+      "48 years",
+      "50 years"
+    ],
+    "correct": 1,
+    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
+  },
+  {
+    "id": "apt83",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
+    "options": [
+      "40 liters",
+      "60 liters",
+      "50 liters",
+      "30 liters"
+    ],
+    "correct": 1,
+    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
+  },
+  {
+    "id": "apt84",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "options": [
+      "A diamond (rhombus) touching the outer midpoints",
+      "A circle",
+      "A triangle",
+      "An octagon"
+    ],
+    "correct": 0,
+    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
+    "patternData": {
+      "stage": 2,
+      "rule": "Inner square rotated 45 degrees into diamond orientation"
+    }
+  },
+  {
+    "id": "apt85",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "options": [
+      "Regular Hexagon",
+      "Regular Octagon",
+      "Equilateral Triangle",
+      "Regular Pentagon"
+    ],
+    "correct": 1,
+    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
+  },
+  {
+    "id": "apt86",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
+    "options": [
+      "BRANHC",
+      "BRAHCN",
+      "BRANHC",
+      "BRNACH"
+    ],
+    "correct": 0,
+    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+  },
+  {
+    "id": "apt87",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
+    "options": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "correct": 1,
+    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
+  },
+  {
+    "id": "apt88",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
+    "options": [
+      "45",
+      "49",
+      "50",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
+  },
+  {
+    "id": "apt89",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt90",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt91",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt92",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt93",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  },
+  {
+    "id": "apt94",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "The average age of 4 siblings is 15 years. When their mother's age is included, the average becomes 21 years. How old is the mother?",
+    "options": [
+      "42 years",
+      "45 years",
+      "48 years",
+      "50 years"
+    ],
+    "correct": 1,
+    "explanation": "Sum of 4 siblings = 4 \u00d7 15 = 60. Sum of 5 people = 5 \u00d7 21 = 105. Mother's age = 105 - 60 = 45 years."
+  },
+  {
+    "id": "apt95",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A mixture of 60 liters contains milk and water in the ratio 2 : 1. How many liters of water must be added to make the ratio 1 : 2?",
+    "options": [
+      "40 liters",
+      "60 liters",
+      "50 liters",
+      "30 liters"
+    ],
+    "correct": 1,
+    "explanation": "Initial: Milk = 40L, Water = 20L. For ratio to be 1:2, water must be 2 \u00d7 40 = 80L. Water to add = 80 - 20 = 60 liters."
+  },
+  {
+    "id": "apt96",
+    "category": "non-verbal-reasoning",
+    "type": "nested-squares",
+    "question": "When an inner square inside an outer bounding square is rotated 45 degrees, what shape profile does its vertices form within the boundary?",
+    "options": [
+      "A diamond (rhombus) touching the outer midpoints",
+      "A circle",
+      "A triangle",
+      "An octagon"
+    ],
+    "correct": 0,
+    "explanation": "A square rotated 45 degrees within another square creates a diamond whose 4 vertices touch the midpoints of the outer square's 4 sides.",
+    "patternData": {
+      "stage": 2,
+      "rule": "Inner square rotated 45 degrees into diamond orientation"
+    }
+  },
+  {
+    "id": "apt97",
+    "category": "non-verbal-reasoning",
+    "type": "geometric-pattern",
+    "question": "Which shape has exactly 8 rotational symmetries in a full 360-degree rotation?",
+    "options": [
+      "Regular Hexagon",
+      "Regular Octagon",
+      "Equilateral Triangle",
+      "Regular Pentagon"
+    ],
+    "correct": 1,
+    "explanation": "A regular octagon has 8 sides and 8-fold rotational symmetry (every 45 degrees)."
+  },
+  {
+    "id": "apt98",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "In a code, 'SYSTEM' is written as 'SYSMET'. How is 'BRANCH' written in that code?",
+    "options": [
+      "BRANHC",
+      "BRAHCN",
+      "BRANHC",
+      "BRNACH"
+    ],
+    "correct": 0,
+    "explanation": "The first 3 letters remain unchanged ('SYS', 'BRA'), while the last 3 letters are reversed ('TEM' -> 'MET', 'NCH' -> 'HCN'). Result is BRAHCN."
+  },
+  {
+    "id": "apt99",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "If Monday falls on the 1st of a month, what day will fall on the 25th of that same month?",
+    "options": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "correct": 1,
+    "explanation": "Difference = 25 - 1 = 24 days. 24 mod 7 = 3 days after Monday: Tuesday (1), Wednesday (2), Thursday (3). It is Thursday."
+  },
+  {
+    "id": "apt100",
+    "category": "logical-reasoning",
+    "type": "none",
+    "question": "Which number replaces the question mark in the series: 4, 9, 16, 25, 36, ...?",
+    "options": [
+      "45",
+      "49",
+      "50",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "These are consecutive perfect squares: 2^2, 3^2, 4^2, 5^2, 6^2, so the next is 7^2 = 49."
+  },
+  {
+    "id": "apt101",
+    "category": "data-interpretation",
+    "type": "chart-pie",
+    "question": "How much budget is dedicated to Cybersecurity?",
+    "options": [
+      "$100,000",
+      "$125,000",
+      "$150,000",
+      "$175,000"
+    ],
+    "correct": 1,
+    "explanation": "25% of $500,000 = 0.25 \u00d7 500,000 = $125,000.",
+    "chartData": {
+      "title": "Corporate IT Cloud Budget Allocation ($500,000)",
+      "slices": [
+        {
+          "label": "Cloud Hosting",
+          "pct": 40,
+          "color": "#3b82f6"
+        },
+        {
+          "label": "Cybersecurity",
+          "pct": 25,
+          "color": "#10b981"
+        },
+        {
+          "label": "DevOps Tools",
+          "pct": 20,
+          "color": "#f59e0b"
+        },
+        {
+          "label": "Data Backup",
+          "pct": 15,
+          "color": "#8b5cf6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt102",
+    "category": "data-interpretation",
+    "type": "chart-bar",
+    "question": "What was the percentage increase in licenses deployed from Q2 to Q4?",
+    "options": [
+      "50.0%",
+      "66.7%",
+      "75.0%",
+      "80.0%"
+    ],
+    "correct": 1,
+    "explanation": "Increase = 500 - 300 = 200. Percentage increase = (200 / 300) \u00d7 100% = 66.7%.",
+    "chartData": {
+      "title": "Quarterly Software Licenses Deployed",
+      "bars": [
+        {
+          "label": "Q1",
+          "value": 250,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q2",
+          "value": 300,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q3",
+          "value": 450,
+          "color": "#0ea5e9"
+        },
+        {
+          "label": "Q4",
+          "value": 500,
+          "color": "#0ea5e9"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apt103",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A train 180 meters long passes a telephone pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "60 km/h",
+      "72 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correct": 1,
+    "explanation": "Speed in m/s = 180 / 9 = 20 m/s. Convert to km/h: 20 \u00d7 (18/5) = 72 km/h."
+  },
+  {
+    "id": "apt104",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "If 15% of a number is 45, what is 40% of that same number?",
+    "options": [
+      "100",
+      "120",
+      "140",
+      "150"
+    ],
+    "correct": 1,
+    "explanation": "Number = 45 / 0.15 = 300. 40% of 300 = 0.40 \u00d7 300 = 120."
+  },
+  {
+    "id": "apt105",
+    "category": "numerical-aptitude",
+    "type": "none",
+    "question": "A sum of money doubles itself in 5 years under simple interest. What is the annual rate of interest?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "10%"
+    ],
+    "correct": 1,
+    "explanation": "Interest = Principal in 5 years. Rate = (100 \u00d7 Interest) / (Principal \u00d7 Time) = (100 \u00d7 P) / (P \u00d7 5) = 20%."
+  }
+];
+
 export const MODERATION_SCENARIOS: ModerationScenario[] = [
   {
     "id": "mod1",
@@ -4785,7 +5662,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-green-800 to-green-950",
     "image": "/images/moderation/mod1.svg",
     "correct": 13,
-    "explanation": "Ordinary food photo with no policy violations. Context is a food blog. Classification: Safe / No Violation."
+    "explanation": "Ordinary food photo with no policy violations. Context is a food blog. Classification: Appropriate Content."
   },
   {
     "id": "mod2",
@@ -4795,7 +5672,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-blue-800 to-blue-950",
     "image": "/images/moderation/mod2.svg",
     "correct": 13,
-    "explanation": "Nature landscape photo with no violations. Classification: Safe / No Violation."
+    "explanation": "Nature landscape photo with no violations. Classification: Appropriate Content."
   },
   {
     "id": "mod3",
@@ -4855,7 +5732,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-green-700 to-green-900",
     "image": "/images/moderation/mod8.svg",
     "correct": 13,
-    "explanation": "A kitchen knife in an educational culinary tutorial is standard cooking equipment. Context confirms: Safe / No Violation."
+    "explanation": "A kitchen knife in an educational culinary tutorial is standard cooking equipment. Context confirms: Appropriate Content."
   },
   {
     "id": "mod9",
@@ -4905,7 +5782,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-slate-700 to-slate-900",
     "image": "/images/moderation/mod13.svg",
     "correct": 13,
-    "explanation": "Legitimate journalistic reporting on public events without gratuitous graphic violence is Safe / No Violation."
+    "explanation": "Legitimate journalistic reporting on public events without gratuitous graphic violence is Appropriate Content."
   },
   {
     "id": "mod14",
@@ -4925,7 +5802,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-green-900 to-green-950",
     "image": "/images/moderation/mod15.svg",
     "correct": 13,
-    "explanation": "Lawful target shooting in a controlled sporting facility with hearing protection is Safe / No Violation."
+    "explanation": "Lawful target shooting in a controlled sporting facility with hearing protection is Appropriate Content."
   },
   {
     "id": "mod16",
@@ -4945,7 +5822,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-green-700 to-green-900",
     "image": "/images/moderation/mod17.svg",
     "correct": 13,
-    "explanation": "Normal family recreational gathering outdoors with no policy infringements is Safe / No Violation."
+    "explanation": "Normal family recreational gathering outdoors with no policy infringements is Appropriate Content."
   },
   {
     "id": "mod18",
@@ -4975,7 +5852,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-purple-800 to-purple-950",
     "image": "/images/moderation/mod20.svg",
     "correct": 13,
-    "explanation": "Displaying wine in culinary dining contexts on compliant pages is Safe / No Violation."
+    "explanation": "Displaying wine in culinary dining contexts on compliant pages is Appropriate Content."
   },
   {
     "id": "mod21",
@@ -5005,7 +5882,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-pink-700 to-pink-900",
     "image": "/images/moderation/mod23.svg",
     "correct": 13,
-    "explanation": "Normal family celebration is completely Safe / No Violation."
+    "explanation": "Normal family celebration is completely Appropriate Content."
   },
   {
     "id": "mod24",
@@ -5035,7 +5912,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-slate-800 to-slate-950",
     "image": "/images/moderation/mod26.svg",
     "correct": 13,
-    "explanation": "Educational historical archival photographs shared in documentary context are Safe / No Violation."
+    "explanation": "Educational historical archival photographs shared in documentary context are Appropriate Content."
   },
   {
     "id": "mod27",
@@ -5105,7 +5982,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-emerald-800 to-emerald-950",
     "image": "/images/moderation/mod33.svg",
     "correct": 13,
-    "explanation": "Breastfeeding imagery shared in maternal healthcare and parenting context is recognized as Safe / No Violation."
+    "explanation": "Breastfeeding imagery shared in maternal healthcare and parenting context is recognized as Appropriate Content."
   },
   {
     "id": "mod34",
@@ -5135,7 +6012,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-slate-800 to-slate-900",
     "image": "/images/moderation/mod36.svg",
     "correct": 13,
-    "explanation": "Regulated professional combat sports with professional referee oversight are Safe / No Violation."
+    "explanation": "Regulated professional combat sports with professional referee oversight are Appropriate Content."
   },
   {
     "id": "mod37",
@@ -5165,7 +6042,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-stone-700 to-stone-900",
     "image": "/images/moderation/mod39.svg",
     "correct": 13,
-    "explanation": "Classical fine art and historic sculptures displayed in cultural contexts are Safe / No Violation."
+    "explanation": "Classical fine art and historic sculptures displayed in cultural contexts are Appropriate Content."
   },
   {
     "id": "mod40",
@@ -5195,7 +6072,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-teal-800 to-teal-950",
     "image": "/images/moderation/mod42.svg",
     "correct": 13,
-    "explanation": "Standard professional veterinary healthcare procedure is Safe / No Violation."
+    "explanation": "Standard professional veterinary healthcare procedure is Appropriate Content."
   },
   {
     "id": "mod43",
@@ -5235,7 +6112,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-orange-800 to-slate-900",
     "image": "/images/moderation/mod46.svg",
     "correct": 13,
-    "explanation": "First responder emergency operations depicted in public interest context are Safe / No Violation."
+    "explanation": "First responder emergency operations depicted in public interest context are Appropriate Content."
   },
   {
     "id": "mod47",
@@ -5265,7 +6142,7 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "bgColor": "from-amber-900 to-stone-900",
     "image": "/images/moderation/mod49.svg",
     "correct": 13,
-    "explanation": "Traditional culinary cultural food presentation is Safe / No Violation."
+    "explanation": "Traditional culinary cultural food presentation is Appropriate Content."
   },
   {
     "id": "mod50",
@@ -5276,5 +6153,505 @@ export const MODERATION_SCENARIOS: ModerationScenario[] = [
     "image": "/images/moderation/mod50.svg",
     "correct": 5,
     "explanation": "Brandishing military weaponry against an educational institution is a severe Weapons / Threat violation."
+  },
+  {
+    "id": "mod51",
+    "description": "A photograph of a plate of pancakes with maple syrup and strawberries on a breakfast table.",
+    "context": "Posted on a cooking community.",
+    "emoji": "\ud83e\udd5e",
+    "bgColor": "from-amber-800 to-amber-950",
+    "image": "/images/moderation/mod51.svg",
+    "correct": 13,
+    "explanation": "Ordinary food photo with no policy violations. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod52",
+    "description": "A photo of an office desk with a laptop, notebook, coffee mug, and potted succulent.",
+    "context": "Posted on a workspace inspiration blog.",
+    "emoji": "\ud83d\udcbb",
+    "bgColor": "from-slate-800 to-slate-950",
+    "image": "/images/moderation/mod52.svg",
+    "correct": 13,
+    "explanation": "Standard office workspace photograph. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod53",
+    "description": "A photograph of a sunset over an autumn forest with orange and gold foliage.",
+    "context": "Posted on a nature photography board.",
+    "emoji": "\ud83c\udf05",
+    "bgColor": "from-orange-800 to-orange-950",
+    "image": "/images/moderation/mod53.svg",
+    "correct": 13,
+    "explanation": "Scenic natural photography with no violations. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod54",
+    "description": "A photo of a ceramic mug filled with hot chamomile tea next to an open book.",
+    "context": "Shared in a reading lifestyle group.",
+    "emoji": "\ud83c\udf75",
+    "bgColor": "from-emerald-800 to-emerald-950",
+    "image": "/images/moderation/mod54.svg",
+    "correct": 13,
+    "explanation": "Harmless beverage photo. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod55",
+    "description": "A photo of an architect reviewing building plans at a construction site trailer.",
+    "context": "Posted on an engineering firm feed.",
+    "emoji": "\ud83d\udcd0",
+    "bgColor": "from-blue-800 to-blue-950",
+    "image": "/images/moderation/mod55.svg",
+    "correct": 13,
+    "explanation": "Professional workplace scene with no violations. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod56",
+    "description": "A post advertising illegal fentanyl powder shipped discreetly in unmarked envelopes.",
+    "context": "Posted in an anonymous marketplace.",
+    "emoji": "\ud83d\udc8a",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod56.svg",
+    "correct": 11,
+    "explanation": "Offering illicit controlled synthetic opioids violates the Drugs policy."
+  },
+  {
+    "id": "mod57",
+    "description": "A video showing an individual punching another person repeatedly in the face until bleeding.",
+    "context": "Shared on a brawl video feed.",
+    "emoji": "\ud83d\udc4a",
+    "bgColor": "from-red-900 to-red-950",
+    "image": "/images/moderation/mod57.svg",
+    "correct": 3,
+    "explanation": "Interpersonal physical violence causing bodily harm violates the Violence policy."
+  },
+  {
+    "id": "mod58",
+    "description": "A post with text telling a specific user to kill themselves and describing how to hang themselves.",
+    "context": "Sent as a public tweet reply.",
+    "emoji": "\u26a0\ufe0f",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod58.svg",
+    "correct": 9,
+    "explanation": "Encouraging suicide or self-harm is a direct Self-Harm policy violation."
+  },
+  {
+    "id": "mod59",
+    "description": "An image of a semi-automatic handgun displayed with extra magazines and ammunition on a table with a hostile message.",
+    "context": "Posted with caption 'be ready tomorrow.'",
+    "emoji": "\ud83d\udd2b",
+    "bgColor": "from-red-900 to-black",
+    "image": "/images/moderation/mod59.svg",
+    "correct": 5,
+    "explanation": "Displaying firearms combined with hostile threat captions violates the Weapons policy."
+  },
+  {
+    "id": "mod60",
+    "description": "A mass bot message sent to thousands of users claiming they won a $5,000 gift card by clicking an unknown URL.",
+    "context": "Spammed across comments.",
+    "emoji": "\ud83d\udce2",
+    "bgColor": "from-yellow-900 to-slate-900",
+    "image": "/images/moderation/mod60.svg",
+    "correct": 12,
+    "explanation": "Deceptive commercial phishing campaigns constitute Spam."
+  },
+  {
+    "id": "mod61",
+    "description": "A post claiming a certain ethnic community is inferior and advocating burning down their cultural centers.",
+    "context": "Shared in an extremist chat.",
+    "emoji": "\ud83d\udeab",
+    "bgColor": "from-red-900 to-black",
+    "image": "/images/moderation/mod61.svg",
+    "correct": 7,
+    "explanation": "Inciting hatred or violence based on ethnicity is Hate Speech."
+  },
+  {
+    "id": "mod62",
+    "description": "A video of adolescents filming themselves drinking kerosene from a bottle on an internet dare.",
+    "context": "Uploaded under viral dare tag.",
+    "emoji": "\u2620\ufe0f",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod62.svg",
+    "correct": 10,
+    "explanation": "Ingesting toxic petrochemicals carries immediate life-threatening risk: Dangerous Activities."
+  },
+  {
+    "id": "mod63",
+    "description": "A post publishing the private mobile phone numbers and home addresses of a store manager with calls to harass them.",
+    "context": "Shared by an angry forum member.",
+    "emoji": "\ud83d\udcf1",
+    "bgColor": "from-purple-950 to-black",
+    "image": "/images/moderation/mod63.svg",
+    "correct": 8,
+    "explanation": "Targeted doxing and incitement of mob harassment violates the Harassment policy."
+  },
+  {
+    "id": "mod64",
+    "description": "A photograph of a golden retriever puppy resting on a rug in a living room.",
+    "context": "Posted in a pet lovers group.",
+    "emoji": "\ud83d\udc36",
+    "bgColor": "from-amber-900 to-amber-950",
+    "image": "/images/moderation/mod64.svg",
+    "correct": 13,
+    "explanation": "Ordinary domestic pet photography. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod65",
+    "description": "A video showing someone setting a live rodent on fire inside a plastic cage.",
+    "context": "Shared on a private message channel.",
+    "emoji": "\ud83d\udd25",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod65.svg",
+    "correct": 6,
+    "explanation": "Torturing an animal with fire is severe Animal Cruelty."
+  },
+  {
+    "id": "mod66",
+    "description": "An educational biology textbook illustration displaying human muscle anatomy of an arm.",
+    "context": "Posted in a pre-med study community.",
+    "emoji": "\ud83d\udcaa",
+    "bgColor": "from-slate-700 to-slate-900",
+    "image": "/images/moderation/mod66.svg",
+    "correct": 13,
+    "explanation": "Educational anatomical diagram with no violations. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod67",
+    "description": "A commercial ad selling counterfeit designer sneakers claiming they are authentic Nike editions.",
+    "context": "Posted via sponsored ads.",
+    "emoji": "\ud83d\udc5f",
+    "bgColor": "from-amber-900 to-slate-900",
+    "image": "/images/moderation/mod67.svg",
+    "correct": 12,
+    "explanation": "Deceptive fraudulent counterfeit merchandise sales constitute Spam."
+  },
+  {
+    "id": "mod68",
+    "description": "A user sharing explicit sexually suggestive photos of a high school student.",
+    "context": "Flagged by automatic image hashing.",
+    "emoji": "\ud83d\uded1",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod68.svg",
+    "correct": 0,
+    "explanation": "Any sexual depiction or exploitation involving minors is zero-tolerance Child Safety violation."
+  },
+  {
+    "id": "mod69",
+    "description": "A public photo showing full frontal adult genital nudity in an unrestricted forum.",
+    "context": "Shared without age restrictions.",
+    "emoji": "\ud83d\udeb7",
+    "bgColor": "from-amber-900 to-slate-900",
+    "image": "/images/moderation/mod69.svg",
+    "correct": 1,
+    "explanation": "Uncensored adult genital nudity in public open spaces violates Adult Nudity rules."
+  },
+  {
+    "id": "mod70",
+    "description": "A photograph of a freshly baked loaf of sourdough bread cooling on a wire rack.",
+    "context": "Posted on a bakery hobby group.",
+    "emoji": "\ud83c\udf5e",
+    "bgColor": "from-amber-800 to-stone-900",
+    "image": "/images/moderation/mod70.svg",
+    "correct": 13,
+    "explanation": "Food and baking photo. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod71",
+    "description": "A tutorial showing how to mix household chemicals to produce poisonous chlorine gas at home.",
+    "context": "Shared in a dark web forum.",
+    "emoji": "\ud83e\uddea",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod71.svg",
+    "correct": 10,
+    "explanation": "Instructions for chemical poison fabrication constitute Dangerous Activities."
+  },
+  {
+    "id": "mod72",
+    "description": "A photograph of a licensed archery club target with arrows grouped in the bullseye.",
+    "context": "Posted by a regional archery club.",
+    "emoji": "\ud83c\udfaf",
+    "bgColor": "from-emerald-900 to-emerald-950",
+    "image": "/images/moderation/mod72.svg",
+    "correct": 13,
+    "explanation": "Regulated target sporting activity is Appropriate Content."
+  },
+  {
+    "id": "mod73",
+    "description": "A video of someone kicking a cat down a flight of concrete stairs.",
+    "context": "Uploaded with laughing emojis.",
+    "emoji": "\ud83d\udc31",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod73.svg",
+    "correct": 6,
+    "explanation": "Deliberate physical assault against an animal is Animal Cruelty."
+  },
+  {
+    "id": "mod74",
+    "description": "A social media comment stating that members of a religious faith should be rounded up and shot.",
+    "context": "Posted on a news comment thread.",
+    "emoji": "\ud83d\udeab",
+    "bgColor": "from-red-900 to-black",
+    "image": "/images/moderation/mod74.svg",
+    "correct": 7,
+    "explanation": "Direct calls to execute people based on religion constitutes Hate Speech."
+  },
+  {
+    "id": "mod75",
+    "description": "A photograph of a glass bowl filled with ripe green apples and red cherries.",
+    "context": "Shared on a healthy recipes blog.",
+    "emoji": "\ud83c\udf4e",
+    "bgColor": "from-emerald-800 to-green-950",
+    "image": "/images/moderation/mod75.svg",
+    "correct": 13,
+    "explanation": "Wholesome fruit photography. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod76",
+    "description": "A post advertising unprescribed prescription sleeping pills for sale via cash courier.",
+    "context": "Posted on a classifieds site.",
+    "emoji": "\ud83d\udc8a",
+    "bgColor": "from-orange-950 to-black",
+    "image": "/images/moderation/mod76.svg",
+    "correct": 11,
+    "explanation": "Illegal distribution of prescription sedatives violates Drugs policy."
+  },
+  {
+    "id": "mod77",
+    "description": "A user repeatedly posting edited photos of a classmate with derogatory sexual rumors.",
+    "context": "Reported by school guidance staff.",
+    "emoji": "\ud83d\udcac",
+    "bgColor": "from-purple-900 to-black",
+    "image": "/images/moderation/mod77.svg",
+    "correct": 8,
+    "explanation": "Targeted sexualized cyberbullying of an individual is Harassment."
+  },
+  {
+    "id": "mod78",
+    "description": "An image of deep self-inflicted wounds on a person's thigh captioned 'I deserve this pain.'",
+    "context": "Posted on an image sharing feed.",
+    "emoji": "\ud83e\ude79",
+    "bgColor": "from-rose-950 to-black",
+    "image": "/images/moderation/mod78.svg",
+    "correct": 9,
+    "explanation": "Depicting self-inflicted cutting wounds violates Self-Harm policies."
+  },
+  {
+    "id": "mod79",
+    "description": "A photograph of an electric subway train arriving at a modern underground station platform.",
+    "context": "Posted in an urban transit community.",
+    "emoji": "\ud83d\ude87",
+    "bgColor": "from-blue-900 to-slate-950",
+    "image": "/images/moderation/mod79.svg",
+    "correct": 13,
+    "explanation": "Public transit scene. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod80",
+    "description": "A video showing an individual doing pull-ups on an exterior skyscraper crane without any safety harness.",
+    "context": "Shared with caption 'extreme rooftop adrenaline.'",
+    "emoji": "\ud83c\udfd7\ufe0f",
+    "bgColor": "from-red-900 to-black",
+    "image": "/images/moderation/mod80.svg",
+    "correct": 10,
+    "explanation": "High-altitude trespassing without safety equipment poses imminent death risk: Dangerous Activities."
+  },
+  {
+    "id": "mod81",
+    "description": "A photograph of a mountain biker wearing a helmet riding on a marked forest trail.",
+    "context": "Posted in an outdoor sports forum.",
+    "emoji": "\ud83d\udeb5",
+    "bgColor": "from-green-800 to-green-950",
+    "image": "/images/moderation/mod81.svg",
+    "correct": 13,
+    "explanation": "Recreational sports with proper safety equipment is Appropriate Content."
+  },
+  {
+    "id": "mod82",
+    "description": "A user creating duplicate accounts to bypass blocking and send threatening messages to a former coworker.",
+    "context": "Reported via support ticket.",
+    "emoji": "\ud83d\udcf5",
+    "bgColor": "from-purple-950 to-black",
+    "image": "/images/moderation/mod82.svg",
+    "correct": 8,
+    "explanation": "Circumventing block features to send targeted hostile messages is Harassment."
+  },
+  {
+    "id": "mod83",
+    "description": "A photo of a cup of iced latte with a paper straw on an outdoor cafe table.",
+    "context": "Posted in a coffee blog.",
+    "emoji": "\u2615",
+    "bgColor": "from-amber-900 to-stone-950",
+    "image": "/images/moderation/mod83.svg",
+    "correct": 13,
+    "explanation": "Harmless beverage photograph. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod84",
+    "description": "A post promoting fraudulent credit repair schemes claiming to erase all loan defaults overnight for an upfront fee.",
+    "context": "Spammed across financial threads.",
+    "emoji": "\ud83d\udcb3",
+    "bgColor": "from-yellow-900 to-black",
+    "image": "/images/moderation/mod84.svg",
+    "correct": 12,
+    "explanation": "Deceptive financial scams with fraudulent upfront fees are Spam."
+  },
+  {
+    "id": "mod85",
+    "description": "A photograph of a classical bronze sculpture of a discus thrower in a municipal art gallery.",
+    "context": "Shared by a city museum.",
+    "emoji": "\ud83c\udfdb\ufe0f",
+    "bgColor": "from-stone-800 to-stone-950",
+    "image": "/images/moderation/mod85.svg",
+    "correct": 13,
+    "explanation": "Historic classical sculpture in cultural context is Appropriate Content."
+  },
+  {
+    "id": "mod86",
+    "description": "A post offering to sell unpasteurized raw meat contaminated with pathogens for intentional food tampering.",
+    "context": "Posted in an underground chat.",
+    "emoji": "\u2623\ufe0f",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod86.svg",
+    "correct": 10,
+    "explanation": "Intentional biological tampering represents a public safety hazard: Dangerous Activities."
+  },
+  {
+    "id": "mod87",
+    "description": "A photo of a dentist demonstrating proper toothbrushing technique with a dental model.",
+    "context": "Posted on a dental clinic page.",
+    "emoji": "\ud83e\udea5",
+    "bgColor": "from-cyan-800 to-slate-950",
+    "image": "/images/moderation/mod87.svg",
+    "correct": 13,
+    "explanation": "Educational dental hygiene content. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod88",
+    "description": "A post calling an entire gender 'parasites who must be stripped of all human rights.'",
+    "context": "Posted in an extremist forum.",
+    "emoji": "\ud83d\udeab",
+    "bgColor": "from-red-900 to-black",
+    "image": "/images/moderation/mod88.svg",
+    "correct": 7,
+    "explanation": "Dehumanizing and promoting rights denial based on gender is Hate Speech."
+  },
+  {
+    "id": "mod89",
+    "description": "A photo of a toddler playing with colorful plastic building blocks in a living room.",
+    "context": "Posted in a parenting blog.",
+    "emoji": "\ud83e\uddf8",
+    "bgColor": "from-pink-800 to-slate-950",
+    "image": "/images/moderation/mod89.svg",
+    "correct": 13,
+    "explanation": "Normal family lifestyle photo. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod90",
+    "description": "A video of an unprovoked assault where someone strikes an elderly pedestrian with a wooden plank.",
+    "context": "Uploaded with caption 'watch this knockout.'",
+    "emoji": "\u26a0\ufe0f",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod90.svg",
+    "correct": 4,
+    "explanation": "Sensationalized unprovoked assault resulting in serious injury constitutes Graphic Violence."
+  },
+  {
+    "id": "mod91",
+    "description": "A photograph of a freshly paved highway winding through green rolling hills.",
+    "context": "Posted in a road trip group.",
+    "emoji": "\ud83d\udee3\ufe0f",
+    "bgColor": "from-slate-700 to-slate-950",
+    "image": "/images/moderation/mod91.svg",
+    "correct": 13,
+    "explanation": "Scenic highway photography. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod92",
+    "description": "A post encouraging followers to invest in an unregistered cryptocurrency coin with guaranteed 500% daily returns.",
+    "context": "Circulated via mass bots.",
+    "emoji": "\ud83e\ude99",
+    "bgColor": "from-yellow-900 to-black",
+    "image": "/images/moderation/mod92.svg",
+    "correct": 12,
+    "explanation": "Guaranteed astronomical return investment scams constitute Spam."
+  },
+  {
+    "id": "mod93",
+    "description": "A photograph of an emergency rescue helicopter landing on a hospital rooftop helipad.",
+    "context": "Posted on a healthcare news page.",
+    "emoji": "\ud83d\ude81",
+    "bgColor": "from-red-800 to-slate-950",
+    "image": "/images/moderation/mod93.svg",
+    "correct": 13,
+    "explanation": "Emergency aviation scene in journalistic context is Appropriate Content."
+  },
+  {
+    "id": "mod94",
+    "description": "A post sharing private medical diagnosis records of an individual to humiliate them publicly.",
+    "context": "Posted by a vengeful associate.",
+    "emoji": "\ud83d\udccb",
+    "bgColor": "from-purple-950 to-black",
+    "image": "/images/moderation/mod94.svg",
+    "correct": 8,
+    "explanation": "Doxing confidential personal health records for public humiliation is Harassment."
+  },
+  {
+    "id": "mod95",
+    "description": "A photograph of a slice of chocolate cheesecake with mint garnish on a white ceramic plate.",
+    "context": "Posted on a dessert blog.",
+    "emoji": "\ud83c\udf70",
+    "bgColor": "from-amber-900 to-stone-950",
+    "image": "/images/moderation/mod95.svg",
+    "correct": 13,
+    "explanation": "Food dessert photography. Classification: Appropriate Content."
+  },
+  {
+    "id": "mod96",
+    "description": "A photo of a person shooting an Olympic recurve bow at a standardized 70-meter target outdoors.",
+    "context": "Posted by an Olympic sports federation.",
+    "emoji": "\ud83c\udff9",
+    "bgColor": "from-emerald-900 to-slate-950",
+    "image": "/images/moderation/mod96.svg",
+    "correct": 13,
+    "explanation": "Regulated Olympic sport is Appropriate Content."
+  },
+  {
+    "id": "mod97",
+    "description": "A post offering to sell bulk pharmaceutical Adderall pills without prescription.",
+    "context": "Posted on a social forum.",
+    "emoji": "\ud83d\udc8a",
+    "bgColor": "from-orange-950 to-black",
+    "image": "/images/moderation/mod97.svg",
+    "correct": 11,
+    "explanation": "Distributing prescription stimulants illegally violates Drugs policy."
+  },
+  {
+    "id": "mod98",
+    "description": "A photograph of an electrician installing a circuit breaker in a home electrical panel wearing insulated gloves.",
+    "context": "Shared on a home trade portal.",
+    "emoji": "\u26a1",
+    "bgColor": "from-amber-900 to-slate-950",
+    "image": "/images/moderation/mod98.svg",
+    "correct": 13,
+    "explanation": "Professional electrical trade tutorial is Appropriate Content."
+  },
+  {
+    "id": "mod99",
+    "description": "A video showing someone throwing stones at nesting songbirds to destroy their nest.",
+    "context": "Shared on a video group.",
+    "emoji": "\ud83e\udeba",
+    "bgColor": "from-red-950 to-black",
+    "image": "/images/moderation/mod99.svg",
+    "correct": 6,
+    "explanation": "Deliberately injuring wild animals and destroying nests is Animal Cruelty."
+  },
+  {
+    "id": "mod100",
+    "description": "A photograph of a garden rose bush in full bloom with dew drops on red petals.",
+    "context": "Posted on a gardening community.",
+    "emoji": "\ud83c\udf39",
+    "bgColor": "from-rose-900 to-slate-950",
+    "image": "/images/moderation/mod100.svg",
+    "correct": 13,
+    "explanation": "Natural botanical flower photography. Classification: Appropriate Content."
   }
 ];

@@ -30,8 +30,33 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
   const [speechRate, setSpeechRate] = useState(mode === 'learning' ? 0.9 : 1.0);
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<{ wer: number; score: number; diff: ReturnType<typeof wordDiff>; finalInput: string } | null>(null);
+  const [speakingTimeLeft, setSpeakingTimeLeft] = useState(12);
+  const speakingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const autoRecordRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // 12-second speaking benchmark timer
+  useEffect(() => {
+    if (phase === 'recording' && !submitted) {
+      setSpeakingTimeLeft(12);
+      speakingTimerRef.current = setInterval(() => {
+        setSpeakingTimeLeft((prev) => {
+          if (prev <= 1) {
+            if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
+            // Benchmark expired: trigger submission
+            setTimeout(() => handleSubmit(), 200);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
+    }
+    return () => {
+      if (speakingTimerRef.current) clearInterval(speakingTimerRef.current);
+    };
+  }, [phase, submitted]);
 
   // Auto-play sentence on initial load
   useEffect(() => {
@@ -194,6 +219,26 @@ export default function ListenRepeat({ sentence, questionNumber, mode, onAnswer 
                     {recState === 'listening' ? '🔴 Recording... Repeat the sentence now!' : 'Microphone Ready'}
                   </p>
                   <p className="text-slate-400 text-sm mt-1">Speak clearly at a natural conversational pace.</p>
+                </div>
+
+                {/* 12-Second Speaking Practice Benchmark */}
+                <div className="max-w-md mx-auto bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="text-slate-400">Speaking Benchmark (12s limit)</span>
+                    <span className={`font-mono font-bold ${
+                      speakingTimeLeft > 5 ? 'text-emerald-400' : speakingTimeLeft > 2 ? 'text-amber-400' : 'text-rose-400'
+                    }`}>
+                      {speakingTimeLeft}s remaining
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                    <div
+                      className={`h-full transition-all duration-1000 rounded-full ${
+                        speakingTimeLeft > 5 ? 'bg-emerald-500' : speakingTimeLeft > 2 ? 'bg-amber-500' : 'bg-rose-500'
+                      }`}
+                      style={{ width: `${(speakingTimeLeft / 12) * 100}%` }}
+                    />
+                  </div>
                 </div>
 
                 {/* Live Speech Recognition Transcript Box */}

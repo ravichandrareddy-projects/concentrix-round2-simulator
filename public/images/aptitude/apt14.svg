@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 230" width="100%" height="100%">
+  <rect width="480" height="230" rx="16" fill="#090d16" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="240" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#c084fc" text-anchor="middle">REFLECTION &amp; ROTATIONAL SYMMETRY</text>
+
+  <!-- Left: Original Shape -->
+  <g transform="translate(80, 115)">
+    <circle cx="0" cy="0" r="45" fill="#1e1b4b" stroke="#a855f7" stroke-width="2"/>
+    <path d="M 0 0 L 0 -45 A 45 45 0 0 1 45 0 Z" fill="#c084fc"/>
+    <text x="0" y="65" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#e9d5ff" text-anchor="middle">Original Object</text>
+  </g>
+
+  <!-- Mirror Line (Vertical Dashed) -->
+  <line x1="240" y1="50" x2="240" y2="185" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="240" y="45" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#38bdf8" text-anchor="middle">MIRROR AXIS</text>
+
+  <!-- Right: Reflected Shape + 180 Rotation -->
+  <g transform="translate(400, 115)">
+    <circle cx="0" cy="0" r="45" fill="#1e1b4b" stroke="#22c55e" stroke-width="2"/>
+    <path d="M 0 0 L 0 45 A 45 45 0 0 1 45 0 Z" fill="#4ade80"/>
+    <text x="0" y="65" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#86efac" text-anchor="middle">Result Transformation</text>
+  </g>
+
+  <rect x="50" y="195" width="380" height="24" rx="6" fill="#0f172a" stroke="#1e293b"/>
+  <text x="240" y="211" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle">Horizontal reflection + 180° rotation = <tspan fill="#38bdf8" font-weight="bold">Vertical reflection only</tspan></text>
+</svg>

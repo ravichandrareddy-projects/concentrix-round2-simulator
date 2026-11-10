@@ -18,31 +18,31 @@ export default function Dashboard({ onStart, onHistory }: Props) {
       id: 1,
       name: 'Listen and Repeat',
       icon: '🎧',
-      desc: '5 spoken workplace & customer sentences. Synthesizes voice input, tracks Word Error Rate (WER) and sentence accuracy.',
+      desc: '5 spoken workplace & customer sentences. 12-second speaking benchmark with live Word Error Rate (WER) and sequence evaluation.',
       points: '25 pts (5 questions)',
       badge: 'Spoken Fluency'
     },
     {
       id: 2,
-      name: 'Picture Selection',
-      icon: '🖼️',
-      desc: '5 visual identification questions across daily activities, corporate situations, customer service, and transportation.',
+      name: 'Story Listening',
+      icon: '📖',
+      desc: 'Listen to a comprehensive customer service narrative via TTS with text hidden. Answer 5 MCQs on key facts, sequence, and outcomes.',
       points: '25 pts (5 questions)',
-      badge: 'Visual Cognition'
+      badge: 'Auditory Comprehension'
     },
     {
       id: 3,
-      name: 'Story Listening & Comprehension',
-      icon: '📖',
-      desc: 'Listen to a complete real-world customer service narrative. Answer 5 MCQs on critical facts, sequence, and outcomes.',
-      points: '25 pts (5 questions)',
-      badge: 'Auditory Comprehension'
+      name: 'Mixed Aptitude & Reasoning',
+      icon: '📊',
+      desc: '25 questions covering Data Interpretation (pie & bar charts, tables), Non-Verbal Reasoning (nested squares), Numerical Aptitude, and Logical patterns.',
+      points: '25 pts (25 questions)',
+      badge: 'Cognitive & Aptitude'
     },
     {
       id: 4,
       name: 'Content Moderation',
       icon: '🛡️',
-      desc: 'Analyze 5 policy scenarios across 14 safety categories. Classify content with policy reasoning and safety justification.',
+      desc: 'Review 5 realistic platform content scenarios across 14 safety categories. Uses "Appropriate Content" for harmless images and safety justification.',
       points: '25 pts (5 questions)',
       badge: 'Trust & Safety Policy'
     },
@@ -92,7 +92,7 @@ export default function Dashboard({ onStart, onHistory }: Props) {
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               This system replicates the exact 4-section Concentrix Round 2 evaluation. Test your voice repetition,
-              visual discernment, auditory story recall, and Trust & Safety policy moderation. Complete 10 practice runs to ensure passing readiness tomorrow.
+              auditory story recall, mixed cognitive & non-verbal aptitude, and Trust & Safety content moderation. Complete 10 practice runs to ensure passing readiness tomorrow.
             </p>
           </div>
         </div>

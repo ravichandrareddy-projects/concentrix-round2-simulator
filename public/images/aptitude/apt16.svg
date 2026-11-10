@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 230" width="100%" height="100%">
+  <rect width="500" height="230" rx="16" fill="#090d16" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="250" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fcd34d" text-anchor="middle">CLASSIFICATION · IDENTIFY THE ODD ONE OUT</text>
+
+  <!-- Shape 1: Circle (2D) -->
+  <g transform="translate(60, 60)">
+    <rect width="80" height="90" rx="8" fill="#0f172a" stroke="#1e293b"/>
+    <circle cx="40" cy="40" r="28" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <text x="40" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#cbd5e1" text-anchor="middle">A. Circle (2D)</text>
+  </g>
+
+  <!-- Shape 2: Ellipse (2D) -->
+  <g transform="translate(165, 60)">
+    <rect width="80" height="90" rx="8" fill="#0f172a" stroke="#1e293b"/>
+    <ellipse cx="40" cy="40" rx="30" ry="18" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <text x="40" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#cbd5e1" text-anchor="middle">B. Ellipse (2D)</text>
+  </g>
+
+  <!-- Shape 3: Sphere (3D Solid - ODD ONE OUT!) -->
+  <g transform="translate(270, 60)">
+    <rect width="80" height="90" rx="8" fill="#3b0764" stroke="#eab308" stroke-width="2"/>
+    <defs>
+      <radialGradient id="sphgrad" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="40%" stop-color="#a855f7"/>
+        <stop offset="100%" stop-color="#1e1b4b"/>
+      </radialGradient>
+    </defs>
+    <circle cx="40" cy="40" r="28" fill="url(#sphgrad)"/>
+    <text x="40" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#fde047" text-anchor="middle">C. Sphere (3D)</text>
+  </g>
+
+  <!-- Shape 4: Parabola (2D) -->
+  <g transform="translate(375, 60)">
+    <rect width="80" height="90" rx="8" fill="#0f172a" stroke="#1e293b"/>
+    <path d="M 18 20 Q 40 60 62 20" fill="none" stroke="#818cf8" stroke-width="2.5"/>
+    <text x="40" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#cbd5e1" text-anchor="middle">D. Parabola (2D)</text>
+  </g>
+
+  <rect x="50" y="175" width="400" height="35" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="250" y="196" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#fde047" text-anchor="middle">Sphere is a 3-Dimensional (3D) solid; all others are 2D planar figures</text>
+</svg>
