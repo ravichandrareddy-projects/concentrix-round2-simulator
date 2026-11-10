@@ -34,7 +34,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [speechSpeed, setSpeechSpeed] = useState(mode === 'learning' ? 0.9 : 1.0);
+  const [speechSpeed, setSpeechSpeed] = useState(0.88);
 
   // Shuffled options for the current question
   const [shuffledOptions, setShuffledOptions] = useState<{ text: string; originalIndex: number }[]>([]);
@@ -108,7 +108,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 3 · Story Comprehension</span>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 2 · Story Listening & Comprehension</span>
             <h3 className="text-lg font-bold text-white">Audio Story Presentation</h3>
           </div>
           <span className="text-xs bg-purple-900/60 text-purple-300 border border-purple-700/50 px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">
@@ -154,7 +154,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 3 · Story Comprehension</span>
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Section 2 · Story Listening & Comprehension</span>
             <h3 className="text-lg font-bold text-white">Listening in Progress</h3>
           </div>
           <span className="text-xs bg-purple-900/60 text-purple-300 border border-purple-700/50 px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">
@@ -201,7 +201,7 @@ export default function StoryComprehension({ story, questionNumber, mode, isFirs
       <div className="flex items-center justify-between">
         <div>
           <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-            Section 3 · Story Comprehension
+            Section 2 · Story Listening & Comprehension
           </span>
           <h3 className="text-lg font-bold text-white">
             Story Question {currentQIndex + 1} of 5

@@ -20,8 +20,15 @@ type Phase = 'section-intro' | 'question';
 export default function ExamFlow({ candidateName, mode, onComplete }: Props) {
   // Session 1: 5 sentences drawn from 100-sentence bank
   const [sentences] = useState(() => pickRandom(LISTEN_SENTENCES, 5));
-  // Session 2: 1 story (with 5 questions) drawn from 50-story bank
-  const [story] = useState(() => pickRandom(STORIES, 1)[0]);
+  // Session 2: 1 story drawn from 15 unique stories, picking 5 varied questions from its 10-question bank
+  const [story] = useState(() => {
+    const chosen = pickRandom(STORIES, 1)[0];
+    const sampledQuestions = pickRandom(chosen.questions, 5);
+    return {
+      ...chosen,
+      questions: sampledQuestions
+    };
+  });
   // Session 3: 5 questions featuring the exact YouTube screenshot questions (shl1, odd1, ret1) + 2 practice questions
   const [aptitudeQuestions] = useState(() => {
     const q1 = APTITUDE_QUESTIONS.find(q => q.id === 'shl1');
