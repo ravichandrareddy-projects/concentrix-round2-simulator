@@ -1,12 +1,15 @@
 export type ExamMode = 'full' | 'learning' | 'rapid';
 export type SectionId = 1 | 2 | 3 | 4;
 export type AppScreen =
+  | 'exam-select'
   | 'dashboard'
   | 'system-check'
   | 'section-intro'
   | 'exam'
   | 'results'
-  | 'history';
+  | 'history'
+  | 'nonvoice-exam'
+  | 'nonvoice-results';
 
 export interface AttemptResult {
   id: string;

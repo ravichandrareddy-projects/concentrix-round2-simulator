@@ -4,8 +4,13 @@ import SystemCheck from './components/SystemCheck';
 import ExamFlow from './components/ExamFlow';
 import Results from './components/Results';
 import CandidateNameModal from './components/CandidateNameModal';
+import ExamTypeSelector from './components/ExamTypeSelector';
+import NonVoiceExamFlow from './components/nonvoice/NonVoiceExamFlow';
+import NonVoiceResults from './components/nonvoice/NonVoiceResults';
 import { AppScreen, AttemptResult, ExamMode, QuestionResult } from './types';
+import { NonVoiceAttemptResult } from './types/nonVoice';
 import { saveAttempt, loadAttempts, clearAttempts } from './utils/storage';
+import { saveNonVoiceAttempt } from './utils/nonVoiceStorage';
 import { performanceLabel, formatTime } from './utils/helpers';
 import { Trash2, ArrowLeft, Pencil } from 'lucide-react';
 
@@ -17,7 +22,7 @@ export default function App() {
     return !localStorage.getItem('concentrix_candidate_name');
   });
 
-  const [screen, setScreen] = useState<AppScreen>('dashboard');
+  const [screen, setScreen] = useState<AppScreen>('exam-select');
   const [mode, setMode] = useState<ExamMode>('full');
   const [learningQuestionCount, setLearningQuestionCount] = useState<number>(10);
   const [sessionId, setSessionId] = useState(Date.now());
@@ -25,6 +30,9 @@ export default function App() {
   const [lastSectionScores, setLastSectionScores] = useState<[number, number, number, number]>([0, 0, 0, 0]);
   const [lastTimeTaken, setLastTimeTaken] = useState(0);
   const [lastAttempt, setLastAttempt] = useState<AttemptResult | null>(null);
+
+  // Non-Voice state
+  const [nonVoiceResult, setNonVoiceResult] = useState<NonVoiceAttemptResult | null>(null);
 
   function handleSaveCandidateName(newName: string) {
     setCandidateName(newName);
@@ -73,6 +81,12 @@ export default function App() {
     setScreen('results');
   }
 
+  function handleNonVoiceComplete(result: NonVoiceAttemptResult) {
+    saveNonVoiceAttempt(result);
+    setNonVoiceResult(result);
+    setScreen('nonvoice-results');
+  }
+
   function handleStartNewAttempt() {
     setSessionId(Date.now());
     setScreen('system-check');
@@ -80,7 +94,7 @@ export default function App() {
 
   return (
     <>
-      {/* Global Candidate Name Verification Modal with Screen Blur Center Line */}
+      {/* Global Candidate Name Verification Modal */}
       <CandidateNameModal
         isOpen={showNameModal}
         currentName={candidateName}
@@ -89,6 +103,24 @@ export default function App() {
         onClose={() => setShowNameModal(false)}
       />
 
+      {/* Screen 1: Selection between Customer Support Voice & Non-Voice */}
+      {screen === 'exam-select' && (
+        <ExamTypeSelector
+          candidateName={candidateName}
+          onSelectVoice={() => setScreen('dashboard')}
+          onSelectNonVoice={() => {
+            if (!candidateName) {
+              setShowNameModal(true);
+              return;
+            }
+            setSessionId(Date.now());
+            setScreen('nonvoice-exam');
+          }}
+          onChangeName={() => setShowNameModal(true)}
+        />
+      )}
+
+      {/* Existing Voice Dashboard */}
       {screen === 'dashboard' && (
         <Dashboard
           candidateName={candidateName}
@@ -98,6 +130,7 @@ export default function App() {
         />
       )}
 
+      {/* Voice System Check */}
       {screen === 'system-check' && (
         <SystemCheck
           mode={mode}
@@ -106,9 +139,10 @@ export default function App() {
         />
       )}
 
+      {/* Voice Exam Flow */}
       {screen === 'exam' && (
         <ExamFlow
-          key={sessionId} // ensures fresh question selection on every attempt
+          key={sessionId}
           candidateName={candidateName}
           mode={mode}
           learningQuestionCount={learningQuestionCount}
@@ -116,6 +150,7 @@ export default function App() {
         />
       )}
 
+      {/* Voice Results */}
       {screen === 'results' && lastResults && lastAttempt && (
         <Results
           candidateName={candidateName}
@@ -129,6 +164,30 @@ export default function App() {
         />
       )}
 
+      {/* Non-Voice Exam Flow */}
+      {screen === 'nonvoice-exam' && (
+        <NonVoiceExamFlow
+          key={sessionId}
+          candidateName={candidateName}
+          onComplete={handleNonVoiceComplete}
+          onExit={() => setScreen('exam-select')}
+        />
+      )}
+
+      {/* Non-Voice Results */}
+      {screen === 'nonvoice-results' && nonVoiceResult && (
+        <NonVoiceResults
+          candidateName={candidateName}
+          result={nonVoiceResult}
+          onRetake={() => {
+            setSessionId(Date.now());
+            setScreen('nonvoice-exam');
+          }}
+          onHome={() => setScreen('exam-select')}
+        />
+      )}
+
+      {/* Voice History */}
       {screen === 'history' && (
         <HistoryScreen
           candidateName={candidateName}
